@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Archives - {{ SITENAME }}{% endblock %}
+{% block metadesc %}{{ SITETAGALT }}Archive of Posts{% endblock %}
+{% block content %}
+
+<ul class="breadcrumb">
+  <li><a href="{{ SITEURL }}/" title="Home"><i class="icon-home icon-fixed-width icon-large"></i> </a> 
+	<span class="divider">/</span></li>
+  <li class="active">Archives</li>
+</ul>
+
+<h1>Archives</h1>
+
+<dl>
+{% for article in dates %}
+	<dt>{{ article.locale_date }}</dt>
+	<dd><a href='{{ article.url }}'>{{ article.title }}</a></dd>
+{% endfor %}
+</dl>
+	<a class="btn btn-mini btn-success" href="{{ SITEURL }}/">
+	  <i class="icon-home icon-fixed-width icon-large"></i> Home</a>
+	&nbsp;
+	<a class="btn btn-mini btn-success" href="#">
+	  <i class="icon-double-angle-up icon-fixed-width icon-large"></i> Top</a> 
+{% endblock %}

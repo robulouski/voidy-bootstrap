@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }} - {{ SITENAME }}{% endblock %}
+{% block metadesc %}{% if page.description|e %}{{ page.description }}{% else %}A Page in {{ SITETAG }}: {{ page.title }}{% endif %}{% endblock %}
+{% block content_body %}
+<h1>{{ page.title }}</h1>
+{% if PDF_PROCESSOR %}
+<a href="{{ SITEURL }}/pdf/{{ page.slug }}.pdf">
+  get the pdf
+</a>
+{% endif %}
+<div class="content-body">
+  {{ page.content }}
+</div>
+{% endblock %}

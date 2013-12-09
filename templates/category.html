@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block title %}Category:{{ category }} // {{ SITENAME }}{% endblock %}
+{% block metadesc %}{{ SITETAGALT }}Posts in category {{ category }}{% endblock %}
+
+
+{% block content_header %}
+    <ul class="breadcrumb">
+    <li><a href="{{ SITEURL }}/" title="Home"><i class="icon-home icon-fixed-width icon-large"></i> </a> 
+	     <span class="divider">/</span></li>
+    <li>Categories <span class="divider">/</span></li>
+    <li class="active">{{ category }}</li>
+    </ul>
+{% endblock %}
+{% block article %}
+{% include "includes/index_summaries.html" %}
+{% endblock article %}

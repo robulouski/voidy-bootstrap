@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title }} // {{ SITENAME }}{% endblock %}
+{% block metadesc %}{{ article.description|e }}{% endblock %}
+{% block content_header %}
+  {% include "includes/article_top.html" ignore missing %}
+{% endblock %}
+{% block content_body %}
+<article>
+  <header>
+	{% include 'includes/article_header.html' %}
+  </header>
+  <div class="content-body">
+	{{ article.content }}
+  </div>
+
+  {% include "includes/article_end.html" ignore missing %}
+  <hr />
+  {% include "includes/sharing.html" ignore missing %}
+  {% include "includes/article_bottom.html" ignore missing %}
+
+  {% if DISQUS_SITENAME %}
+  <div class="comments">
+	<h2>Comments !</h2>
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+				   var disqus_identifier = "{{ article.url }}";
+				   var disqus_url = "{{ SITEURL }}/{{ article.url }}";
+				   (function() {
+						var dsq = document.createElement('script');
+						dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = 'http://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] ||
+						 document.getElementsByTagName('body')[0]).appendChild(dsq);
+				  })();
+	</script>
+  </div>
+  {% endif %}
+</article>
+{% endblock %}
+
+{% block scripts %}
+
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Google+ -->
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}{{ super() }}{% if articles_page and articles_page.number > 1 %} - Page {{ articles_page.number }}{% endif %}{% endblock %}
+{% include "includes/index_meta.html" ignore missing %}
+{% block content_header %}{% endblock %}
+{% block content_body %}
+{% block article %}
+{% if articles %}
+  {% for article in (articles_page.object_list if articles_page else articles) %}
+    <article>
+      {% include "includes/article_header.html" %}
+
+      {% if loop.first and not articles_page.has_previous() %}
+	  <div class="article-content">
+		{{ article.content }}
+		{% include "includes/comments.html" %}
+	  </div>
+	  {% else %}
+      <div class="summary">
+		{{ article.summary }}
+		<p class="article-highlight"><a href="{{ SITEURL }}/{{ article.url }}">
+			Read more... <i class="icon-double-angle-right icon-fixed-width icon-large"></i> 
+		</a></p>
+      </div>
+	  {% endif %}
+    </article>
+
+    <hr />
+  {% endfor %}
+{% endif %}
+{% endblock article %}
+
+{% if articles_page and articles_paginator.num_pages > 1 %}
+	<!-- Workaround to fix pagination on category/tag/author index pages. -->
+	{% if page_name != 'index' %}
+	  {% set numprefix = 'index'  %}
+	{% else %}
+	  {% set numprefix = ''  %}
+	{% endif %}
+	<ul class="pagination">
+	{% if articles_page.has_previous() %}
+		{% set num = articles_page.previous_page_number() %}
+		<li class="prev">
+		  <a href="{{ SITEURL }}/{{ page_name }}{{ numprefix }}{{ num if num > 1 else '' }}.html">
+			<i class="icon-chevron-sign-left icon-fixed-width icon-large"></i> Previous
+		  </a>
+		</li>
+	{% else %}
+		<li class="prev disabled"><a href="#">
+			<i class="icon-chevron-sign-left icon-fixed-width icon-large"></i> 
+			Previous</a>
+		</li>
+	{% endif %}
+	{% for num in range( 1, 1 + articles_paginator.num_pages ) %}
+		<li class="{{ 'active' if num == articles_page.number else '' }}">
+		  <a href="{{ SITEURL }}/{{ page_name }}{{ numprefix }}{{ num if num > 1 else '' }}.html">{{ num }}</a>
+		</li>
+	{% endfor %}
+	{% if articles_page.has_next() %}
+		<li class="next">
+		  <a href="{{ SITEURL }}/{{ page_name }}{{ numprefix }}{{ articles_page.next_page_number() }}.html">
+			Next <i class="icon-chevron-sign-right icon-fixed-width icon-large"></i>
+		  </a>
+		</li>
+	{% else %}
+		<li class="next disabled"><a href="#">
+		  <i class="icon-chevron-sign-right icon-fixed-width icon-large"></i> Next</a>
+		</li>
+	{% endif %}
+	</ul>
+	<div class="pull-right">
+	  <a class="btn btn-sm btn-primary" href="{{ SITEURL }}/" title="Home">
+		<i class="icon-home icon-fixed-width icon-large"></i> </a>
+	  &nbsp;
+	  <a class="btn btn-sm btn-primary" href="#" title="Top">
+		<i class="icon-double-angle-up icon-fixed-width icon-large"></i> </a> 
+	</div>
+
+{% endif %}
+{% endblock content_body %}
