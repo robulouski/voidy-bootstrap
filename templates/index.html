@@ -29,7 +29,9 @@
 {% endif %}
 {% endblock article %}
 
-{% if articles_page and articles_paginator.num_pages > 1 %}
+{% block pagination %}
+<div class="index-pager">
+  {% if articles_page and articles_paginator.num_pages > 1 %}
 	<!-- Workaround to fix pagination on category/tag/author index pages. -->
 	{% if page_name != 'index' %}
 	  {% set numprefix = 'index'  %}
@@ -67,6 +69,7 @@
 		</li>
 	{% endif %}
 	</ul>
+  {% endif %}
 	<div class="pull-right">
 	  <a class="btn btn-sm btn-primary" href="{{ SITEURL }}/" title="Home">
 		<i class="icon-home icon-fixed-width icon-large"></i> </a>
@@ -74,6 +77,7 @@
 	  <a class="btn btn-sm btn-primary" href="#" title="Top">
 		<i class="icon-double-angle-up icon-fixed-width icon-large"></i> </a> 
 	</div>
+</div> <!-- /index-pager -->
+{% endblock pagination %}
 
-{% endif %}
 {% endblock content_body %}
