@@ -12,10 +12,18 @@
     {% if MAIN_LOCAL_STYLESHEET %}	
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ MAIN_LOCAL_STYLESHEET }}" />
 	{% else %}
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
     {% endif %}
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />	
+<!--
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" />
+-->
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygments.css" />
+    {% if STYLESHEETS %}	
+      {% for css in STYLESHEETS %}
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ css }}" />
+	  {% endfor %}
+    {% endif %}
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -70,7 +78,7 @@
           {% if FEED_ALL_ATOM %}
             <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" 
                    type="application/atom+xml" rel="alternate">
-                <i class="icon-rss icon-fixed-width icon-large"></i> </a></li>
+                <i class="fa fa-rss fa-fw fa-lg"></i> </a></li>
           {% endif %}
         </ul> <!-- /nav -->
       </div> <!-- /navbar-collapse -->

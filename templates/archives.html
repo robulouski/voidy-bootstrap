@@ -4,7 +4,7 @@
 {% block content %}
 
 <ul class="breadcrumb">
-  <li><a href="{{ SITEURL }}/" title="Home"><i class="icon-home icon-fixed-width icon-large"></i> </a> 
+  <li><a href="{{ SITEURL }}/" title="Home"><i class="fa fa-home fa-fw fa-lg"></i> </a> 
 	<span class="divider">/</span></li>
   <li class="active">Archives</li>
 </ul>
@@ -17,9 +17,9 @@
 	<dd><a href='{{ article.url }}'>{{ article.title }}</a></dd>
 {% endfor %}
 </dl>
-	<a class="btn btn-mini btn-success" href="{{ SITEURL }}/">
-	  <i class="icon-home icon-fixed-width icon-large"></i> Home</a>
+	<a class="btn btn-sm btn-primary" href="{{ SITEURL }}/">
+	  <i class="fa fa-home fa-fw fa-lg"></i> Home</a>
 	&nbsp;
-	<a class="btn btn-mini btn-success" href="#">
-	  <i class="icon-double-angle-up icon-fixed-width icon-large"></i> Top</a> 
+	<a class="btn btn-sm btn-primary" href="#">
+	  <i class="fa fa-angle-double-up fa-fw fa-lg"></i> Top</a> 
 {% endblock %}

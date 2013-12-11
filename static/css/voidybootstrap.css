@@ -1,0 +1,14 @@
+.navbar {
+	margin-bottom: 0px;
+}
+
+@media screen and (min-width: 768px) {
+  .jumbotron {
+	  padding-top: 20px;
+	  padding-bottom: 20px;
+}
+
+
+#colophon {
+	font-size: 10px;
+}
