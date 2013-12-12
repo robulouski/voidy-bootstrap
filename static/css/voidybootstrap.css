@@ -10,5 +10,31 @@
 
 
 #colophon {
-	font-size: 10px;
+	font-size: 12px;
+}
+
+
+.article-posthead, .article-prehead {
+	color: #999;
+}
+
+.social-links {
+	font-size: 18px;
+}
+
+.category-links {
+	font-size: 18px;
+}
+
+.tag-1 {
+	font-size: 14pt;
+}
+.tag-2 {
+	font-size: 12pt;
+}
+.tag-2 {
+	font-size: 10pt;
+}
+.tag-4 {
+	font-size: 8pt;
 }

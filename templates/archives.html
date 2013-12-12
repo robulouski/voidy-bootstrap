@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block title %}Archives - {{ SITENAME }}{% endblock %}
 {% block metadesc %}{{ SITETAGALT }}Archive of Posts{% endblock %}
-{% block content %}
-
-<ul class="breadcrumb">
-  <li><a href="{{ SITEURL }}/" title="Home"><i class="fa fa-home fa-fw fa-lg"></i> </a> 
-	<span class="divider">/</span></li>
+{% block content_header %}
+<ol class="breadcrumb">
+  <li><a href="{{ SITEURL }}/" title="Home">
+	  <i class="fa fa-home fa-fw fa-lg"></i> </a></li>
   <li class="active">Archives</li>
-</ul>
-
+</ol>
+{% endblock %}
+{% block content_body %}
 <h1>Archives</h1>
 
 <dl>

@@ -4,12 +4,12 @@
 
 
 {% block content_header %}
-    <ul class="breadcrumb">
-    <li><a href="{{ SITEURL }}/" title="Home"><i class="fa fa-home fa-fw fa-lg"></i> </a> 
-	     <span class="divider">/</span></li>
-    <li>Categories <span class="divider">/</span></li>
+<ol class="breadcrumb">
+    <li><a href="{{ SITEURL }}/" title="Home">
+		<i class="fa fa-home fa-fw fa-lg"></i> </a></li>
+    <li>Categories </li>
     <li class="active">{{ category }}</li>
-    </ul>
+</ol>
 {% endblock %}
 {% block article %}
 {% include "includes/index_summaries.html" %}
