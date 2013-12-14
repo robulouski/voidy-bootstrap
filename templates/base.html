@@ -104,7 +104,12 @@
         </div><!-- /content -->
 
         <div class="col-md-3 sidebar-nav" id="sidebar">
+          {% if CUSTOM_SIDEBAR %}
+            {% set sidebarinc = "includes/" + CUSTOM_SIDEBAR %}
+            {% include sidebarinc %}
+          {% else %}
             {% include 'includes/sidebar.html' %}
+          {% endif %}
         </div><!--/sidebar -->
       </div><!--/row-->
     </div><!--/container-->
