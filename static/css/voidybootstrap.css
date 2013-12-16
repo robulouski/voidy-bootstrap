@@ -39,6 +39,22 @@
 	font-size: 8pt;
 }
 
+.tag-cloud {
+    line-height: 15px;
+}
+
+.article-tag-list {
+    padding-top: 15px;
+}
+
 .home-top {
 	margin-top: 20px;
 }
+
+
+#page-footer {
+    padding-top: 30px;
+    min-height: 30px;
+}
+
+

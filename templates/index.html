@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block title %}{{ super() }}{% if articles_page and articles_page.number > 1 %} - Page {{ articles_page.number }}{% endif %}{% endblock %}
+{% block meta_other %}
 {% include "includes/index_meta.html" ignore missing %}
+{% endblock %}
 {% block content_header %}{% endblock %}
 {% block content_body %}
 {% block article %}

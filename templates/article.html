@@ -15,7 +15,10 @@
 
   {% include "includes/article_end.html" ignore missing %}
   <hr />
-  {% include "includes/sharing.html" ignore missing %}
+  {% if CUSTOM_ARTICLE_SHARING %}
+    {% set shareinc = "includes/" + CUSTOM_ARTICLE_SHARING %}
+    {% include shareinc %}
+  {% endif %}
   {% include "includes/article_bottom.html" ignore missing %}
 
   {% if DISQUS_SITENAME and SITEURL and article.status != "draft" %}
@@ -23,12 +26,10 @@
 	<h2>Comments</h2>
 	<div id="disqus_thread"></div>
 	<script type="text/javascript">
-				   var disqus_identifier = "{{ article.url }}";
-				   var disqus_url = "{{ SITEURL }}/{{ article.url }}";
 				   (function() {
 						var dsq = document.createElement('script');
 						dsq.type = 'text/javascript'; dsq.async = true;
-						dsq.src = 'http://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+						dsq.src = '//{{ DISQUS_SITENAME }}.disqus.com/embed.js';
 						(document.getElementsByTagName('head')[0] ||
 						 document.getElementsByTagName('body')[0]).appendChild(dsq);
 				  })();
@@ -39,5 +40,8 @@
 {% endblock %}
 
 {% block scripts %}
-{% include "includes/sharing_scripts.html" ignore missing %}
+  {% if CUSTOM_ARTICLE_SCRIPTS %}
+    {% set scriptinc = "includes/" + CUSTOM_ARTICLE_SCRIPTS %}
+    {% include scriptinc %}
+  {% endif %}
 {% endblock %}
