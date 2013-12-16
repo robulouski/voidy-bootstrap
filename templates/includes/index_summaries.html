@@ -1,0 +1,13 @@
+{% if articles %}
+    {% for article in (articles_page.object_list if articles_page else articles) %}
+    <article>
+      {% include "includes/article_header.html" %}
+      <div class="summary">{{ article.summary }}
+		<p class="article-highlight"><a href="{{ SITEURL }}/{{ article.url }}">
+			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i>
+		</a></p>
+      </div>
+    </article>
+    <hr />
+    {% endfor %}
+{% endif %}

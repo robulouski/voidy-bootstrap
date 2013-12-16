@@ -1,0 +1,11 @@
+<p class="content-emphasis">
+{% if DISQUS_SITENAME %}
+  <a href="{{ SITEURL }}/{{ article.url }}#article-social">
+	<i class="fa fa-comment fa-fw fa-lg"></i>
+  </a>
+  <a href="{{ SITEURL }}/{{ article.url }}#disqus_thread"
+	 title="Comments">&nbsp;
+  </a>
+{% endif %}
+&nbsp;
+</p>

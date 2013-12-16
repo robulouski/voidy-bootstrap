@@ -1,0 +1,39 @@
+<div class="article-header">
+{% if CUSTOM_ARTICLE_PREHEAD %}
+{% set prehead = "includes/" + CUSTOM_ARTICLE_PREHEAD %}
+{% include prehead %}
+{% else %}
+    <abbr class="article-prehead">
+	  {{ article.locale_date }}
+	</abbr>
+{% endif %}
+	<h1>
+	  <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+		 title="Permalink to {{ article.title|striptags }}">
+		{{ article.title }}
+	  </a>
+	</h1>
+{% if CUSTOM_ARTICLE_POSTHEAD %}
+{% set posthead = "includes/" + CUSTOM_ARTICLE_POSTHEAD %}
+{% include posthead %}
+{% else %}
+    <div class="article-posthead">
+	  <p>
+        {% if article.author %}
+          Posted by <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
+        {% endif %}
+		in 
+		<a href="{{ SITEURL }}/{{ article.category.url }}">
+		  {{ article.category }}</a>
+		&nbsp;&nbsp;
+		{% if PDF_PROCESSOR %}
+		<span class="label">
+		  <a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">PDF</a>
+		</span>
+		&nbsp;&nbsp;
+		{% endif %}
+		{% include "includes/translations.html" %}
+	  </p>
+	</div><!-- /article-posthead -->
+{% endif %}
+</div><!-- /article-header -->
