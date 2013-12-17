@@ -7,8 +7,24 @@
     <meta name="description" content="{% block metadesc %}{{ DEFAULT_METADESC|escape }}{% endblock %}" />
     <meta name="author" content="{{ AUTHOR }}" />
 	{% block meta_other %}{% endblock %}
-
-	<!-- TODO: stylesheet array -->	
+    {% if OPEN_GRAPH_FB_APP_ID %}
+    <meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}"/>
+    {% endif %}
+	{% block open_graph %}
+      <!-- Open Graph -->
+      {% if OPEN_GRAPH %}
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="{{ SITENAME }}"/>
+        <meta property="og:url" content="{{ SITEURL }}"/>
+        {% if DEFAULT_METADESC %}
+        <meta property="og:description" content="{{ DEFAULT_METADESC|e }}"/>
+        {% endif %}
+        {% if OPEN_GRAPH_IMAGE %}
+        <meta property="og:image"
+              content="{{ SITEURL }}/static/{{ OPEN_GRAPH_IMAGE }}"/>
+        {% endif %}
+      {% endif %}
+    {% endblock %}
     {% if MAIN_LOCAL_STYLESHEET %}	
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ MAIN_LOCAL_STYLESHEET }}" />
 	{% else %}

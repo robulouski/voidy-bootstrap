@@ -5,11 +5,37 @@ A `Bootstrap 3 <http://getbootstrap.com>`_ blog theme for the
 `Pelican <http://getpelican.com>`_ static site generator.
 
 This theme aims to be mobile friendly, responsive and easily customisable.
+On large screens it provides a clean 2 column layout, with a Jumbotron and
+navbar at the top, and categories and tag-cloud in the sidebar.
+
+First and foremost this theme is designed to be usable right out of the
+box with minimal configuration, and all the common features expected in a
+modern blog -- albeit with the ubiquitous Bootstrap look and feel.
+
+But it's mostly intended to be a sane starting point for building custom
+Boostrap-based themes for Pelican -- with all the usual scaffolding and
+fiddly bits already taken care of.
+
 
 Configuration
 -------------
 
 TBD
+
+
+Settings
+--------
+
+
+OPEN_GRAPH 
+
+OPEN_GRAPH_IMAGE
+
+OPEN_GRAPH_FB_APP_ID
+
+OPEN_GRAPH_ARTICLE_AUTHOR
+
+
 
 ::
 
@@ -54,7 +80,8 @@ index_meta.html
   to add extra HTML meta tags to index pages, for example.
 
 sidebar_top.html
-  Included by ``sidebar.html`` at the top of the sidebar.
+  Included by ``sidebar.html`` at the top of the sidebar.  Provides a
+  convenient place for an "about" blurb, for example.
 
 sidebar_bottom.html
   Included by ``sidebar.html`` at the bottom of the sidebar.
@@ -64,6 +91,7 @@ sidebar_bottom.html
 Author
 ------
 
-Robert Iwancz
-www.voidynullness.net
-Twitter: @robulouski
+| Robert Iwancz
+| www.voidynullness.net
+| ``@robulouski``
+

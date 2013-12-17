@@ -1,6 +1,28 @@
 {% extends "base.html" %}
 {% block title %}{{ article.title }} // {{ SITENAME }}{% endblock %}
 {% block metadesc %}{{ article.description|e }}{% endblock %}
+{% block open_graph %}
+{% if OPEN_GRAPH %}
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="{{ article.title }}"/>
+    <meta property="og:url" content="{{ SITEURL }}/{{ article.url }}"/>
+    {% if article.description %}
+      <meta property="og:description" content="{{ article.description|striptags|e }}"/>
+    {% endif %}
+    {% if article.category %}
+      <meta property="article:section" content="{{ article.category }}"/>
+    {% endif %}
+    {% if article.tags %}
+      {% for tag in article.tags %}
+        <meta property="article:tag" content="{{ tag }}"/>
+      {% endfor %}
+    {% endif %}
+    {% if OPEN_GRAPH_ARTICLE_AUTHOR %}
+      <meta property="article:author"
+            content="{{ OPEN_GRAPH_ARTICLE_AUTHOR }}"/>
+    {% endif %}
+{% endif %}
+{% endblock %}
 {% block content_header %}
   {% include "includes/article_top.html" ignore missing %}
 {% endblock %}

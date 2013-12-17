@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 {% block title %}{{ page.title }} - {{ SITENAME }}{% endblock %}
 {% block metadesc %}{% if page.description|e %}{{ page.description }}{% else %}A Page in {{ SITETAG }}: {{ page.title }}{% endif %}{% endblock %}
+{% block open_graph %}
+{% if OPEN_GRAPH %}
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="{{ page.title }}"/>
+    <meta property="og:url" content="{{ SITEURL }}/{{ page.url }}"/>
+    {% if page.description %}
+      <meta property="og:description" content="{{ page.description|striptags|e }}"/>
+    {% endif %}
+{% endif %}
+{% endblock %}
 {% block content_body %}
 <h1>{{ page.title }}</h1>
 {% if PDF_PROCESSOR %}
