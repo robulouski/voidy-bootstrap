@@ -4,9 +4,10 @@ VoidyBootstrap
 A `Bootstrap 3 <http://getbootstrap.com>`_ blog theme for the
 `Pelican <http://getpelican.com>`_ static site generator.
 
-This theme aims to be mobile friendly, responsive and easily customisable.
-On large screens it provides a clean 2 column layout, with a Jumbotron and
-navbar at the top, and categories and tag-cloud in the sidebar.
+A blog theme that aims to be mobile friendly, responsive and easily
+customisable.  On larger screens it provides a clean 2 column layout, with
+a Jumbotron and navbar containing page links at the top, and categories and
+tag-cloud in the sidebar.
 
 First and foremost this theme is designed to be usable right out of the
 box with minimal configuration, and all the common features expected in a
@@ -26,21 +27,29 @@ TBD
 Settings
 --------
 
+SITESUBTITLE
+  Sub-title -- displayed in jumbotron.
+
+SITETAG
+  Text that will be placed in the title on the home page.
+
+DEFAULT_METADESC
+
+MAIN_LOCAL_STYLESHEET
+
+STYLESHEETS
+
+TWITTER_USERNAME
 
 OPEN_GRAPH 
 
+OPEN_GRAPH_FB_APP_ID 
+
+OPEN_GRAPH_ARTICLE_AUTHOR 
+
 OPEN_GRAPH_IMAGE
 
-OPEN_GRAPH_FB_APP_ID
 
-OPEN_GRAPH_ARTICLE_AUTHOR
-
-
-
-::
-
-  CUSTOM_ARTICLE_SHARING = "sharing.html"
-  CUSTOM_ARTICLE_SCRIPTS = "sharing_scripts.html"
 
 
 
@@ -50,6 +59,12 @@ Custom Includes
 CUSTOM_ARTICLE_SHARING
 
 CUSTOM_ARTICLE_SCRIPTS 
+
+
+::
+
+  CUSTOM_ARTICLE_SHARING = "sharing.html"
+  CUSTOM_ARTICLE_SCRIPTS = "sharing_scripts.html"
 
 
 
@@ -95,3 +110,10 @@ Author
 | www.voidynullness.net
 | ``@robulouski``
 
+
+License
+-------
+
+Licensed under the `MIT License <http://opensource.org/licenses/MIT>`_
+
+Feel free to use as-is or as a basis for your own custom theme.
