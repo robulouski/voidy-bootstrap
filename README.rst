@@ -6,8 +6,9 @@ A `Bootstrap 3 <http://getbootstrap.com>`_ blog theme for the
 
 A blog theme that aims to be mobile friendly, responsive and easily
 customisable.  On larger screens it provides a clean 2 column layout, with
-a Jumbotron and navbar containing page links at the top, and categories and
-tag-cloud in the sidebar.
+a Jumbotron and navbar containing page links at the top, categories and
+tag-cloud in the sidebar, and `Font Awesome 4 <http://fontawesome.io/>`_
+icons.
 
 First and foremost this theme is designed to be usable right out of the
 box with minimal configuration, and all the common features expected in a
@@ -16,6 +17,20 @@ modern blog -- albeit with the ubiquitous Bootstrap look and feel.
 But it's mostly intended to be a sane starting point for building custom
 Boostrap-based themes for Pelican -- with all the usual scaffolding and
 fiddly bits already taken care of.
+
+
+Installation
+------------
+
+Clone this repo, then in your ``pelicanconf.py`` set the ``THEME`` variable
+to point to it::
+
+  THEME = 'path/to/voidy-bootstrap/'
+
+By default all required CSS and JavaScript files are downloaded from a CDN.
+
+Out of the box what you get is the stock standard Bootstrap 3 look.  To
+customise things see below.
 
 
 Configuration
@@ -66,6 +81,18 @@ CUSTOM_ARTICLE_SCRIPTS
   CUSTOM_ARTICLE_SHARING = "sharing.html"
   CUSTOM_ARTICLE_SCRIPTS = "sharing_scripts.html"
 
+CUSTOM_ARTICLE_PREHEAD
+
+CUSTOM_ARTICLE_POSTHEAD
+
+
+CUSTOM_SIDEBAR
+  Don't like the sidebar provided by the theme?  Have something totally 
+  different in mind?  Well then you're in luck.  Build your own sidebar 
+  template (you can use ``includes/sidebar.html`` as a starting point), 
+  and set ``CUSTOM_SIDEBAR`` to point to it -- this  completely replaces 
+  the default sidebar with your custom sidebar.
+
 
 
 Optional Templates
@@ -109,6 +136,13 @@ Author
 | Robert Iwancz
 | www.voidynullness.net
 | ``@robulouski``
+
+
+Screenshot
+----------
+
+.. image:: screenshot.png
+   :alt: Screenshot of VoidyBootstrap theme with default Bootstrap 3 styling.
 
 
 License

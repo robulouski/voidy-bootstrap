@@ -42,16 +42,18 @@
 </p>
 
 <h4><i class="fa fa-rss fa-fw fa-lg"></i> Feeds</h4>
+<ul class="list-unstyled">
   {% if FEED_ALL_ATOM %}
     <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" 
 		   type="application/atom+xml" rel="alternate">
-		<i class="fa fa-rss fa-fw fa-lg"></i>Atom Feed</a></li>
+		<i class="fa fa-rss-square fa-fw fa-lg"></i> Atom Feed</a></li>
   {% endif %}
   {% if FEED_ALL_RSS %}
     <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" 
 		   type="application/rss+xml" rel="alternate">
-		<i class="fa fa-rss fa-fw fa-lg"></i>RSS feed</a></li>
+		<i class="fa fa-rss-square fa-fw fa-lg"></i> RSS feed</a></li>
   {% endif %}
+</ul>
 
 <hr />
 

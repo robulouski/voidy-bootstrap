@@ -12,7 +12,7 @@
       {% include "includes/article_header.html" %}
 
       {% if loop.first and not articles_page.has_previous() %}
-	  <div class="article-content">
+	  <div class="content-body">
 		{{ article.content }}
 		{% include "includes/comments.html" %}
 	  </div>
