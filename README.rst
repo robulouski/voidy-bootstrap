@@ -33,6 +33,37 @@ Out of the box what you get is the stock standard Bootstrap 3 look.  To
 customise things see below.
 
 
+Example Settings
+----------------
+
+All of these are optional, but here is a basic example of common variables
+that you might want to configure
+
+The following should be set in ``pelicanconf.py``::
+
+  SITESUBTITLE ='Sub-title that goes underneath site name in jumbotron.'
+  SITETAG = "Text that's displayed in the title on the home page."
+
+  # Extra stylesheets, for bootstrap overrides or additional styling.
+  STYLESHEETS = ("voidybootstrap.css",)
+
+  # Use the default sharing button implementation.
+  CUSTOM_ARTICLE_SHARING = "sharing.html"
+  CUSTOM_ARTICLE_SCRIPTS = "sharing_scripts.html"
+
+
+The following are probably better suited for ``publishconf.py``::
+
+  FEED_DOMAIN = SITEURL
+  FEED_ALL_ATOM = 'feeds/all.atom.xml'
+
+  DISQUS_SITENAME = "disqussitename"
+  GOOGLE_ANALYTICS = "UA-xxxxxxxxxx"
+  GOOGLE_ANALYTICS_SITEID = "gasiteid"
+  TWITTER_USERNAME = "twitterusername"
+
+
+
 Configuration
 -------------
 
@@ -71,20 +102,30 @@ OPEN_GRAPH_IMAGE
 Custom Includes
 ---------------
 
+The following variables (all optional), if specified, should be set to 
+paths for template fragments that will be included at strategic points
+from the primary templates.  All paths must be relative to the theme's 
+``templates/includes`` directory.
+
 CUSTOM_ARTICLE_SHARING
+  Template fragment for custom social media sharing buttons.  
+  Included in ``article.html`` at the bottom of the article, after
+  ``article_end.html`` but before ``article_bottom.html``.
+  Set to ``includes/sharing.html`` to use the default provided implementation.
 
 CUSTOM_ARTICLE_SCRIPTS 
+  Template fragment for any javascript code necessary for article pages
+  (namely code for any social media sharing buttons).  
+  Will be included right at the bottom of article pages, just before the
+  closing body tag.  Set to ``includes/sharing_scripts.html`` to use the 
+  default provided implementation.
 
-
-::
-
-  CUSTOM_ARTICLE_SHARING = "sharing.html"
-  CUSTOM_ARTICLE_SCRIPTS = "sharing_scripts.html"
 
 CUSTOM_ARTICLE_PREHEAD
+  TBD
 
 CUSTOM_ARTICLE_POSTHEAD
-
+  TBD
 
 CUSTOM_SIDEBAR
   Don't like the sidebar provided by the theme?  Have something totally 
