@@ -58,3 +58,15 @@
 }
 
 
+/*
+ * My preference for code blocks is no line wraps and horizontal scrolling.
+ */
+.highlight pre {
+    border-left: 5px solid #999;
+    overflow-x: auto;
+    padding-left: 20px;
+    word-break: normal;
+    word-wrap: normal;
+    white-space: pre;
+}
+
