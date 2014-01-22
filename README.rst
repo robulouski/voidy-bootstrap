@@ -27,8 +27,6 @@ to point to it::
 
   THEME = 'path/to/voidy-bootstrap/'
 
-By default all required CSS and JavaScript files are downloaded from a CDN.
-
 Out of the box what you get is the stock standard Bootstrap 3 look.  To
 customise things see below.
 
@@ -45,7 +43,7 @@ The following should be set in ``pelicanconf.py``::
   SITETAG = "Text that's displayed in the title on the home page."
 
   # Extra stylesheets, for bootstrap overrides or additional styling.
-  STYLESHEETS = ("voidybootstrap.css",)
+  STYLESHEETS = ("pygment.css", "voidybootstrap.css",)
 
   # Use the default sharing button implementation.
   CUSTOM_ARTICLE_SHARING = "sharing.html"
@@ -64,38 +62,96 @@ The following are probably better suited for ``publishconf.py``::
 
 
 
-Configuration
--------------
+Basic Configuration and Customisation
+-------------------------------------
 
-TBD
+By default all required CSS and JavaScript files are downloaded from a CDN.
+Note how little is supplied in the theme's ``static/css``.  Just a
+``pygment.css`` file, and a sample css file (``voidybootstrap.css``) with
+very minimal styling is provided as a starting point.
+
+The simplest way to customise things is just to override the standard
+Bootstrap styles as necessary.  The theme intentionally avoids loading any
+local stylesheets by default.  Instead, any local stylesheets must be
+explicitly specified using the ``STYLESHEETS`` setting.  ``STYLESHEETS`` is
+an array for listing all the local stylesheets that should be loaded by the
+``base.html`` template.  Place any CSS stylesheet files you may require in
+``static/css`` and add the filenames to the ``STYLESHEETS`` array in 
+``pelicanconf.py``
+
+As a starting point, my suggestion is to rename the supplied
+``voidybootstrap.css`` to something more appropriate (like ``custom.css``),
+then use it as a base for your own modifications and custom styling.  In
+this case, you would need something like this in your ``pelicanconf.py``::
+
+  STYLESHEETS = ("pygment.css", "custom.css",)
+
+
+Custom Bootstrap
+----------------
+
+As an alternative, or in addition, it's possible to easily replace the
+standard Bootstrap file with a customised local one.  The
+``MAIN_LOCAL_STYLESHEET`` setting is provided for this.  If this variable
+is not set, the standard ``bootstrap.min.css`` will be used, from a CDN.  
+
+Otherwise, set ``MAIN_LOCAL_STYLESHEET`` to the name of a local style to
+use that stylesheet instead of the standard Bootstrap CSS.  
+
+For example, you could use the `Bootstrap customizer
+<http://getbootstrap.com/customize/`_ to create your own customised css
+file.  Place that file in ``static/css`` and set ``MAIN_LOCAL_STYLESHEET``
+to be the filename.  
+
+Similarly, a `Bootswatch <http://bootswatch.com/>`_ theme can be easily
+integrated.  Select a theme and download the files.  Place all the
+necessary CSS files in ``static/css``.  Set ``MAIN_LOCAL_STYLESHEET`` to
+the filename of the main Bootstrap file, and put any additional CSS files
+in the ``STYLESHEETS`` array.
+
 
 
 Settings
 --------
 
-SITESUBTITLE
+All of these settings are optional.
+
+
+``SITESUBTITLE``
   Sub-title -- displayed in jumbotron.
 
-SITETAG
+``SITETAG``
   Text that will be placed in the title on the home page.
 
-DEFAULT_METADESC
+``DEFAULT_METADESC``
+  Default value for HTML meta description tag.  Individual articles and
+  pages can specify their own meta description by using the theme's custom
+  ``description`` metadata tag.
 
-MAIN_LOCAL_STYLESHEET
+``MAIN_LOCAL_STYLESHEET``
+  Local Bootstrap CSS file, as described above.
 
-STYLESHEETS
+``STYLESHEETS``
+  An array for listing all the local stylesheets that should be loaded by
+  the ``base.html`` template, as described above.
 
-TWITTER_USERNAME
+``TWITTER_USERNAME``
+  Set to a valie Twitter username to enable twitter sharing button.
 
-OPEN_GRAPH 
+``OPEN_GRAPH``
+  Set to True to enable Facebook Open Graph meta-properties.
 
-OPEN_GRAPH_FB_APP_ID 
+``OPEN_GRAPH_FB_APP_ID``
+  Facebook App ID
 
-OPEN_GRAPH_ARTICLE_AUTHOR 
+``OPEN_GRAPH_ARTICLE_AUTHOR``
+  Value for Open Graph ``article:author`` property, which will be set on
+  article pages.
 
-OPEN_GRAPH_IMAGE
-
-
+``OPEN_GRAPH_IMAGE``
+  Default value for Open Graph ``og:image`` property.
+  Posts can use the custom ``og_image`` metadata tag to specify a
+  per-article page value.
 
 
 
@@ -122,10 +178,14 @@ CUSTOM_ARTICLE_SCRIPTS
 
 
 CUSTOM_ARTICLE_PREHEAD
-  TBD
+  Template fragment for content just before main article heading.
+  (e.g. date)
+
 
 CUSTOM_ARTICLE_POSTHEAD
-  TBD
+  Template fragment for content right after main article heading.
+  (e.g. author, category, etc)
+
 
 CUSTOM_SIDEBAR
   Don't like the sidebar provided by the theme?  Have something totally 
