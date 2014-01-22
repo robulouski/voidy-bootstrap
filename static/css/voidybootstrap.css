@@ -9,6 +9,11 @@
 }
 
 
+#content {
+  padding-right: 50px; 
+  line-height: 26px;
+}
+
 #colophon {
 	font-size: 12px;
 }

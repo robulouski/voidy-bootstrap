@@ -10,16 +10,22 @@
 {% endblock %}
 {% block content_body %}
 <h1>Archives</h1>
-
-<dl>
-{% for article in dates %}
+<div id="archives-body">
+{% for year, year_dates in dates|groupby( 'date.year' )|reverse %}
+  <h2>{{ year }}</h2>
+  <dl>
+  {% for article in year_dates %}
 	<dt>{{ article.locale_date }}</dt>
 	<dd><a href='{{ article.url }}'>{{ article.title }}</a></dd>
+  {% endfor %}
+  </dl>
 {% endfor %}
-</dl>
+  <div class="home-top">
 	<a class="btn btn-sm btn-primary" href="{{ SITEURL }}/">
 	  <i class="fa fa-home fa-fw fa-lg"></i> Home</a>
 	&nbsp;
 	<a class="btn btn-sm btn-primary" href="#">
 	  <i class="fa fa-angle-double-up fa-fw fa-lg"></i> Top</a> 
-{% endblock %}
+  </div>
+</div> <!-- /#archives-body -->
+{% endblock content_body %}
