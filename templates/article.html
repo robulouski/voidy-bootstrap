@@ -21,6 +21,10 @@
       <meta property="article:author"
             content="{{ OPEN_GRAPH_ARTICLE_AUTHOR }}"/>
     {% endif %}
+    {% if article.og_image %}
+      <meta property="og:image"
+            content="{{ SITEURL }}/images/{{ article.og_image }}"/>
+    {% endif %}
 {% endif %}
 {% endblock %}
 {% block content_header %}

@@ -21,7 +21,7 @@
         {% endif %}
         {% if OPEN_GRAPH_IMAGE %}
         <meta property="og:image"
-              content="{{ SITEURL }}/static/{{ OPEN_GRAPH_IMAGE }}"/>
+              content="{{ SITEURL }}/images/{{ OPEN_GRAPH_IMAGE }}"/>
         {% endif %}
       {% endif %}
     {% endblock %}
@@ -31,7 +31,6 @@
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
     {% endif %}
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />	
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygment.css" />
     {% if STYLESHEETS %}	
       {% for css in STYLESHEETS %}
         <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ css }}" />

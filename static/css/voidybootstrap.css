@@ -8,10 +8,13 @@
 	  padding-bottom: 20px;
 }
 
+img {
+    padding: 10px 0px 26px;
+}
 
 #content {
-  padding-right: 50px; 
-  line-height: 26px;
+    padding-right: 50px; 
+    line-height: 26px;
 }
 
 #colophon {
