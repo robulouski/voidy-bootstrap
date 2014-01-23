@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}{{ article.title }} // {{ SITENAME }}{% endblock %}
+{% block title %}{{ article.title }} -- {{ SITENAME }}{% endblock %}
 {% block metadesc %}{{ article.description|e }}{% endblock %}
 {% block open_graph %}
 {% if OPEN_GRAPH %}
@@ -33,7 +33,11 @@
 {% block content_body %}
 <article>
   <header>
-	{% include 'includes/article_header.html' %}
+  {% if CUSTOM_ARTICLE_HEADER %}
+	{% include "includes/" + CUSTOM_ARTICLE_HEADER %}
+  {% else %}
+	{% include "includes/article_header.html" %}
+  {% endif %}
   </header>
   <div class="content-body">
 	{{ article.content }}
@@ -42,8 +46,7 @@
   {% include "includes/article_end.html" ignore missing %}
   <hr />
   {% if CUSTOM_ARTICLE_SHARING %}
-    {% set shareinc = "includes/" + CUSTOM_ARTICLE_SHARING %}
-    {% include shareinc %}
+    {% include "includes/" + CUSTOM_ARTICLE_SHARING  %}
   {% endif %}
   {% include "includes/article_bottom.html" ignore missing %}
 
@@ -67,7 +70,6 @@
 
 {% block scripts %}
   {% if CUSTOM_ARTICLE_SCRIPTS %}
-    {% set scriptinc = "includes/" + CUSTOM_ARTICLE_SCRIPTS %}
-    {% include scriptinc %}
+    {% include "includes/" + CUSTOM_ARTICLE_SCRIPTS %}
   {% endif %}
 {% endblock %}

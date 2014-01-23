@@ -99,7 +99,7 @@ Otherwise, set ``MAIN_LOCAL_STYLESHEET`` to the name of a local style to
 use that stylesheet instead of the standard Bootstrap CSS.  
 
 For example, you could use the `Bootstrap customizer
-<http://getbootstrap.com/customize/`_ to create your own customised css
+<http://getbootstrap.com/customize/>`_ to create your own customised css
 file.  Place that file in ``static/css`` and set ``MAIN_LOCAL_STYLESHEET``
 to be the filename.  
 
@@ -136,7 +136,7 @@ All of these settings are optional.
   the ``base.html`` template, as described above.
 
 ``TWITTER_USERNAME``
-  Set to a valie Twitter username to enable twitter sharing button.
+  Set to a valid Twitter username to enable the twitter sharing button.
 
 ``OPEN_GRAPH``
   Set to True to enable Facebook Open Graph meta-properties.
@@ -163,31 +163,36 @@ paths for template fragments that will be included at strategic points
 from the primary templates.  All paths must be relative to the theme's 
 ``templates/includes`` directory.
 
-CUSTOM_ARTICLE_SHARING
+``CUSTOM_ARTICLE_SHARING``
   Template fragment for custom social media sharing buttons.  
   Included in ``article.html`` at the bottom of the article, after
   ``article_end.html`` but before ``article_bottom.html``.
   Set to ``includes/sharing.html`` to use the default provided implementation.
 
-CUSTOM_ARTICLE_SCRIPTS 
+``CUSTOM_ARTICLE_SCRIPTS``
   Template fragment for any javascript code necessary for article pages
   (namely code for any social media sharing buttons).  
   Will be included right at the bottom of article pages, just before the
   closing body tag.  Set to ``includes/sharing_scripts.html`` to use the 
   default provided implementation.
 
+``CUSTOM_ARTICLE_HEADER``
+  Replaces the default article header in ``includes/article_header.html`` 
+  with a custom implementation on *article pages only*.
 
-CUSTOM_ARTICLE_PREHEAD
+``CUSTOM_ARTICLE_HEADER_INDEX``
+  Replaces the default article header in ``includes/article_header.html`` 
+  with a custom implementation on *index pages only*.
+
+``CUSTOM_ARTICLE_PREHEAD``
   Template fragment for content just before main article heading.
   (e.g. date)
 
-
-CUSTOM_ARTICLE_POSTHEAD
+``CUSTOM_ARTICLE_POSTHEAD``
   Template fragment for content right after main article heading.
   (e.g. author, category, etc)
 
-
-CUSTOM_SIDEBAR
+``CUSTOM_SIDEBAR``
   Don't like the sidebar provided by the theme?  Have something totally 
   different in mind?  Well then you're in luck.  Build your own sidebar 
   template (you can use ``includes/sidebar.html`` as a starting point), 

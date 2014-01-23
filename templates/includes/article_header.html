@@ -1,11 +1,10 @@
 <div class="article-header">
 {% if CUSTOM_ARTICLE_PREHEAD %}
-{% set prehead = "includes/" + CUSTOM_ARTICLE_PREHEAD %}
-{% include prehead %}
+{% include "includes/" + CUSTOM_ARTICLE_PREHEAD %}
 {% else %}
     <abbr class="article-prehead">
 	  {{ article.locale_date }}
-	</abbr>
+	</abbr> <!-- /.article-prehead -->
 {% endif %}
 	<h1>
 	  <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
@@ -14,8 +13,7 @@
 	  </a>
 	</h1>
 {% if CUSTOM_ARTICLE_POSTHEAD %}
-{% set posthead = "includes/" + CUSTOM_ARTICLE_POSTHEAD %}
-{% include posthead %}
+{% include "includes/" + CUSTOM_ARTICLE_POSTHEAD %}
 {% else %}
     <div class="article-posthead">
 	  <p>
@@ -34,6 +32,6 @@
 		{% endif %}
 		{% include "includes/translations.html" %}
 	  </p>
-	</div><!-- /article-posthead -->
+	</div> <!-- /.article-posthead -->
 {% endif %}
-</div><!-- /article-header -->
+</div> <!-- /.article-header -->
