@@ -10,13 +10,18 @@
   {% for article in (articles_page.object_list if articles_page else articles) %}
     <article>
       {% if CUSTOM_ARTICLE_HEADER_INDEX %}
-  	    {% include "includes/" + CUSTOM_ARTICLE_HEADER_INDEX %}
+        {% include "includes/" + CUSTOM_ARTICLE_HEADER_INDEX %}
       {% else %}
         {% include "includes/article_header.html" %}
-  	  {% endif %}
+      {% endif %}
+      {% if article.standfirst %}
+      <p class="standfirst">
+        {{ article.standfirst }}
+      </p>
+      {% endif %}
 
       {% if loop.first and not articles_page.has_previous() %}
-	  <div class="content-body">
+	    <div class="content-body">
 		{{ article.content }}
 		{% include "includes/comments.html" %}
 	  </div>

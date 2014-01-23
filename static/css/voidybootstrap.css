@@ -17,6 +17,11 @@ img {
     line-height: 26px;
 }
 
+p.standfirst {
+	font-size: 18px;
+    font-weight: 700;
+}
+
 #colophon {
 	font-size: 12px;
 }

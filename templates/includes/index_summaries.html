@@ -1,17 +1,22 @@
 {% if articles %}
-    {% for article in (articles_page.object_list if articles_page else articles) %}
+  {% for article in (articles_page.object_list if articles_page else articles) %}
     <article>
       {% if CUSTOM_ARTICLE_HEADER_INDEX %}
-  	    {% include "includes/" + CUSTOM_ARTICLE_HEADER_INDEX %}
+        {% include "includes/" + CUSTOM_ARTICLE_HEADER_INDEX %}
       {% else %}
         {% include "includes/article_header.html" %}
-  	  {% endif %}
+      {% endif %}
+      {% if article.standfirst %}
+        <p class="standfirst">
+          {{ article.standfirst }}
+        </p>
+      {% endif %}
       <div class="summary">{{ article.summary }}
-		<p class="article-highlight"><a href="{{ SITEURL }}/{{ article.url }}">
-			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i>
-		</a></p>
+        <p class="article-highlight"><a href="{{ SITEURL }}/{{ article.url }}">
+            Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i>
+        </a></p>
       </div>
     </article>
     <hr />
-    {% endfor %}
+  {% endfor %}
 {% endif %}

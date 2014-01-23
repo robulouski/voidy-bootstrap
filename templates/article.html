@@ -40,6 +40,11 @@
   {% endif %}
   </header>
   <div class="content-body">
+    {% if article.standfirst %}
+      <p class="standfirst">
+        {{ article.standfirst }}
+      </p>
+    {% endif %}
 	{{ article.content }}
   </div>
 

@@ -207,31 +207,31 @@ Optional Templates
 If the following templates are provided, they must be placed in an
 ``includes`` subdirectory.
 
-article_top.html
+``article_top.html``
   Included by ``article.html`` before the article section.  Can be used 
   to provide things like pagination, breadcrumbs, ads, etc.
 
-article_end.html
+``article_end.html``
   Included by ``article.html`` right after the article contents.  There
   is a default implementation provided, which displays a tag-list.
 
-article_bottom.html
+``article_bottom.html``
   Included by ``article.html`` after the article content, after any 
   social media sharing buttons, but before disqus comments.  
 
-footer.html
+``footer.html``
   Included by ``base.html``.  Anything here (e.g. copyright text) will
   appear between footer tags at the bottom of every page.
 
-index_meta.html
+``index_meta.html``
   Included by ``index.html`` between the head tags.  Can be used 
   to add extra HTML meta tags to index pages, for example.
 
-sidebar_top.html
+``sidebar_top.html``
   Included by ``sidebar.html`` at the top of the sidebar.  Provides a
   convenient place for an "about" blurb, for example.
 
-sidebar_bottom.html
+``sidebar_bottom.html``
   Included by ``sidebar.html`` at the bottom of the sidebar.
 
 
