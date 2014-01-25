@@ -6,12 +6,11 @@
       {% else %}
         {% include "includes/article_header.html" %}
       {% endif %}
-      {% if article.standfirst %}
-        <p class="standfirst">
-          {{ article.standfirst }}
-        </p>
-      {% endif %}
-      <div class="summary">{{ article.summary }}
+      <div class="summary">
+        {% if article.standfirst %}
+          <p class="standfirst">{{ article.standfirst|e }}</p>
+        {% endif %}
+        {{ article.summary }}
         <p class="article-highlight"><a href="{{ SITEURL }}/{{ article.url }}">
             Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i>
         </a></p>

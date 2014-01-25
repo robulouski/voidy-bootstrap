@@ -14,19 +14,20 @@
       {% else %}
         {% include "includes/article_header.html" %}
       {% endif %}
-      {% if article.standfirst %}
-      <p class="standfirst">
-        {{ article.standfirst }}
-      </p>
-      {% endif %}
 
       {% if loop.first and not articles_page.has_previous() %}
 	    <div class="content-body">
+        {% if article.standfirst %}
+          <p class="standfirst">{{ article.standfirst|e }}</p>
+        {% endif %}
 		{{ article.content }}
 		{% include "includes/comments.html" %}
 	  </div>
 	  {% else %}
       <div class="summary">
+        {% if article.standfirst %}
+          <p class="standfirst">{{ article.standfirst|e }}</p>
+        {% endif %}
 		{{ article.summary }}
 		<p class="content-emphasis"><a href="{{ SITEURL }}/{{ article.url }}">
 			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
