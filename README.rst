@@ -66,7 +66,7 @@ Basic Configuration and Customisation
 -------------------------------------
 
 By default all required CSS and JavaScript files are downloaded from a CDN.
-Note how little is supplied in the theme's ``static/css``.  Just a
+Intentionally little is supplied in the theme's ``static/css``.  Just a
 ``pygment.css`` file, and a sample css file (``voidybootstrap.css``) with
 very minimal styling is provided as a starting point.
 
@@ -109,6 +109,47 @@ necessary CSS files in ``static/css``.  Set ``MAIN_LOCAL_STYLESHEET`` to
 the filename of the main Bootstrap file, and put any additional CSS files
 in the ``STYLESHEETS`` array.
 
+
+Further Customisation
+---------------------
+
+Like any other Pelican theme, you can just take the templates provided
+and modify them to your liking.  However, if you're happy with the overall
+layout and just want to add/subtract things here are there, this theme
+provides a range of "hooks" to do just that by simply setting specific
+variables in your ``pelicanconf.py`` and/or providing your own template
+fragments.  For simple customisations, this can make is relatively
+straightforward to isolate modifications and easily keep up to date with
+any upstream changes.
+
+There are 2 types of hooks.  
+
+One is a set of optional templates.  At strategic points, the theme's
+templates use Jinja's include directive with "ignore missing" to allow
+arbitrary content to be optionally added.  For example, if you'd like to
+add an "About" section to the top of the sidebar, just create a template in
+the ``includes`` directory called ``sidebar_top.html`` and put the content
+in there.  The contents of that template fragment will automatically be
+included at the top of the sidebar.
+
+See the "Optional Templates" section below for details.
+
+The other hook is custom includes.  These are variables that can be set in
+``pelicanconf.py`` to point to the filename of a template fragment.  These
+template fragments will be included and will replace content in the default
+templates.  For example, if ``pelicanconf.py`` contains the line::
+
+  CUSTOM_SIDEBAR = "custom/sidebar.html"
+
+Then the entire sidebar would be replaced by whatever is in the template
+file located at::
+
+  /templates/includes/custom/sidebar.html
+
+See the "Custom Includes" section below for details.
+
+Note that for both optional templates and custom includes, all filenames
+must be relative to the theme's ``templates/includes/`` directory.
 
 
 Settings
@@ -158,10 +199,11 @@ All of these settings are optional.
 Custom Includes
 ---------------
 
-The following variables (all optional), if specified, should be set to 
-paths for template fragments that will be included at strategic points
-from the primary templates.  All paths must be relative to the theme's 
-``templates/includes`` directory.
+The following variables (all optional), if specified, should be set to
+paths for template fragments that will be included at strategic points from
+the primary templates.  They will usually override existing sections of
+content.  All paths must be relative to the theme's ``templates/includes``
+directory.
 
 ``CUSTOM_ARTICLE_SHARING``
   Template fragment for custom social media sharing buttons.  
@@ -204,8 +246,8 @@ from the primary templates.  All paths must be relative to the theme's
 Optional Templates
 ------------------
 
-If the following templates are provided, they must be placed in an
-``includes`` subdirectory.
+Additional templates can be added to the ``templates/includes`` directory.
+This provides a way to easily add small sections of content.
 
 ``article_top.html``
   Included by ``article.html`` before the article section.  Can be used 
@@ -234,6 +276,28 @@ If the following templates are provided, they must be placed in an
 ``sidebar_bottom.html``
   Included by ``sidebar.html`` at the bottom of the sidebar.
 
+
+Custom Metadata Tags
+--------------------
+
+This theme supports the following (optional) custom metadata tags.
+
+``description``
+  Can be used in pages and articles to provide a value for the HTML meta
+  description tag.
+
+``standfirst``
+  Adds a summary paragraph at the start of articles styled with CSS class
+  "standfirst".
+
+``og_image``
+  Set to an image filename (relative to ``{{ SITEURL }}/images/``) to 
+  provide a value for an article's ``og:image`` meta property.
+
+``image``
+  Set to an image filename (relative to ``{{ SITEURL }}/images/``) to 
+  display a (responsive) image at the top of an article, underneath any 
+  standfirst.
 
 
 Author
