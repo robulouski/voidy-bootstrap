@@ -49,6 +49,18 @@ The following should be set in ``pelicanconf.py``::
   CUSTOM_ARTICLE_SHARING = "sharing.html"
   CUSTOM_ARTICLE_SCRIPTS = "sharing_scripts.html"
 
+  SOCIAL = (('Google+', 'http://plus.google.com/userid',
+           'fa fa-google-plus-square fa-fw fa-lg'),
+          ('Twitter', 'https://twitter.com/username', 
+           'fa fa-twitter-square fa-fw fa-lg'),
+          ('LinkedIn', 'http://linkedin-url', 
+           'fa fa-linkedin-square fa-fw fa-lg'),
+          ('BitBucket', 'http://bitbucket.org/username', 
+           'fa fa-bitbucket-square fa-fw fa-lg'),
+          ('GitHub', 'http://github.com/username',
+           'fa fa-github-square fa-fw fa-lg'),
+          )
+
 
 The following are probably better suited for ``publishconf.py``::
 
@@ -155,7 +167,10 @@ must be relative to the theme's ``templates/includes/`` directory.
 Settings
 --------
 
-All of these settings are optional.
+The following things are configurable.  All are optional.
+
+Feed settings as supported similarly to the default Pelican theme, with
+the variables: ``FEED_DOMAIN``, ``FEED_ALL_ATOM``, ``FEED_ALL_RSS``
 
 
 ``SITESUBTITLE``
@@ -194,6 +209,10 @@ All of these settings are optional.
   Posts can use the custom ``og_image`` metadata tag to specify a
   per-article page value.
 
+``SOCIAL``
+  Social media links.  This should be a list/tuple.  Each element must be a
+  tuple with 3 elements: name, URL, Font Awesome icon class.  The last is
+  optional, and can be ``None`` to omit the icon.
 
 
 Custom Includes
