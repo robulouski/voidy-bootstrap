@@ -4,8 +4,9 @@
 
 @media screen and (min-width: 768px) {
   .jumbotron {
-	  padding-top: 20px;
-	  padding-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
 }
 
 img {
@@ -18,14 +19,13 @@ img {
 }
 
 p.standfirst {
-	font-size: 18px;
+    font-size: 18px;
     font-weight: 700;
 }
 
 #colophon {
 	font-size: 12px;
 }
-
 
 .article-posthead, .article-prehead {
 	color: #999;
@@ -64,12 +64,10 @@ p.standfirst {
 	margin-top: 20px;
 }
 
-
 #page-footer {
     padding-top: 30px;
     min-height: 30px;
 }
-
 
 /*
  * My preference for code blocks is no line wraps and horizontal scrolling.

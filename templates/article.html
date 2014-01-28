@@ -43,6 +43,10 @@
     {% if article.standfirst %}
       <p class="standfirst">{{ article.standfirst|e }}</p>
     {% endif %}
+    {% if article.image %}
+      <img class="article-image img-responsive" alt="article header image" 
+		        src="{{ SITEURL }}/images/{{ article.image }}" />
+    {% endif %}
 	{{ article.content }}
   </div>
 
