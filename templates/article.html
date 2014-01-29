@@ -21,9 +21,21 @@
       <meta property="article:author"
             content="{{ OPEN_GRAPH_ARTICLE_AUTHOR }}"/>
     {% endif %}
-    {% if article.og_image %}
+    {% if article.social_image %}
       <meta property="og:image"
-            content="{{ SITEURL }}/images/{{ article.og_image }}"/>
+            content="{{ SITEURL }}/images/{{ article.social_image }}"/>
+    {% endif %}
+{% endif %}
+{% if TWITTER_CARD and TWITTER_USERNAME %}
+    <meta name="twitter:card" content="summary"> 
+    <meta name="twitter:title" content="{{ article.title|striptags }}">
+    <meta name="twitter:description" content="{{ article.description|striptags }}">
+    <meta name="twitter:site" content="@{{ TWITTER_USERNAME }}">
+    <meta name="twitter:creator" content="@{{ TWITTER_USERNAME }}">
+    <meta name="twitter:domain" content="{{ SITEURL }}">
+    {% if article.social_image %}
+    <meta property="twitter:image"
+          content="{{ SITEURL }}/images/{{ article.social_image }}"/>
     {% endif %}
 {% endif %}
 {% endblock %}
@@ -31,7 +43,7 @@
   {% include "includes/article_top.html" ignore missing %}
 {% endblock %}
 {% block content_body %}
-<article>
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header>
   {% if CUSTOM_ARTICLE_HEADER %}
 	{% include "includes/" + CUSTOM_ARTICLE_HEADER %}
@@ -39,13 +51,13 @@
 	{% include "includes/article_header.html" %}
   {% endif %}
   </header>
-  <div class="content-body">
+  <div class="content-body" itemprop="text articleBody">
     {% if article.standfirst %}
-      <p class="standfirst">{{ article.standfirst|e }}</p>
+      <p class="standfirst" itemprop="description">{{ article.standfirst|e }}</p>
     {% endif %}
     {% if article.image %}
-      <img class="article-image img-responsive" alt="article header image" 
-		        src="{{ SITEURL }}/images/{{ article.image }}" />
+      <img class="article-image img-responsive" alt="article header image" itemprop="image"
+		   src="{{ SITEURL }}/images/{{ article.image }}" />
     {% endif %}
 	{{ article.content }}
   </div>

@@ -194,6 +194,9 @@ the variables: ``FEED_DOMAIN``, ``FEED_ALL_ATOM``, ``FEED_ALL_RSS``
 ``TWITTER_USERNAME``
   Set to a valid Twitter username to enable the twitter sharing button.
 
+``TWITTER_CARD``
+  If set to True Twitter Card meta-data will be added to article pages.
+
 ``OPEN_GRAPH``
   Set to True to enable Facebook Open Graph meta-properties.
 
@@ -206,7 +209,7 @@ the variables: ``FEED_DOMAIN``, ``FEED_ALL_ATOM``, ``FEED_ALL_RSS``
 
 ``OPEN_GRAPH_IMAGE``
   Default value for Open Graph ``og:image`` property.
-  Posts can use the custom ``og_image`` metadata tag to specify a
+  Articles can use the custom ``social_image`` metadata tag to specify a
   per-article page value.
 
 ``SOCIAL``
@@ -309,7 +312,7 @@ This theme supports the following (optional) custom metadata tags.
   Adds a summary paragraph at the start of articles styled with CSS class
   "standfirst".
 
-``og_image``
+``social_image``
   Set to an image filename (relative to ``{{ SITEURL }}/images/``) to 
   provide a value for an article's ``og:image`` meta property.
 
