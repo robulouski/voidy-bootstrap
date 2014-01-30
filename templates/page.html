@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}{{ page.title }} - {{ SITENAME }}{% endblock %}
-{% block metadesc %}{% if page.description|e %}{{ page.description }}{% else %}A Page in {{ SITETAG }}: {{ page.title }}{% endif %}{% endblock %}
+{% block metadesc %}{% if page.description %}{{ page.description|e }}{% else %}A Page in {{ SITETAG }}: {{ page.title }}{% endif %}{% endblock %}
 {% block open_graph %}
 {% if OPEN_GRAPH %}
     <meta property="og:type" content="article"/>
@@ -9,16 +9,26 @@
     {% if page.description %}
       <meta property="og:description" content="{{ page.description|striptags|e }}"/>
     {% endif %}
+    {% if page.social_image %}
+      <meta property="og:image"
+            content="{{ SITEURL }}/images/{{ page.social_image }}"/>
+    {% endif %}
 {% endif %}
 {% endblock %}
 {% block content_body %}
-<h1>{{ page.title }}</h1>
-{% if PDF_PROCESSOR %}
-<a href="{{ SITEURL }}/pdf/{{ page.slug }}.pdf">
-  get the pdf
-</a>
-{% endif %}
-<div class="content-body">
-  {{ page.content }}
-</div>
+<article itemscope="itemscope" 
+         itemtype="http://schema.org/{{page.schema_type|default('WebPage') }}">
+  <header>
+    <h1 itemprop="name headline">{{ page.title }}</h1>
+    {% if PDF_PROCESSOR %}
+    <a href="{{ SITEURL }}/pdf/{{ page.slug }}.pdf">PDF</a>
+    {% endif %}
+  </header>
+  <div class="content-body" itemprop="text">
+    {% if page.standfirst %}
+      <p class="standfirst" itemprop="description">{{ page.standfirst|e }}</p>
+    {% endif %}
+    {{ page.content }}
+  </div>
+</article>
 {% endblock %}
