@@ -1,8 +1,6 @@
 {% extends "index.html" %}
-{% block title %}Category:{{ category }} // {{ SITENAME }}{% endblock %}
+{% block title %}Category:{{ category }} - {{ SITENAME }}{% endblock %}
 {% block metadesc %}{{ SITETAGALT }}Posts in category {{ category }}{% endblock %}
-
-
 {% block content_header %}
 <ol class="breadcrumb">
     <li><a href="{{ SITEURL }}/" title="Home" rel="home">
