@@ -5,18 +5,23 @@ A `Bootstrap 3 <http://getbootstrap.com>`_ blog theme for the
 `Pelican <http://getpelican.com>`_ static site generator.
 
 A blog theme that aims to be mobile friendly, responsive and easily
-customisable.  On larger screens it provides a clean 2 column layout, with
-a Jumbotron and navbar containing page links at the top, categories and
-tag-cloud in the sidebar, and `Font Awesome 4 <http://fontawesome.io/>`_
-icons.
+customisable.  On larger screens it provides a clean 2 column layout.  At
+the top there's a navbar containing page links, and jumbotron area.  The
+sidebar has category links and a tag-cloud.  `Font Awesome 4
+<http://fontawesome.io/>`_ is used for icons.
 
-First and foremost this theme is designed to be usable right out of the
-box with minimal configuration, and all the common features expected in a
-modern blog -- albeit with the ubiquitous Bootstrap look and feel.
+Designed to be usable right out of the box with minimal configuration, and
+all the common features expected in a modern blog -- albeit with the
+ubiquitous Bootstrap look and feel.  
 
-But it's mostly intended to be a sane starting point for building custom
-Boostrap-based themes for Pelican -- with all the usual scaffolding and
-fiddly bits already taken care of.
+However, customised CSS and other modifications can be easily
+incorporated using config settings, without even having to modify
+any templates.
+
+But it's mostly intended as a "clean slate" for creating custom
+Bootstrap-based themes, where all the usual scaffolding and fiddly bits are
+already taken care of, and all that remains is to provide a custom design
+on top of the Bootstrap base.
 
 
 Installation
@@ -27,8 +32,8 @@ to point to it::
 
   THEME = 'path/to/voidy-bootstrap/'
 
-Out of the box what you get is the stock standard Bootstrap 3 look.  To
-customise things see below.
+Out of the box what you get is the stock standard Bootstrap 3 look and
+feel.  To customise things see below.
 
 
 Example Settings
@@ -82,13 +87,13 @@ Intentionally little is supplied in the theme's ``static/css``.  Just a
 ``pygment.css`` file, and a sample css file (``voidybootstrap.css``) with
 very minimal styling is provided as a starting point.
 
-The simplest way to customise things is just to override the standard
-Bootstrap styles as necessary.  The theme intentionally avoids loading any
-local stylesheets by default.  Instead, any local stylesheets must be
-explicitly specified using the ``STYLESHEETS`` setting.  ``STYLESHEETS`` is
-an array for listing all the local stylesheets that should be loaded by the
+The simplest way to customise things is to override the standard Bootstrap
+styles as necessary.  The theme intentionally avoids loading any local
+stylesheets by default.  Instead, any local stylesheets must be explicitly
+configured using the ``STYLESHEETS`` setting.  ``STYLESHEETS`` is an array
+for listing all the local stylesheets that should be loaded by the
 ``base.html`` template.  Place any CSS stylesheet files you may require in
-``static/css`` and add the filenames to the ``STYLESHEETS`` array in 
+``static/css`` and add the filenames to the ``STYLESHEETS`` array in
 ``pelicanconf.py``
 
 As a starting point, my suggestion is to rename the supplied
@@ -107,19 +112,20 @@ standard Bootstrap file with a customised local one.  The
 ``MAIN_LOCAL_STYLESHEET`` setting is provided for this.  If this variable
 is not set, the standard ``bootstrap.min.css`` will be used, from a CDN.  
 
-Otherwise, set ``MAIN_LOCAL_STYLESHEET`` to the name of a local style to
-use that stylesheet instead of the standard Bootstrap CSS.  
+Otherwise, set ``MAIN_LOCAL_STYLESHEET`` to the filename of a local
+stylesheet to use that as the main bootstrap file instead of the standard
+Bootstrap CSS file.
 
 For example, you could use the `Bootstrap customizer
-<http://getbootstrap.com/customize/>`_ to create your own customised css
+<http://getbootstrap.com/customize/>`_ to create your own customised CSS
 file.  Place that file in ``static/css`` and set ``MAIN_LOCAL_STYLESHEET``
 to be the filename.  
 
 Similarly, a `Bootswatch <http://bootswatch.com/>`_ theme can be easily
 integrated.  Select a theme and download the files.  Place all the
 necessary CSS files in ``static/css``.  Set ``MAIN_LOCAL_STYLESHEET`` to
-the filename of the main Bootstrap file, and put any additional CSS files
-in the ``STYLESHEETS`` array.
+the filename of the main Bootstrap CSS file, and put any additional CSS
+files in the ``STYLESHEETS`` array.
 
 
 Further Customisation
@@ -156,7 +162,7 @@ templates.  For example, if ``pelicanconf.py`` contains the line::
 Then the entire sidebar would be replaced by whatever is in the template
 file located at::
 
-  /templates/includes/custom/sidebar.html
+  templates/includes/custom/sidebar.html
 
 See the "Custom Includes" section below for details.
 
@@ -167,10 +173,20 @@ must be relative to the theme's ``templates/includes/`` directory.
 Settings
 --------
 
-The following things are configurable.  All are optional.
+The following settings serve the same purpose as in the default Pelican
+theme:
 
-Feed settings as supported similarly to the default Pelican theme, with
-the variables: ``FEED_DOMAIN``, ``FEED_ALL_ATOM``, ``FEED_ALL_RSS``
+* ``SITEURL``
+* ``SITENAME``
+* ``FEED_DOMAIN``
+* ``FEED_ALL_ATOM``
+* ``FEED_ALL_RSS`` 
+* ``DISQUS_SITENAME``
+* ``GOOGLE_ANALYTICS``
+
+
+The following configuration settings are specific to this theme.  All are
+optional.
 
 
 ``SITESUBTITLE``
@@ -195,13 +211,14 @@ the variables: ``FEED_DOMAIN``, ``FEED_ALL_ATOM``, ``FEED_ALL_RSS``
   Set to a valid Twitter username to enable the twitter sharing button.
 
 ``TWITTER_CARD``
-  If set to True Twitter Card meta-data will be added to article pages.
+  If set to True, Twitter Card meta-data will be added to article pages.
+  If this is enabled, ``TWITTER_USERNAME`` must also be set.
 
 ``OPEN_GRAPH``
   Set to True to enable Facebook Open Graph meta-properties.
 
 ``OPEN_GRAPH_FB_APP_ID``
-  Facebook App ID
+  Facebook App ID.
 
 ``OPEN_GRAPH_ARTICLE_AUTHOR``
   Value for Open Graph ``article:author`` property, which will be set on
@@ -215,7 +232,8 @@ the variables: ``FEED_DOMAIN``, ``FEED_ALL_ATOM``, ``FEED_ALL_RSS``
 ``SOCIAL``
   Social media links.  This should be a list/tuple.  Each element must be a
   tuple with 3 elements: name, URL, Font Awesome icon class.  The last is
-  optional, and can be ``None`` to omit the icon.
+  optional, and can be ``None`` to omit the icon.  See the 
+  "Example Settings" section above for an example.
 
 
 Custom Includes
@@ -306,7 +324,7 @@ This theme supports the following (optional) custom metadata tags.
 
 ``description``
   Can be used in pages and articles to provide a value for the HTML meta
-  description tag.
+  description tag, and social meta data (i.e. Open Graph).
 
 ``standfirst``
   Adds a summary paragraph at the start of articles styled with CSS class
@@ -317,9 +335,9 @@ This theme supports the following (optional) custom metadata tags.
   provide a value for an article's ``og:image`` meta property.
 
 ``image``
-  Set to an image filename (relative to ``{{ SITEURL }}/images/``) to 
-  display a (responsive) image at the top of an article, underneath any 
-  standfirst.
+  Set to an image filename (relative to ``{{ SITEURL }}/images/``) to
+  display a (responsive) "featured image" at the top of an article,
+  underneath any standfirst.
 
 
 Author
