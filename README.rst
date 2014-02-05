@@ -82,7 +82,7 @@ The following are probably better suited for ``publishconf.py``::
 Basic Configuration and Customisation
 -------------------------------------
 
-By default all required CSS and JavaScript files are downloaded from a CDN.
+By default all required CSS and JavaScript files are downloaded from CDNs.
 Intentionally little is supplied in the theme's ``static/css``.  Just a
 ``pygment.css`` file, and a sample css file (``voidybootstrap.css``) with
 very minimal styling is provided as a starting point.
@@ -93,8 +93,8 @@ stylesheets by default.  Instead, any local stylesheets must be explicitly
 configured using the ``STYLESHEETS`` setting.  ``STYLESHEETS`` is an array
 for listing all the local stylesheets that should be loaded by the
 ``base.html`` template.  Place any CSS stylesheet files you may require in
-``static/css`` and add the filenames to the ``STYLESHEETS`` array in
-``pelicanconf.py``
+the theme's ``static/css`` directory and add the filenames to the
+``STYLESHEETS`` array in ``pelicanconf.py``
 
 As a starting point, my suggestion is to rename the supplied
 ``voidybootstrap.css`` to something more appropriate (like ``custom.css``),
