@@ -28,6 +28,16 @@
 </ul>
 </div>
 
+<div class="col-xs-6 col-md-12">
+<h4><i class="fa fa-asterisk fa-fw fa-lg"></i> Links</h4>
+<ul class="list-unstyled category-links">
+{% for title, url in LINKS %}
+  <li><a href={{ url  }} >
+    <i class="fa fa-fw fa-external-link-square fa-lg"></i> {{ title }}</a></li>
+{% endfor %}
+</ul>
+</div>
+
 </div> <!-- /row -->
 
 <h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
@@ -58,3 +68,4 @@
 <hr />
 
 {% include "includes/sidebar_bottom.html" ignore missing %}
+

@@ -66,6 +66,10 @@ The following should be set in ``pelicanconf.py``::
            'fa fa-github-square fa-fw fa-lg'),
           )
 
+  LINKS = (('First Link', 'http://example.com/'),
+           ('Pelican', 'http://www.getpelican.com'),
+           ('Wikipedia', 'http://en.wikipedia.org'))
+
 
 The following are probably better suited for ``publishconf.py``::
 
@@ -235,6 +239,10 @@ optional.
   optional, and can be ``None`` to omit the icon.  See the 
   "Example Settings" section above for an example.
 
+``LINKS``
+  Standard link in form of tuple. Each element is a tuple with 2 elements:
+  link title and link url.
+  See "Example Settings" section above for an example.
 
 Custom Includes
 ---------------
