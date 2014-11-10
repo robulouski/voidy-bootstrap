@@ -120,20 +120,17 @@
       </div><!--/row-->
     </div><!--/container-->
 
-    <div class="container">
-      <footer id="page-footer">
-		{% include 'includes/footer.html' ignore missing %} 
-        <address id="colophon">
-          Blog powered by <a href="http://getpelican.com/">Pelican</a>
-                      and <a href="http://python.org">Python</a>  
-		  &nbsp;&bull;&nbsp;
-		  <a href="https://github.com/robulouski/voidy-bootstrap"
-			 target="_blank">VoidyBootstrap</a> theme by 
-		  <a href="http://www.voidynullness.net"
-			 target="_blank">RKI</a>  
-        </address><!-- /colophon  -->
-      </footer>
-	</div>
+    <footer id="site-footer">
+      {% include 'includes/footer.html' ignore missing %} 
+      <address id="site-colophon">
+        Site built with <a href="http://getpelican.com/">Pelican</a>
+        &nbsp;&bull;&nbsp;
+        <a href="http://www.voidynullness.net/page/voidy-bootstrap-pelican-theme/"
+           target="_blank">VoidyBootstrap</a> theme by 
+        <a href="http://www.robertiwancz.com/"
+           target="_blank">RKI</a>  
+      </address><!-- /colophon  -->
+    </footer>
 
     {% include 'includes/piwik.html' %}
     {% include 'includes/disqus_script.html' %}

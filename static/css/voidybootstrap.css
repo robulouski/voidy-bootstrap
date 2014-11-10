@@ -23,8 +23,12 @@ p.standfirst {
     font-weight: 700;
 }
 
-#colophon {
-	font-size: 12px;
+#site-colophon {
+    font-size: 12px;
+    margin-bottom: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
 }
 
 .article-posthead, .article-prehead {
@@ -64,9 +68,15 @@ p.standfirst {
 	margin-top: 20px;
 }
 
-#page-footer {
-    padding-top: 30px;
-    min-height: 30px;
+#sidebar h4 {
+    margin-top: 20px;
+}
+
+#site-footer {
+    background: #eee;
+    border-top: 1px dotted #999;
+    margin-top: 40px;
+    padding-top: 20px;
 }
 
 /*
