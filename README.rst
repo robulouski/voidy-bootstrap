@@ -66,10 +66,6 @@ The following should be set in ``pelicanconf.py``::
            'fa fa-github-square fa-fw fa-lg'),
           )
 
-  LINKS = (('First Link', 'http://example.com/'),
-           ('Pelican', 'http://www.getpelican.com'),
-           ('Wikipedia', 'http://en.wikipedia.org'))
-
 
 The following are probably better suited for ``publishconf.py``::
 
@@ -92,18 +88,17 @@ Intentionally little is supplied in the theme's ``static/css``.  Just a
 very minimal styling is provided as a starting point.
 
 The simplest way to customise things is to override the standard Bootstrap
-styles as necessary.  The theme intentionally avoids loading any local
-stylesheets by default.  Instead, any local stylesheets must be explicitly
-configured using the ``STYLESHEETS`` setting.  ``STYLESHEETS`` is an array
-for listing all the local stylesheets that should be loaded by the
-``base.html`` template.  Place any CSS stylesheet files you may require in
-the theme's ``static/css`` directory and add the filenames to the
+styles as necessary.  The theme intentionally avoids loading any additional
+stylesheets by default, but this can easily be done by using the
+``STYLESHEETS`` setting.  ``STYLESHEETS`` is an array for specifying
+additional stylesheets that will be loaded by the ``base.html`` template
+after the main Bootstrap CSS file.  Place any CSS stylesheet files you may
+require in the ``static/css`` directory and add the filenames to the
 ``STYLESHEETS`` array in ``pelicanconf.py``
 
-As a starting point, my suggestion is to rename the supplied
-``voidybootstrap.css`` to something more appropriate (like ``custom.css``),
-then use it as a base for your own modifications and custom styling.  In
-this case, you would need something like this in your ``pelicanconf.py``::
+For example, if you've placed your own CSS styling in a stylesheet called
+``custom.css`` (possibly using ``voidybootstrap.css`` as a starting point),
+then you would need something like this in your ``pelicanconf.py``::
 
   STYLESHEETS = ("pygment.css", "custom.css",)
 
@@ -112,13 +107,15 @@ Custom Bootstrap
 ----------------
 
 As an alternative, or in addition, it's possible to easily replace the
-standard Bootstrap file with a customised local one.  The
+standard Bootstrap file with a customised one.  The
 ``MAIN_LOCAL_STYLESHEET`` setting is provided for this.  If this variable
-is not set, the standard ``bootstrap.min.css`` will be used, from a CDN.  
+is *not* set, a standard ``bootstrap.min.css`` will be used from a CDN.  
 
-Otherwise, set ``MAIN_LOCAL_STYLESHEET`` to the filename of a local
-stylesheet to use that as the main bootstrap file instead of the standard
-Bootstrap CSS file.
+To use a different (i.e. customised) Bootstrap stylesheet, set
+``MAIN_LOCAL_STYLESHEET`` to the filename of a stylesheet to use instead.
+
+This could be a customised Bootstrap stylesheet compiled manually from the
+Bootstrap Less files, or perhaps one obtained from an online source.
 
 For example, you could use the `Bootstrap customizer
 <http://getbootstrap.com/customize/>`_ to create your own customised CSS
@@ -128,7 +125,7 @@ to be the filename.
 Similarly, a `Bootswatch <http://bootswatch.com/>`_ theme can be easily
 integrated.  Select a theme and download the files.  Place all the
 necessary CSS files in ``static/css``.  Set ``MAIN_LOCAL_STYLESHEET`` to
-the filename of the main Bootstrap CSS file, and put any additional CSS
+the filename of the main Bootstrap CSS file, and specify any additional CSS
 files in the ``STYLESHEETS`` array.
 
 
@@ -158,7 +155,7 @@ See the "Optional Templates" section below for details.
 
 The other hook is custom includes.  These are variables that can be set in
 ``pelicanconf.py`` to point to the filename of a template fragment.  These
-template fragments will be included and will replace content in the default
+template fragments will replace content in the default
 templates.  For example, if ``pelicanconf.py`` contains the line::
 
   CUSTOM_SIDEBAR = "custom/sidebar.html"
@@ -174,23 +171,33 @@ Note that for both optional templates and custom includes, all filenames
 must be relative to the theme's ``templates/includes/`` directory.
 
 
-Settings
---------
+Standard Settings
+-----------------
 
-The following settings serve the same purpose as in the default Pelican
-theme:
+VoidyBootstrap honors the following `standard Pelican settings
+<http://docs.getpelican.com/en/3.5.0/settings.html>`_:
 
 * ``SITEURL``
 * ``SITENAME``
+* ``SITESUBTITLE``
+* ``LINKS``
+* ``SOCIAL``
+* ``TWITTER_USERNAME``
 * ``FEED_DOMAIN``
 * ``FEED_ALL_ATOM``
 * ``FEED_ALL_RSS`` 
 * ``DISQUS_SITENAME``
 * ``GOOGLE_ANALYTICS``
 
+For the most part they should work as expected, although some may behave
+slightly differently than in the default Pelican theme (see next section).
 
-The following configuration settings are specific to this theme.  All are
-optional.
+
+Settings
+--------
+
+This theme supports the following configuration settings.  All are
+optional.  
 
 
 ``SITESUBTITLE``
@@ -208,7 +215,7 @@ optional.
   Local Bootstrap CSS file, as described above.
 
 ``STYLESHEETS``
-  An array for listing all the local stylesheets that should be loaded by
+  An array for listing additional stylesheets that should be pulled in by
   the ``base.html`` template, as described above.
 
 ``TWITTER_USERNAME``
@@ -233,16 +240,48 @@ optional.
   Articles can use the custom ``social_image`` metadata tag to specify a
   per-article page value.
 
+
+Sidebar Settings
+----------------
+
+The "sidebar" area is probably something where everyone will want something
+different, so it isn't possible to create an implementation that will
+satisfy everyone all the time.  However, there are things that commonly
+appear in sidebars (e.g author bio, categories, tag cloud, etc), so this
+theme tries to make it simple to add those by providing a default sidebar
+template which can be customised via settings in ``pelicanconf.py``.
+
+However, it also provides the ability to completely replace the default
+sidebar template with a custom implementation (see ``CUSTOM_SIDEBAR`` in
+the "Custom Includes" section).
+
+The following settings are available if using the default sidebar
+implementation in ``includes/sidebar.html`` (or compatible variation
+thereof):
+
 ``SOCIAL``
-  Social media links.  This should be a list/tuple.  Each element must be a
-  tuple with 3 elements: name, URL, Font Awesome icon class.  The last is
-  optional, and can be ``None`` to omit the icon.  See the 
-  "Example Settings" section above for an example.
+  Social media links to display in sidebar.  This option is handled a bit
+  differently than in the default theme.  This should be a list/tuple where
+  each element is a tuple with 3 elements: (name, URL, Font Awesome icon
+  class).  (See the "Example Settings" section above for an example.)  The
+  last element (icon class) can be omitted, in which case a generic icon
+  will be used instead.
 
 ``LINKS``
-  Standard link in form of tuple. Each element is a tuple with 2 elements:
-  link title and link url.
-  See "Example Settings" section above for an example.
+  Optional list of arbitrary links to display in sidebar.  Each element
+  must be a tuple with 2 elements: (link title, URL).
+
+``SIDEBAR_HIDE_CATEGORIES`` 
+  A list of category links is displayed in the sidebar by default.  Set
+  this option to True to not display categories.
+
+``SIDEBAR_HIDE_TAGS``
+  A tag cloud is displayed in the sidebar by default.  Set this option to
+  True to disable the tag cloud.
+
+See also ``sidebar_bottom.html`` and ``sidebar_top.html`` in the "Optional
+Templates" section below.
+
 
 Custom Includes
 ---------------
@@ -335,8 +374,9 @@ This theme supports the following (optional) custom metadata tags.
   description tag, and social meta data (i.e. Open Graph).
 
 ``standfirst``
-  Adds a summary paragraph at the start of articles styled with CSS class
-  "standfirst".
+  Text for a summary/intro paragraph that will be placed at the start of an
+  article.  This paragraph will be given a CSS class of "standfirst" so
+  that additional styles can be applied.
 
 ``social_image``
   Set to an image filename (relative to ``{{ SITEURL }}/images/``) to 

@@ -1,23 +1,26 @@
 {% include "includes/sidebar_top.html" ignore missing %}
 
 <div class="row">
+
 {% if CUSTOM_SOCIAL %}
 {% set socialinc = "includes/" + CUSTOM_SOCIAL %}
 {% include socialinc %}
-{% else %}
+{% elif SOCIAL %}
 <div class="col-xs-6 col-md-12">
 <h4><i class="fa fa-comment fa-fw fa-lg"></i> Social</h4>
 <ul class="list-unstyled social-links">
-  {% for name, link, icon in SOCIAL %}
-    <li><a href="{{ link }}" target="_blank">
-	  {% if icon %}<i class="{{ icon }}" title="{{ name }}"></i> {% endif %}
-		{{ name }}
+{#  {% for name, link, icon in SOCIAL %} #}
+  {% for item in SOCIAL %}
+    <li><a href="{{ item[1] }}" target="_blank">
+	  <i class="{{ item[2]|default("fa fa-comments fa-fw fa-lg") }}" title="{{ item[0] }}"></i>
+		{{ item[0] }}
 	</a></li>
   {% endfor %}
 </ul>
 </div>
 {% endif %}
 
+{% if not SIDEBAR_HIDE_CATEGORIES %}
 <div class="col-xs-6 col-md-12">
 <h4><i class="fa fa-folder fa-fw fa-lg"></i> Categories</h4>
 <ul class="list-unstyled category-links">
@@ -27,19 +30,21 @@
 {% endfor %}
 </ul>
 </div>
+{% endif %}
 
-<div class="col-xs-6 col-md-12">
-<h4><i class="fa fa-asterisk fa-fw fa-lg"></i> Links</h4>
+</div> <!-- /row -->
+
+{% if LINKS %}
+<h4><i class="fa fa-link fa-fw fa-lg"></i> Links</h4>
 <ul class="list-unstyled category-links">
 {% for title, url in LINKS %}
   <li><a href={{ url  }} >
     <i class="fa fa-fw fa-external-link-square fa-lg"></i> {{ title }}</a></li>
 {% endfor %}
 </ul>
-</div>
+{% endif %}
 
-</div> <!-- /row -->
-
+{% if not SIDEBAR_HIDE_TAGS %}
 <h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
 <p class="tag-cloud">
 {% for tag in tag_cloud %}
@@ -50,7 +55,9 @@
 </span>
 {% endfor %}
 </p>
+{% endif %}
 
+{% if FEED_ALL_ATOM or FEED_ALL_RSS %}
 <h4><i class="fa fa-rss fa-fw fa-lg"></i> Feeds</h4>
 <ul class="list-unstyled">
   {% if FEED_ALL_ATOM %}
@@ -64,6 +71,7 @@
 		<i class="fa fa-rss-square fa-fw fa-lg"></i> RSS feed</a></li>
   {% endif %}
 </ul>
+{% endif %}
 
 <hr />
 
