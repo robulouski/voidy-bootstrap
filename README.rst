@@ -48,7 +48,7 @@ The following should be set in ``pelicanconf.py``::
   SITETAG = "Text that's displayed in the title on the home page."
 
   # Extra stylesheets, for bootstrap overrides or additional styling.
-  STYLESHEETS = ("pygment.css", "voidybootstrap.css",)
+  STYLESHEET_FILES = ("pygment.css", "voidybootstrap.css",)
 
   # Use the default sharing button implementation.
   CUSTOM_ARTICLE_SHARING = "sharing.html"
@@ -90,17 +90,17 @@ very minimal styling is provided as a starting point.
 The simplest way to customise things is to override the standard Bootstrap
 styles as necessary.  The theme intentionally avoids loading any additional
 stylesheets by default, but this can easily be done by using the
-``STYLESHEETS`` setting.  ``STYLESHEETS`` is an array for specifying
+``STYLESHEET_FILES`` setting.  ``STYLESHEET_FILES`` is an array for specifying
 additional stylesheets that will be loaded by the ``base.html`` template
 after the main Bootstrap CSS file.  Place any CSS stylesheet files you may
 require in the ``static/css`` directory and add the filenames to the
-``STYLESHEETS`` array in ``pelicanconf.py``
+``STYLESHEET_FILES`` setting in ``pelicanconf.py``
 
 For example, if you've placed your own CSS styling in a stylesheet called
 ``custom.css`` (possibly using ``voidybootstrap.css`` as a starting point),
 then you would need something like this in your ``pelicanconf.py``::
 
-  STYLESHEETS = ("pygment.css", "custom.css",)
+  STYLESHEET_FILES = ("pygment.css", "custom.css",)
 
 
 Custom Bootstrap
@@ -214,9 +214,34 @@ optional.
 ``MAIN_LOCAL_STYLESHEET``
   Local Bootstrap CSS file, as described above.
 
-``STYLESHEETS``
-  An array for listing additional stylesheets that should be pulled in by
-  the ``base.html`` template, as described above.
+``STYLESHEET_URLS``
+  An array of URLS for additional stylesheets that should be pulled in by
+  the ``base.html`` template, e.g. for CSS files from a CDN.
+
+``STYLESHEET_FILES``
+  An array of filenames (relative to the ``/theme/css/`` directory) for
+  additional stylesheets that should be pulled in by the ``base.html``
+  template (after any STYLESHEET_URLS entries).
+
+``SKIP_DEFAULT_CSS`` 
+  No default CSS files at all will be used if this is set to True.  In this
+  case the only stylesheets used will be those specified in
+  ``STYLESHEET_FILES`` and ``STYLESHEET_URLS``.  This setting is provided
+  to give more control over which specific Bootstrap (and Font Awesome) CSS
+  files are used (i.e. it allows a specific version to be configured
+  through settings).  But it means for things to work properly at a minimum
+  the Bootstrap and Font Awesome need to be configured using the
+  STYLESHEET_* settings.
+
+``SKIP_DEFAULT_JS``
+  Don't load any default JavaScript in the base template.  If this is set
+  to True, at a minimum jQuery and the Bootstrap JavaScript must be
+  provided via ``JAVASCRIPT_FILES`` and/or ``JAVASCRIPT_URLS``.
+
+``JAVASCRIPT_FILES`` and ``JAVASCRIPT_URLS`` 
+  Similar to the STYLESHEET_* settings, these allow arbitrary JavaScript
+  files to be loaded.  They will be referenced at the bottom of
+  ``base.html``, after any default script files.
 
 ``TWITTER_USERNAME``
   Set to a valid Twitter username to enable the twitter sharing button.

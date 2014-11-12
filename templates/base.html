@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <title>{% block title %}{{ SITENAME }} - {{ SITETAG|escape }}{% endblock %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="{% block metadesc %}{{ DEFAULT_METADESC|escape }}{% endblock %}" />
     <meta name="author" content="{{ AUTHOR }}" />
+    <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 	{% block meta_other %}{% endblock %}
     {% if OPEN_GRAPH_FB_APP_ID %}
     <meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}"/>
@@ -25,17 +26,26 @@
         {% endif %}
       {% endif %}
     {% endblock %}
-    {% if MAIN_LOCAL_STYLESHEET %}	
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ MAIN_LOCAL_STYLESHEET }}" />
-	{% else %}
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+
+    {% if not SKIP_DEFAULT_CSS %}   
+      {% if MAIN_LOCAL_STYLESHEET %} 
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ MAIN_LOCAL_STYLESHEET }}" />
+      {% else %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" />
+      {% endif %}
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />  
     {% endif %}
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />	
-    {% if STYLESHEETS %}	
-      {% for css in STYLESHEETS %}
-        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ css }}" />
-	  {% endfor %}
+
+    {% for url in STYLESHEET_URLS %}
+      <link rel="stylesheet" href="{{ url }}" />
+    {% endfor %}
+
+    {% if not STYLESHEET_FILES and STYLESHEETS %}   
+      {% set STYLESHEET_FILES = STYLESHEETS %}
     {% endif %}
+    {% for css in STYLESHEET_FILES %}
+      <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ css }}" />
+    {% endfor %}
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -136,8 +146,18 @@
     {% include 'includes/disqus_script.html' %}
 
     <!-- javascript -->
-	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    {% if not SKIP_DEFAULT_JS %}   
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    {% endif %}
+
+    {% for url in JAVASCRIPT_URLS %}
+	<script src="{{ url }}"></script>
+    {% endfor %}
+    {% for js in JAVASCRIPT_FILES %}
+    <script src="{{ SITEURL }}/theme/js/{{ js }}" ></script>
+    {% endfor %}
+
     {% block scripts %}
     {% endblock %}
   </body>
