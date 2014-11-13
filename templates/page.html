@@ -30,5 +30,15 @@
     {% endif %}
     {{ page.content }}
   </div>
+
+  {% for file in CUSTOM_PAGE_FOOTERS %}
+    {% include "includes/" + file %}
+  {% endfor %}
+
 </article>
+{% endblock %}
+{% block scripts %}
+  {% if CUSTOM_PAGE_SCRIPTS %}
+    {% include "includes/" + CUSTOM_PAGE_SCRIPTS %}
+  {% endif %}
 {% endblock %}

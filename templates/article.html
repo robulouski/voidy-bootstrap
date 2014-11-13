@@ -44,9 +44,11 @@
 {% endblock %}
 {% block content_body %}
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
-  <header>
-  {% if CUSTOM_ARTICLE_HEADER %}
-	{% include "includes/" + CUSTOM_ARTICLE_HEADER %}
+  <header class="article-header">
+  {% if CUSTOM_ARTICLE_HEADERS %}
+    {% for file in CUSTOM_ARTICLE_HEADERS %}
+	  {% include "includes/" + file %}
+    {% endfor %}
   {% else %}
 	{% include "includes/article_header.html" %}
   {% endif %}
@@ -59,15 +61,13 @@
       <img class="article-image img-responsive" alt="article header image" itemprop="image"
 		   src="{{ SITEURL }}/images/{{ article.image }}" />
     {% endif %}
+    {% include "includes/" + CUSTOM_ARTICLE_PRECONTENT|default('article_precontent.html') ignore missing %}
 	{{ article.content }}
   </div>
-
-  {% include "includes/article_end.html" ignore missing %}
-  <hr />
-  {% if CUSTOM_ARTICLE_SHARING %}
-    {% include "includes/" + CUSTOM_ARTICLE_SHARING  %}
-  {% endif %}
-  {% include "includes/article_bottom.html" ignore missing %}
+  
+  {% for file in CUSTOM_ARTICLE_FOOTERS %}
+    {% include "includes/" + file %}
+  {% endfor %}
 
   {% if DISQUS_SITENAME and SITEURL and article.status != "draft" %}
   <div class="comments">

@@ -317,34 +317,31 @@ the primary templates.  They will usually override existing sections of
 content.  All paths must be relative to the theme's ``templates/includes``
 directory.
 
-``CUSTOM_ARTICLE_SHARING``
-  Template fragment for custom social media sharing buttons.  
-  Included in ``article.html`` at the bottom of the article, after
-  ``article_end.html`` but before ``article_bottom.html``.
-  Set to ``includes/sharing.html`` to use the default provided implementation.
 
 ``CUSTOM_ARTICLE_SCRIPTS``
-  Template fragment for any javascript code necessary for article pages
-  (namely code for any social media sharing buttons).  
-  Will be included right at the bottom of article pages, just before the
-  closing body tag.  Set to ``includes/sharing_scripts.html`` to use the 
+``CUSTOM_PAGE_SCRIPTS``
+  Template fragment for any additional javascript code specific to articles
+  and pages respectively (useful for things like social media sharing
+  buttons).  Will be included right at the bottom of pages, just before the
+  closing body tag.  Set to ``includes/sharing_scripts.html`` to use the
   default provided implementation.
 
-``CUSTOM_ARTICLE_HEADER``
-  Replaces the default article header in ``includes/article_header.html`` 
-  with a custom implementation on *article pages only*.
+``CUSTOM_ARTICLE_HEADERS``
+  An array of templates that will replace the default article header
+  provided in ``includes/article_header.html`` on *article pages only*.
 
-``CUSTOM_ARTICLE_HEADER_INDEX``
-  Replaces the default article header in ``includes/article_header.html`` 
-  with a custom implementation on *index pages only*.
+``CUSTOM_INDEX_ARTICLE_HEADERS``
+  An array of templates that will replace the default article article
+  header provided in ``includes/article_header.html`` on *index pages only*.
 
-``CUSTOM_ARTICLE_PREHEAD``
-  Template fragment for content just before main article heading.
-  (e.g. date)
+``CUSTOM_ARTICLE_PRECONTENT``
+  Template fragment that will be inserted just before the start of the
+  article body text, after any headers, image and standfirst.
 
-``CUSTOM_ARTICLE_POSTHEAD``
-  Template fragment for content right after main article heading.
-  (e.g. author, category, etc)
+``CUSTOM_ARTICLE_FOOTERS``
+  An array of templates that will included at the bottom of article pages,
+  after the body text but before the comments.  Can be used to configure
+  any appropriate content, like sharing buttons, taglist, etc.
 
 ``CUSTOM_SIDEBAR``
   Don't like the sidebar provided by the theme?  Have something totally 
@@ -354,24 +351,11 @@ directory.
   the default sidebar with your custom sidebar.
 
 
-
 Optional Templates
 ------------------
 
 Additional templates can be added to the ``templates/includes`` directory.
 This provides a way to easily add small sections of content.
-
-``article_top.html``
-  Included by ``article.html`` before the article section.  Can be used 
-  to provide things like pagination, breadcrumbs, ads, etc.
-
-``article_end.html``
-  Included by ``article.html`` right after the article contents.  There
-  is a default implementation provided, which displays a tag-list.
-
-``article_bottom.html``
-  Included by ``article.html`` after the article content, after any 
-  social media sharing buttons, but before disqus comments.  
 
 ``footer.html``
   Included by ``base.html``.  Anything here (e.g. copyright text) will

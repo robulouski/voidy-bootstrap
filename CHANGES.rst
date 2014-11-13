@@ -29,6 +29,12 @@ ChangeLog - VoidyBootstrap
     and JS files from static (sub)directory, without using CDN files at
     all.
 
+* Replaced article_*.html optional templates with custom includes:
+  - Removed most CUSTOM_ARTICLE_*.
+  - Added CUSTOM_ARTICLE_HEADERS, CUSTOM_INDEX_ARTICLE_HEADERS,
+    CUSTOM_ARTICLE_PRECONTENT, CUSTOM_ARTICLE_FOOTERS.
+
+
 
 1.0 Initial Release (February 2014)
 -----------------------------------
