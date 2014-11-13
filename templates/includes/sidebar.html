@@ -1,4 +1,4 @@
-{% include "includes/sidebar_top.html" ignore missing %}
+{% include "includes/" + CUSTOM_SIDEBAR_TOP|default("sidebar_top.html") ignore missing %}
 
 <div class="row">
 
@@ -75,5 +75,4 @@
 
 <hr />
 
-{% include "includes/sidebar_bottom.html" ignore missing %}
-
+{% include "includes/" + CUSTOM_SIDEBAR_BOTTOM|default("sidebar_bottom.html") ignore missing %}

@@ -140,40 +140,29 @@ Further Customisation
 Like any other Pelican theme, you can just take the templates provided
 and modify them to your liking.  However, if you're happy with the overall
 layout and just want to add/subtract things here are there, this theme
-provides a range of "hooks" to do just that by simply setting specific
+provides "hooks" to do just that by simply setting specific
 variables in your ``pelicanconf.py`` and/or providing your own template
 fragments.  For simple customisations, this can make is relatively
 straightforward to isolate modifications and easily keep up to date with
 any upstream changes.
 
-There are 2 types of hooks.  
-
-One is a set of optional templates.  At strategic points, the theme's
-templates use Jinja's include directive with "ignore missing" to allow
-arbitrary content to be optionally added.  For example, if you'd like to
-add an "About" section to the top of the sidebar, just create a template in
-the ``includes`` directory called ``sidebar_top.html`` and put the content
-in there.  The contents of that template fragment will automatically be
-included at the top of the sidebar.
-
-See the "Optional Templates" section below for details.
-
-The other hook is custom includes.  These are variables that can be set in
+These customisation "hooks" are variables that can be set in
 ``pelicanconf.py`` to point to the filename of a template fragment.  These
-template fragments will replace content in the default
-templates.  For example, if ``pelicanconf.py`` contains the line::
+template fragments will either add or replace content in the default layout
+provided by the theme.  For example, if ``pelicanconf.py`` contains the
+line::
 
-  CUSTOM_SIDEBAR = "custom/sidebar.html"
+  CUSTOM_FOOTER = "custom/footer.html"
 
-Then the entire sidebar would be replaced by whatever is in the template
+Then the bottom of every page will contain whatever is in the template
 file located at::
 
-  templates/includes/custom/sidebar.html
+  templates/includes/custom/footer.html
 
 See the "Custom Includes" section below for details.
 
-Note that for both optional templates and custom includes, all filenames
-must be relative to the theme's ``templates/includes/`` directory.
+Note that for these template fragments must be relative to the theme's
+``templates/includes/`` directory.
 
 
 Standard Settings
@@ -309,8 +298,7 @@ thereof):
   A tag cloud is displayed in the sidebar by default.  Set this option to
   True to disable the tag cloud.
 
-See also ``sidebar_bottom.html`` and ``sidebar_top.html`` in the "Optional
-Templates" section below.
+See also ``CUSTOM_SIDEBAR_TOP`` and ``CUSTOM_SIDEBAR_BOTTOM`` below.
 
 
 Custom Includes
@@ -359,24 +347,17 @@ directory.
   (e.g. copyright text) will appear between footer tags at the bottom of
   every page.
 
-
-
-Optional Templates
-------------------
-
-Additional templates can be added to the ``templates/includes`` directory.
-This provides a way to easily add small sections of content.
-
-``index_meta.html``
+``CUSTOM_INDEX_META``
   Included by ``index.html`` between the head tags.  Can be used 
   to add extra HTML meta tags to index pages, for example.
 
-``sidebar_top.html``
+``CUSTOM_SIDEBAR_TOP``
   Included by ``sidebar.html`` at the top of the sidebar.  Provides a
   convenient place for an "about" blurb, for example.
 
-``sidebar_bottom.html``
+``CUSTOM_SIDEBAR_BOTTOM``
   Included by ``sidebar.html`` at the bottom of the sidebar.
+
 
 
 Custom Metadata Tags

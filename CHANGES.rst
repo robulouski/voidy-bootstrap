@@ -3,7 +3,7 @@ ChangeLog - VoidyBootstrap
 
 
 1.1 (under development)
------------------------------------
+-----------------------
 
 * Updated Dependencies: 
   - Pelican 3.5 (should work with 3.3 and 3.4, but untested)
@@ -29,10 +29,11 @@ ChangeLog - VoidyBootstrap
     and JS files from static (sub)directory, without using CDN files at
     all.
 
-* Replaced article_*.html optional templates with custom includes:
+* Replaced all optional templates with custom includes:
   - Removed most CUSTOM_ARTICLE_*.
   - Added CUSTOM_ARTICLE_HEADERS, CUSTOM_INDEX_ARTICLE_HEADERS,
     CUSTOM_ARTICLE_PRECONTENT, CUSTOM_ARTICLE_FOOTERS.
+  - Added CUSTOM_INDEX_META, CUSTOM_SIDEBAR_TOP, CUSTOM_SIDEBAR_BOTTOM
 
 * New custom includes:
   - CUSTOM_PAGE_FOOTERS, CUSTOM_PAGE_SCRIPTS, CUSTOM_FOOTER.
