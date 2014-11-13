@@ -18,6 +18,10 @@ img {
     line-height: 26px;
 }
 
+#content p {
+      margin-bottom: 24px;
+  }
+
 p.standfirst {
     font-size: 18px;
     font-weight: 700;
@@ -31,7 +35,7 @@ p.standfirst {
     text-align: center;
 }
 
-.article-posthead, .article-prehead {
+.article-header-date, .article-header-info {
 	color: #999;
 }
 
@@ -82,7 +86,7 @@ p.standfirst {
 /*
  * My preference for code blocks is no line wraps and horizontal scrolling.
  */
-.highlight pre {
+#content pre {
     border-left: 5px solid #999;
     overflow-x: auto;
     padding-left: 20px;

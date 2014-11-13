@@ -34,6 +34,11 @@ ChangeLog - VoidyBootstrap
   - Added CUSTOM_ARTICLE_HEADERS, CUSTOM_INDEX_ARTICLE_HEADERS,
     CUSTOM_ARTICLE_PRECONTENT, CUSTOM_ARTICLE_FOOTERS.
 
+* New custom includes:
+  - CUSTOM_PAGE_FOOTERS, CUSTOM_PAGE_SCRIPTS, CUSTOM_FOOTER.
+
+* Added javascript metatag for pages.
+
 
 
 1.0 Initial Release (February 2014)

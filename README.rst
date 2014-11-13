@@ -4,24 +4,29 @@ VoidyBootstrap
 A `Bootstrap 3 <http://getbootstrap.com>`_ blog theme for the
 `Pelican <http://getpelican.com>`_ static site generator.
 
-A blog theme that aims to be mobile friendly, responsive and easily
-customisable.  On larger screens it provides a clean 2 column layout.  At
-the top there's a navbar containing page links, and jumbotron area.  The
-sidebar has category links and a tag-cloud.  `Font Awesome 4
+VoidyBootstrap is a theme that aims to be mobile friendly, responsive and
+easily customisable.  On larger screens it provides a clean 2 column
+layout.  At the top there's a navbar containing page links, and jumbotron
+area.  The sidebar has category links and a tag-cloud.  `Font Awesome 4
 <http://fontawesome.io/>`_ is used for icons.
 
-Designed to be usable right out of the box with minimal configuration, and
-all the common features expected in a modern blog -- albeit with the
-ubiquitous Bootstrap look and feel.  
+While the theme provides lots of customisation settings, care has been
+taken to make it usable right out of the box with minimal configuration and
+sensible defaults -- albeit with the ubiquitous Bootstrap look and feel.
 
-However, customised CSS and other modifications can be easily
-incorporated using config settings, without even having to modify
-any templates.
+It's functional but deliberately minimal in terms of design.  It can be
+used as is, or as a "clean slate" for creating custom Bootstrap-based
+websites -- where all the usual scaffolding and fiddly bits are taken care
+of, and all that remains is to provide a custom design on top of the
+Bootstrap base it provides.
 
-But it's mostly intended as a "clean slate" for creating custom
-Bootstrap-based themes, where all the usual scaffolding and fiddly bits are
-already taken care of, and all that remains is to provide a custom design
-on top of the Bootstrap base.
+The theme tries to accommodate common blogging needs and provide ways to
+easily accomplish common customisations.
+
+Customised stylesheets, JavaScript and other modifications can be easily
+incorporated using configuration settings, and content can be added to the
+base layout by strategically adding template fragments (as opposed to
+modifying existing templates).
 
 
 Installation
@@ -50,8 +55,8 @@ The following should be set in ``pelicanconf.py``::
   # Extra stylesheets, for bootstrap overrides or additional styling.
   STYLESHEET_FILES = ("pygment.css", "voidybootstrap.css",)
 
-  # Use the default sharing button implementation.
-  CUSTOM_ARTICLE_SHARING = "sharing.html"
+  # Put taglist at end of articles, and use the default sharing button implementation.
+  CUSTOM_ARTICLE_FOOTERS = ("taglist.html", "sharing.html", )
   CUSTOM_ARTICLE_SCRIPTS = "sharing_scripts.html"
 
   SOCIAL = (('Google+', 'http://plus.google.com/userid',
@@ -318,8 +323,7 @@ content.  All paths must be relative to the theme's ``templates/includes``
 directory.
 
 
-``CUSTOM_ARTICLE_SCRIPTS``
-``CUSTOM_PAGE_SCRIPTS``
+``CUSTOM_ARTICLE_SCRIPTS`` and ``CUSTOM_PAGE_SCRIPTS``
   Template fragment for any additional javascript code specific to articles
   and pages respectively (useful for things like social media sharing
   buttons).  Will be included right at the bottom of pages, just before the
@@ -350,16 +354,18 @@ directory.
   and set ``CUSTOM_SIDEBAR`` to point to it -- this  completely replaces 
   the default sidebar with your custom sidebar.
 
+``CUSTOM_FOOTER``
+  Footer template to be included by ``base.html``.  Anything here
+  (e.g. copyright text) will appear between footer tags at the bottom of
+  every page.
+
+
 
 Optional Templates
 ------------------
 
 Additional templates can be added to the ``templates/includes`` directory.
 This provides a way to easily add small sections of content.
-
-``footer.html``
-  Included by ``base.html``.  Anything here (e.g. copyright text) will
-  appear between footer tags at the bottom of every page.
 
 ``index_meta.html``
   Included by ``index.html`` between the head tags.  Can be used 
@@ -395,6 +401,13 @@ This theme supports the following (optional) custom metadata tags.
   Set to an image filename (relative to ``{{ SITEURL }}/images/``) to
   display a (responsive) "featured image" at the top of an article,
   underneath any standfirst.
+
+``schema_type``
+  Pages only.  A schema.org itemtype for the page.  Default is "WebPage".
+
+``javascript``
+  Pages only.  Filename of a JavaScript file (relative to ``theme/js/``
+  directory) to load for this page.
 
 
 Author

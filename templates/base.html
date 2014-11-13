@@ -131,7 +131,7 @@
     </div><!--/container-->
 
     <footer id="site-footer">
-      {% include 'includes/footer.html' ignore missing %} 
+      {% include 'includes/' + CUSTOM_FOOTER|default('footer.html') ignore missing %} 
       <address id="site-colophon">
         Site built with <a href="http://getpelican.com/">Pelican</a>
         &nbsp;&bull;&nbsp;
