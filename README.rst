@@ -311,29 +311,29 @@ content.  All paths must be relative to the theme's ``templates/includes``
 directory.
 
 
-``CUSTOM_ARTICLE_SCRIPTS`` and ``CUSTOM_PAGE_SCRIPTS``
-  Template fragment for any additional javascript code specific to articles
-  and pages respectively (useful for things like social media sharing
-  buttons).  Will be included right at the bottom of pages, just before the
-  closing body tag.  Set to ``includes/sharing_scripts.html`` to use the
-  default provided implementation.
-
 ``CUSTOM_ARTICLE_HEADERS``
-  An array of templates that will replace the default article header
+  List of templates that will replace the default article header
   provided in ``includes/article_header.html`` on *article pages only*.
 
 ``CUSTOM_INDEX_ARTICLE_HEADERS``
-  An array of templates that will replace the default article article
+  List of templates that will replace the default article article
   header provided in ``includes/article_header.html`` on *index pages only*.
 
 ``CUSTOM_ARTICLE_PRECONTENT``
   Template fragment that will be inserted just before the start of the
   article body text, after any headers, image and standfirst.
 
-``CUSTOM_ARTICLE_FOOTERS``
-  An array of templates that will included at the bottom of article pages,
+``CUSTOM_ARTICLE_PREFIX``
+  Template fragment that will be inserted before the article headers .
+
+``CUSTOM_ARTICLE_FOOTERS`` and ``CUSTOM_PAGE_FOOTERS``
+  List of templates that will included at the bottom of articles/pages,
   after the body text but before the comments.  Can be used to configure
   any appropriate content, like sharing buttons, taglist, etc.
+
+``CUSTOM_HEADER_*``
+  Add custom content after the site headers (before any columns) based
+  on page type, which can be: INDEX, ARTICLE, PAGE, CATEGORY, TAG, ARCHIVES.
 
 ``CUSTOM_SIDEBAR``
   Don't like the sidebar provided by the theme?  Have something totally 
@@ -346,6 +346,16 @@ directory.
   Footer template to be included by ``base.html``.  Anything here
   (e.g. copyright text) will appear between footer tags at the bottom of
   every page.
+
+``CUSTOM_SCRIPTS_ARTICLE`` and ``CUSTOM_SCRIPTS_PAGE``
+  Template fragment for any additional javascript code specific to articles
+  and pages respectively (useful for things like social media sharing
+  buttons).  Will be included right at the bottom of pages, just before the
+  closing body tag.  Set to ``includes/sharing_scripts.html`` to use the
+  default provided implementation.
+
+``CUSTOM_SCRIPTS_BASE``
+  As above, but will be included on every page.
 
 ``CUSTOM_INDEX_META``
   Included by ``index.html`` between the head tags.  Can be used 

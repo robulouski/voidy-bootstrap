@@ -28,6 +28,7 @@ ChangeLog - VoidyBootstrap
   - The above means it's now possible to configure a site to load all CSS
     and JS files from static (sub)directory, without using CDN files at
     all.
+  - Added javascript metatag for pages.
 
 * Replaced all optional templates with custom includes:
   - Removed most CUSTOM_ARTICLE_*.
@@ -36,9 +37,10 @@ ChangeLog - VoidyBootstrap
   - Added CUSTOM_INDEX_META, CUSTOM_SIDEBAR_TOP, CUSTOM_SIDEBAR_BOTTOM
 
 * New custom includes:
-  - CUSTOM_PAGE_FOOTERS, CUSTOM_PAGE_SCRIPTS, CUSTOM_FOOTER.
+  - CUSTOM_PAGE_FOOTERS, CUSTOM_FOOTER, CUSTOM_SCRIPTS_ARTICLE,
+    CUSTOM_SCRIPTS_PAGE, CUSTOM_SCRIPTS_BASE, CUSTOM_ARTICLE_PREFIX
 
-* Added javascript metatag for pages.
+* New header area above the "content columns", customisable  via CUSTOM_HEADER_*
 
 
 

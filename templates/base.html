@@ -89,7 +89,7 @@
             {% endfor %}
             <li class="divider"></li>
           {% endif %}
-          <li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
+          <li><a href="{{ SITEURL }}/{{ ARCHIVES_URL|default('archives.html') }}">Archives</a></li>
           <li class="divider"></li>
           {% if FEED_ALL_ATOM %}
             <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" 
@@ -104,9 +104,14 @@
 	<div class="jumbotron" id="overview">
 	  <div class="container">
 		<h1><a href="{{ SITEURL }}/">{{ SITENAME }}</a></h1>
-		<p class="lead">{% if SITESUBTITLE %}{{ SITESUBTITLE }}{% endif %}</p>
+        {% if SITESUBTITLE %}
+		<p class="lead">{{ SITESUBTITLE }}</p>
+        {% endif %}
 	  </div>
 	</div>
+
+    {% block custom_header %}
+	{% endblock %}
 
     <div class="container">
       <div class="row">
@@ -160,5 +165,8 @@
 
     {% block scripts %}
     {% endblock %}
+    {% if CUSTOM_SCRIPTS_BASE %}
+    {% include "includes/" + CUSTOM_SCRIPTS_BASE %}
+    {% endif %}
   </body>
 </html>

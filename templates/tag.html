@@ -3,6 +3,11 @@
 {% block metadesc %}{{ SITETAGALT }} Posts tagged with {{ tag }}{% endblock %}
 {% block meta_other %}<meta name="robots" content="noindex" />
 {% endblock %}
+{% block custom_header %}
+{% if CUSTOM_HEADER_TAG %}
+{% include "includes/" + CUSTOM_HEADER_TAG %}
+{% endif %}
+{% endblock %}
 {% block content_header %}
 <ol class="breadcrumb">
     <li><a href="{{ SITEURL }}/" title="Home" rel="home">

@@ -15,6 +15,14 @@
     {% endif %}
 {% endif %}
 {% endblock %}
+{% block custom_header %}
+{% if CUSTOM_HEADER_PAGE %}
+{% include "includes/" + CUSTOM_HEADER_PAGE %}
+{% endif %}
+{% endblock %}
+{% block content_header %}
+{% include "includes/" + CUSTOM_PAGE_PREFIX|default("page_top.html") ignore missing %}
+{% endblock %}
 {% block content_body %}
 <article itemscope="itemscope" 
          itemtype="http://schema.org/{{page.schema_type|default('WebPage') }}">
@@ -38,8 +46,8 @@
 </article>
 {% endblock %}
 {% block scripts %}
-  {% if CUSTOM_PAGE_SCRIPTS %}
-    {% include "includes/" + CUSTOM_PAGE_SCRIPTS %}
+  {% if CUSTOM_SCRIPTS_PAGE %}
+  {% include "includes/" + CUSTOM_SCRIPTS_PAGE %}
   {% endif %}
   {% if page.javascript %}
     <script src="{{ SITEURL }}/theme/js/{{ page.javascript }}" ></script>

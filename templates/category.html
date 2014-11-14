@@ -1,6 +1,11 @@
 {% extends "index.html" %}
 {% block title %}Category:{{ category }} - {{ SITENAME }}{% endblock %}
 {% block metadesc %}{{ SITETAGALT }}Posts in category {{ category }}{% endblock %}
+{% block custom_header %}
+{% if CUSTOM_HEADER_CATEGORY %}
+{% include "includes/" + CUSTOM_HEADER_CATEGORY %}
+{% endif %}
+{% endblock %}
 {% block content_header %}
 <ol class="breadcrumb">
     <li><a href="{{ SITEURL }}/" title="Home" rel="home">

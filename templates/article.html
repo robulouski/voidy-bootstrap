@@ -39,8 +39,13 @@
     {% endif %}
 {% endif %}
 {% endblock %}
+{% block custom_header %}
+{% if CUSTOM_HEADER_ARTICLE %}
+{% include "includes/" + CUSTOM_HEADER_ARTICLE %}
+{% endif %}
+{% endblock %}
 {% block content_header %}
-  {% include "includes/article_top.html" ignore missing %}
+{% include "includes/" + CUSTOM_ARTICLE_PREFIX|default("article_top.html") ignore missing %}
 {% endblock %}
 {% block content_body %}
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
@@ -88,7 +93,7 @@
 {% endblock %}
 
 {% block scripts %}
-  {% if CUSTOM_ARTICLE_SCRIPTS %}
-    {% include "includes/" + CUSTOM_ARTICLE_SCRIPTS %}
-  {% endif %}
+{% if CUSTOM_SCRIPTS_ARTICLE %}
+{% include "includes/" + CUSTOM_SCRIPTS_ARTICLE %}
+{% endif %}
 {% endblock %}

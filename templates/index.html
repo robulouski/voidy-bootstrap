@@ -3,6 +3,11 @@
 {% block meta_other %}
 {% include "includes/" + CUSTOM_INDEX_META|default("index_meta.html") ignore missing %}
 {% endblock %}
+{% block custom_header %}
+{% if CUSTOM_HEADER_INDEX %}
+{% include "includes/" + CUSTOM_HEADER_INDEX %}
+{% endif %}
+{% endblock %}
 {% block content_header %}{% endblock %}
 {% block content_body %}
 {% block article %}
