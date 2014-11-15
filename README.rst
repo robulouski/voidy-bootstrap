@@ -5,12 +5,15 @@ A `Bootstrap 3 <http://getbootstrap.com>`_ blog theme for the
 `Pelican <http://getpelican.com>`_ static site generator.
 
 VoidyBootstrap is a theme that aims to be mobile friendly, responsive and
-easily customisable.  On larger screens it provides a clean 2 column
-layout.  At the top there's a navbar containing page links, and jumbotron
-area.  The sidebar has category links and a tag-cloud.  `Font Awesome 4
-<http://fontawesome.io/>`_ is used for icons.
+easily customisable.  It can be used in single column mode, or 2 column
+mode if the sidebar is enabled.
 
-While the theme provides lots of customisation settings, care has been
+On larger screens, with the sidebar enabled, it provides a clean and
+responsive 2 column layout.  At the top there's a navbar containing page
+links, and jumbotron area.  The sidebar has category links and a tag-cloud.
+`Font Awesome 4 <http://fontawesome.io/>`_ is used for icons.
+
+While the theme provides lots of customisation options, care has been
 taken to make it usable right out of the box with minimal configuration and
 sensible defaults -- albeit with the ubiquitous Bootstrap look and feel.
 
@@ -23,7 +26,7 @@ Bootstrap base it provides.
 The theme tries to accommodate common blogging needs and provide ways to
 easily accomplish common customisations.
 
-Customised stylesheets, JavaScript and other modifications can be easily
+Customised CSS, JavaScript and other modifications can be easily
 incorporated using configuration settings, and content can be added to the
 base layout by strategically adding template fragments (as opposed to
 modifying existing templates).
@@ -57,7 +60,9 @@ The following should be set in ``pelicanconf.py``::
 
   # Put taglist at end of articles, and use the default sharing button implementation.
   CUSTOM_ARTICLE_FOOTERS = ("taglist.html", "sharing.html", )
-  CUSTOM_ARTICLE_SCRIPTS = "sharing_scripts.html"
+  CUSTOM_SCRIPTS_ARTICLE = "sharing_scripts.html"
+
+  SIDEBAR = "sidebar.html"
 
   SOCIAL = (('Google+', 'http://plus.google.com/userid',
            'fa fa-google-plus-square fa-fw fa-lg'),
@@ -263,20 +268,29 @@ optional.
 Sidebar Settings
 ----------------
 
+As of version 1.1 of VoidyBootstrap, the sidebar is optional.  To enable
+the default sidebar, add the following line to your ``pelicanconf.py``::
+
+  SIDEBAR = "sidebar.html"
+
 The "sidebar" area is probably something where everyone will want something
 different, so it isn't possible to create an implementation that will
 satisfy everyone all the time.  However, there are things that commonly
-appear in sidebars (e.g author bio, categories, tag cloud, etc), so this
-theme tries to make it simple to add those by providing a default sidebar
-template which can be customised via settings in ``pelicanconf.py``.
+appear in sidebars (e.g author bio, categories, tag cloud, etc).  So
+VoidyBootstrap includes a default sidebar template that provides a fairly
+typical sidebar implementation, with a few customisation
+settings so that common things can be added and configured via settings in
+``pelicanconf.py`` (see below).
 
-However, it also provides the ability to completely replace the default
-sidebar template with a custom implementation (see ``CUSTOM_SIDEBAR`` in
-the "Custom Includes" section).
+However, for those who might want something completely different in a
+sidebar, there is the ability to completely replace the default sidebar
+template with a custom implementation.  Just create your own sidebar
+template (possibly using ``includes/sidebar.html`` as a starting point),
+and then set ``SIDEBAR`` to point to it. This will completely replaces the
+theme's default sidebar with whatever is in your custom sidebar template.
 
-The following settings are available if using the default sidebar
-implementation in ``includes/sidebar.html`` (or compatible variation
-thereof):
+For those happy enough to stick with the default sidebar, the following
+settings are available to customise it:
 
 ``SOCIAL``
   Social media links to display in sidebar.  This option is handled a bit
@@ -291,12 +305,16 @@ thereof):
   must be a tuple with 2 elements: (link title, URL).
 
 ``SIDEBAR_HIDE_CATEGORIES`` 
-  A list of category links is displayed in the sidebar by default.  Set
-  this option to True to not display categories.
+  A list of categories is displayed in the sidebar by default.  Set this
+  option to True to not this category list.
 
 ``SIDEBAR_HIDE_TAGS``
   A tag cloud is displayed in the sidebar by default.  Set this option to
   True to disable the tag cloud.
+
+``SIDEBAR_SIZE``
+  The number of columns in the Bootstrap grid the sidebar should take up.
+  The default is 3.
 
 See also ``CUSTOM_SIDEBAR_TOP`` and ``CUSTOM_SIDEBAR_BOTTOM`` below.
 
@@ -334,13 +352,6 @@ directory.
 ``CUSTOM_HEADER_*``
   Add custom content after the site headers (before any columns) based
   on page type, which can be: INDEX, ARTICLE, PAGE, CATEGORY, TAG, ARCHIVES.
-
-``CUSTOM_SIDEBAR``
-  Don't like the sidebar provided by the theme?  Have something totally 
-  different in mind?  Well then you're in luck.  Build your own sidebar 
-  template (you can use ``includes/sidebar.html`` as a starting point), 
-  and set ``CUSTOM_SIDEBAR`` to point to it -- this  completely replaces 
-  the default sidebar with your custom sidebar.
 
 ``CUSTOM_FOOTER``
   Footer template to be included by ``base.html``.  Anything here
@@ -406,7 +417,7 @@ Author
 
 | Robert Iwancz
 | www.voidynullness.net
-| ``@robulouski``
+| `@robulouski <https://twitter.com/robulouski>`_
 
 
 Screenshot

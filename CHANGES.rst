@@ -42,6 +42,8 @@ ChangeLog - VoidyBootstrap
 
 * New header area above the "content columns", customisable  via CUSTOM_HEADER_*
 
+* Sidebar is not optional (and defaults to single column, which I'm not
+  overly happy about, but it makes the implementation simpler/neater).
 
 
 1.0 Initial Release (February 2014)

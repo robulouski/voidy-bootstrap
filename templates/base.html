@@ -114,8 +114,15 @@
 	{% endblock %}
 
     <div class="container">
+{% if SIDEBAR %}
+        {% if SIDEBAR_SIZE is defined and SIDEBAR_SIZE < 12 %}
+          {% set CONTENT_COLS = 12 - SIDEBAR_SIZE %}
+        {% endif %}
       <div class="row">
-        <div class="col-md-9" id="content">
+        <div class="col-md-{{ CONTENT_COLS|default(9) }}" id="content">
+{% else %}
+        <div class="" id="content">
+{% endif %}
 		    {% block content_header %}
 			{% endblock %}
             {% block content_body %}
@@ -124,15 +131,12 @@
             {% endblock %}
         </div><!-- /content -->
 
-        <div class="col-md-3 sidebar-nav" id="sidebar">
-          {% if CUSTOM_SIDEBAR %}
-            {% set sidebarinc = "includes/" + CUSTOM_SIDEBAR %}
-            {% include sidebarinc %}
-          {% else %}
-            {% include 'includes/sidebar.html' %}
-          {% endif %}
+{% if SIDEBAR %}
+        <div class="col-md-{{ SIDEBAR_SIZE|default(3) }} sidebar-nav" id="sidebar">
+          {% include "includes/" + SIDEBAR %}
         </div><!--/sidebar -->
       </div><!--/row-->
+{% endif %}
     </div><!--/container-->
 
     <footer id="site-footer">
