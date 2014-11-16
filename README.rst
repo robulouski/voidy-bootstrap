@@ -237,6 +237,10 @@ optional.
   to True, at a minimum jQuery and the Bootstrap JavaScript must be
   provided via ``JAVASCRIPT_FILES`` and/or ``JAVASCRIPT_URLS``.
 
+``SKIP_DEFAULT_NAVIGATION``
+  Don't display navbar at the top of the page.  (If required a custom navigation
+  template can be configured via ``CUSTOM_SITE_HEADERS``.)
+
 ``JAVASCRIPT_FILES`` and ``JAVASCRIPT_URLS`` 
   Similar to the STYLESHEET_* settings, these allow arbitrary JavaScript
   files to be loaded.  They will be referenced at the bottom of
@@ -328,6 +332,10 @@ the primary templates.  They will usually override existing sections of
 content.  All paths must be relative to the theme's ``templates/includes``
 directory.
 
+
+``CUSTOM_SITE_HEADERS``
+  List of templates that will replace the default site header area (i.e. the
+  jumbotron area).
 
 ``CUSTOM_ARTICLE_HEADERS``
   List of templates that will replace the default article header

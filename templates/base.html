@@ -64,6 +64,7 @@
   </head>
 
   <body>
+{% if not SKIP_DEFAULT_NAVIGATION %}   
     <div class="navbar navbar-default" role="navigation">
       <div class="container">
 	   <div class="navbar-header">
@@ -84,12 +85,20 @@
             <li><a href="{{ link }}">{{ title }}</a></li>
           {% endfor %}
           {% if DISPLAY_PAGES_ON_MENU %}
-            {% for page in PAGES %}
-               <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+            {% for item in PAGES %}
+              {% if page is defined and page.url == item.url %}
+              <li class="active">
+              {% else %}
+              <li>
+              {% endif %}
+                <a href="{{ SITEURL }}/{{ item.url }}">{{ item.title }}</a>
+              </li>
             {% endfor %}
             <li class="divider"></li>
           {% endif %}
-          <li><a href="{{ SITEURL }}/{{ ARCHIVES_URL|default('archives.html') }}">Archives</a></li>
+            <li class="{% block archive_active %}{% endblock %}">
+              <a href="{{ SITEURL }}/{{ ARCHIVES_URL|default('archives.html') }}">Archives</a>
+            </li>
           <li class="divider"></li>
           {% if FEED_ALL_ATOM %}
             <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" 
@@ -100,15 +109,13 @@
       </div> <!-- /navbar-collapse -->
 	  </div> <!-- /container -->
     </div> <!-- /navbar -->
+{% endif %}
 
-	<div class="jumbotron" id="overview">
-	  <div class="container">
-		<h1><a href="{{ SITEURL }}/">{{ SITENAME }}</a></h1>
-        {% if SITESUBTITLE %}
-		<p class="lead">{{ SITESUBTITLE }}</p>
-        {% endif %}
-	  </div>
-	</div>
+    {% for file in CUSTOM_SITE_HEADERS %}
+	  {% include "includes/" + file %}
+    {% else %}
+      {% include "includes/jumbotron.html" %}
+    {% endfor %}
 
     {% block custom_header %}
 	{% endblock %}
