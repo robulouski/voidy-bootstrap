@@ -22,7 +22,7 @@
         {% include "includes/article_header.html" %}
       {% endif %}
 
-      {% if loop.first and not articles_page.has_previous() %}
+      {% if ARTICLE_FULL_FIRST is defined and loop.first and not articles_page.has_previous() %}
 	    <div class="content-body">
         {% if article.standfirst %}
           <p class="standfirst">{{ article.standfirst|e }}</p>
