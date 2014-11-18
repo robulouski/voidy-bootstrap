@@ -1,20 +1,13 @@
 {% if articles %}
   {% for article in (articles_page.object_list if articles_page else articles) %}
     <article>
-      {% if CUSTOM_ARTICLE_HEADER_INDEX %}
-        {% include "includes/" + CUSTOM_ARTICLE_HEADER_INDEX %}
+      {% for file in CUSTOM_INDEX_ARTICLE_HEADERS %}
+        {% include "includes/" + file %}
       {% else %}
         {% include "includes/article_header.html" %}
-      {% endif %}
-      <div class="summary">
-        {% if article.standfirst %}
-          <p class="standfirst">{{ article.standfirst|e }}</p>
-        {% endif %}
-        {{ article.summary }}
-        <p class="article-highlight"><a href="{{ SITEURL }}/{{ article.url }}">
-            Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i>
-        </a></p>
-      </div>
+      {% endfor %}
+
+      {% include "includes/index_summary.html" %}
     </article>
     <hr />
   {% endfor %}

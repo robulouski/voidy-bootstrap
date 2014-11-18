@@ -14,14 +14,12 @@
 {% if articles %}
   {% for article in (articles_page.object_list if articles_page else articles) %}
     <article>
-      {% if CUSTOM_INDEX_ARTICLE_HEADERS %}
-        {% for file in CUSTOM_INDEX_ARTICLE_HEADERS %}
-          {% include "includes/" + file %}
-        {% endfor %}
+      {% for file in CUSTOM_INDEX_ARTICLE_HEADERS %}
+        {% include "includes/" + file %}
       {% else %}
         {% include "includes/article_header.html" %}
-      {% endif %}
-
+      {% endfor %}
+  
       {% if ARTICLE_FULL_FIRST is defined and loop.first and not articles_page.has_previous() %}
 	    <div class="content-body">
         {% if article.standfirst %}
@@ -31,15 +29,7 @@
 		{% include "includes/comments.html" %}
 	  </div>
 	  {% else %}
-      <div class="summary">
-        {% if article.standfirst %}
-          <p class="standfirst">{{ article.standfirst|e }}</p>
-        {% endif %}
-		{{ article.summary }}
-		<p class="content-emphasis"><a href="{{ SITEURL }}/{{ article.url }}">
-			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
-		</a></p>
-      </div>
+        {% include "includes/index_summary.html" %}
 	  {% endif %}
     </article>
 

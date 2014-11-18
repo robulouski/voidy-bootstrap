@@ -1,0 +1,9 @@
+      <div class="summary">
+        {% if article.standfirst %}
+          <p class="standfirst">{{ article.standfirst|e }}</p>
+        {% endif %}
+		{{ article.summary }}
+		<p class="content-emphasis"><a href="{{ SITEURL }}/{{ article.url }}">
+			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
+		</a></p>
+      </div>

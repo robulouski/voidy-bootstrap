@@ -16,8 +16,8 @@ ChangeLog - VoidyBootstrap
   - SOCIAL setting changed a bit.
   - New settings to disable category links and tag cloud.
 
-* Footer taken out of main container, so now spans entire width of page.
-  - If you're using a custom footer.html template, you'll probably want to
+* Footer taken out of main column container, so now spans entire width of page.
+  - If you're using a custom footer template, you'll probably want to
     put any content inside a container div.
 
 * More flexible CSS and script handling.
@@ -42,7 +42,7 @@ ChangeLog - VoidyBootstrap
 
 * New header area above the "content columns", customisable  via CUSTOM_HEADER_*
 
-* Sidebar is not optional (and defaults to single column, which I'm not
+* Sidebar is now optional (and defaults to single column, which I'm not
   overly happy about, but it makes the implementation simpler/neater).
 
 
