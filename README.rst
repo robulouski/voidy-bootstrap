@@ -358,7 +358,7 @@ directory.
   any appropriate content, like sharing buttons, taglist, etc.
 
 ``CUSTOM_HEADER_*``
-  Add custom content after the site headers (before any columns) based
+  Add custom content after the site headers (before any content columns) based
   on page type, which can be: INDEX, ARTICLE, PAGE, CATEGORY, TAG, ARCHIVES.
 
 ``CUSTOM_FOOTER``
@@ -366,10 +366,10 @@ directory.
   (e.g. copyright text) will appear between footer tags at the bottom of
   every page.
 
-``CUSTOM_SCRIPTS_ARTICLE`` and ``CUSTOM_SCRIPTS_PAGE``
-  Template fragment for any additional javascript code specific to articles
-  and pages respectively (useful for things like social media sharing
-  buttons).  Will be included right at the bottom of pages, just before the
+``CUSTOM_SCRIPTS_ARTICLE`` and ``CUSTOM_SCRIPTS_PAGE`` and ``CUSTOM_SCRIPTS_ARCHIVE``
+  Template fragment for any additional javascript code specific to articles,
+  pages and archives respectively (useful for things like social media sharing
+  code).  Will be included at the bottom of pages, just before the
   closing body tag.  Set to ``includes/sharing_scripts.html`` to use the
   default provided implementation.
 

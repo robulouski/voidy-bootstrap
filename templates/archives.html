@@ -35,3 +35,9 @@
   </div>
 </div> <!-- /#archives-body -->
 {% endblock content_body %}
+
+{% block scripts %}
+{% if CUSTOM_SCRIPTS_ARCHIVES %}
+{% include "includes/" + CUSTOM_SCRIPTS_ARCHIVES %}
+{% endif %}
+{% endblock %}
