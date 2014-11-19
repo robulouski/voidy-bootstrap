@@ -100,7 +100,7 @@ very minimal styling is provided as a starting point.
 The simplest way to customise things is to override the standard Bootstrap
 styles as necessary.  The theme intentionally avoids loading any additional
 stylesheets by default, but this can easily be done by using the
-``STYLESHEET_FILES`` setting.  ``STYLESHEET_FILES`` is an array for specifying
+``STYLESHEET_FILES`` setting.  ``STYLESHEET_FILES`` is a list for specifying
 additional stylesheets that will be loaded by the ``base.html`` template
 after the main Bootstrap CSS file.  Place any CSS stylesheet files you may
 require in the ``static/css`` directory and add the filenames to the
@@ -136,7 +136,7 @@ Similarly, a `Bootswatch <http://bootswatch.com/>`_ theme can be easily
 integrated.  Select a theme and download the files.  Place all the
 necessary CSS files in ``static/css``.  Set ``MAIN_LOCAL_STYLESHEET`` to
 the filename of the main Bootstrap CSS file, and specify any additional CSS
-files in the ``STYLESHEETS`` array.
+files in the ``STYLESHEETS`` list.
 
 
 Further Customisation
@@ -151,11 +151,11 @@ fragments.  For simple customisations, this can make is relatively
 straightforward to isolate modifications and easily keep up to date with
 any upstream changes.
 
-These customisation "hooks" are variables that can be set in
-``pelicanconf.py`` to point to the filename of a template fragment.  These
-template fragments will either add or replace content in the default layout
-provided by the theme.  For example, if ``pelicanconf.py`` contains the
-line::
+These customisation "hooks" are settings that can be configured in
+``pelicanconf.py`` to point to filenames of custom template fragments.
+These template fragments will either add or replace content in the default
+layout provided by the theme.  For example, if ``pelicanconf.py`` contains
+the line::
 
   CUSTOM_FOOTER = "custom/footer.html"
 
@@ -214,11 +214,12 @@ optional.
   Local Bootstrap CSS file, as described above.
 
 ``STYLESHEET_URLS``
-  An array of URLS for additional stylesheets that should be pulled in by
-  the ``base.html`` template, e.g. for CSS files from a CDN.
+  A list of URLS for additional stylesheets that should be pulled in by
+  the ``base.html`` template, like CSS files from a CDN.  Useful for adding
+  the bootstrap theme CSS, for example.
 
 ``STYLESHEET_FILES``
-  An array of filenames (relative to the ``/theme/css/`` directory) for
+  An list of filenames (relative to the ``/theme/css/`` directory) for
   additional stylesheets that should be pulled in by the ``base.html``
   template (after any STYLESHEET_URLS entries).
 
@@ -245,6 +246,11 @@ optional.
   Similar to the STYLESHEET_* settings, these allow arbitrary JavaScript
   files to be loaded.  They will be referenced at the bottom of
   ``base.html``, after any default script files.
+
+``ARCHIVES_URL``
+  URL of archives page.  Default is ``archives.html``.  If you're modifying
+  ``ARCHIVES_SAVE_AS`` in your pelicanconf.py then you'll probably need to
+  change this setting as well.
 
 ``TWITTER_USERNAME``
   Set to a valid Twitter username to enable the twitter sharing button.
@@ -293,7 +299,7 @@ template (possibly using ``includes/sidebar.html`` as a starting point),
 and then set ``SIDEBAR`` to point to it. This will completely replaces the
 theme's default sidebar with whatever is in your custom sidebar template.
 
-For those happy enough to stick with the default sidebar, the following
+But for those happy enough to stick with the default sidebar, the following
 settings are available to customise it:
 
 ``SOCIAL``
