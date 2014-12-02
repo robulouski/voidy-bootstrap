@@ -4,7 +4,7 @@
 {% block open_graph %}
 {% if OPEN_GRAPH %}
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="{{ page.title }}"/>
+    <meta property="og:title" content="{{ page.title|striptags|e }}"/>
     <meta property="og:url" content="{{ SITEURL }}/{{ page.url }}"/>
     {% if page.description %}
       <meta property="og:description" content="{{ page.description|striptags|e }}"/>
