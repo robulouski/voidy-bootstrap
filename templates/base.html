@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>{% block title %}{{ SITENAME }} - {{ SITETAG|escape }}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="{% block metadesc %}{{ DEFAULT_METADESC|escape }}{% endblock %}" />
+    <meta name="description" content="{% block metadesc %}{{ DEFAULT_METADESC|e }}{% endblock %}" />
     <meta name="author" content="{{ AUTHOR }}" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
 	{% block meta_other %}{% endblock %}
@@ -15,7 +15,7 @@
       <!-- Open Graph -->
       {% if OPEN_GRAPH %}
         <meta property="og:type" content="website"/>
-        <meta property="og:title" content="{{ SITENAME }}"/>
+        <meta property="og:title" content="{{ SITENAME|striptags|e }}"/>
         <meta property="og:url" content="{{ SITEURL }}"/>
         {% if DEFAULT_METADESC %}
         <meta property="og:description" content="{{ DEFAULT_METADESC|e }}"/>
@@ -31,7 +31,7 @@
       {% if MAIN_LOCAL_STYLESHEET %} 
         <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ MAIN_LOCAL_STYLESHEET }}" />
       {% else %}
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
       {% endif %}
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />  
     {% endif %}
@@ -75,7 +75,8 @@
 		  <span class="icon-bar"></span>
 		  <span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="{{ SITEURL }}/" rel="home">Home</a>
+		<a class="navbar-brand" href="{{ SITEURL }}/" rel="home">
+          <i class="fa fa-home fa-fw fa-lg"> </i> {{ HOME_LABEL|default('') }}</a>
        </div>
 
       <div class="collapse navbar-collapse" id="main-navbar-collapse">
@@ -150,7 +151,7 @@
       {% include 'includes/' + CUSTOM_FOOTER|default('footer.html') ignore missing %} 
       <address id="site-colophon">
         <p class="text-center text-muted">
-        Site built using <a href="http://getpelican.com/">Pelican</a>
+        Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
         &nbsp;&bull;&nbsp; Theme based on
         <a href="http://www.voidynullness.net/page/voidy-bootstrap-pelican-theme/"
            target="_blank">VoidyBootstrap</a> by 
@@ -166,7 +167,7 @@
     <!-- javascript -->
     {% if not SKIP_DEFAULT_JS %}   
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     {% endif %}
 
     {% for url in JAVASCRIPT_URLS %}
