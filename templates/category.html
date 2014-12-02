@@ -10,7 +10,11 @@
 <ol class="breadcrumb">
     <li><a href="{{ SITEURL }}/" title="Home" rel="home">
 		<i class="fa fa-home fa-fw fa-lg"></i> </a></li>
+{% if CATEGORIES_URL %}
+    <li><a href="{{ SITEURL }}/{{ CATEGORIES_URL }}">Categories </a></li>
+{% else %}
     <li>Categories </li>
+{% endif %}
     <li class="active">{{ category }}</li>
 </ol>
 {% endblock %}

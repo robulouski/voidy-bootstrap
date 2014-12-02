@@ -7,7 +7,11 @@
 <ol class="breadcrumb">
     <li><a href="{{ SITEURL }}/" title="Home" rel="home">
 		<i class="fa fa-home fa-fw fa-lg"></i> </a></li>
+{% if AUTHORS_URL %}
+    <li><a href="{{ SITEURL }}/{{ AUTHORS_URL }}">Authors </a></li>
+{% else %}
     <li>Authors </li>
+{% endif %}
     <li class="active">{{ author }}</li>
 </ol>
 {% endblock %}
