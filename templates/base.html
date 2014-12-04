@@ -149,8 +149,14 @@
 
     <footer id="site-footer">
       {% include 'includes/' + CUSTOM_FOOTER|default('footer.html') ignore missing %} 
+	  {% if articles %}
+        {% set copy_date = articles[0].date.strftime('%Y') %}
+      {% else %}
+        {% set copy_date = '' %}
+      {% endif %}  
       <address id="site-colophon">
         <p class="text-center text-muted">
+		&copy; {{ copy_date }} {{ AUTHOR }} &middot; 
         Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
         &nbsp;&bull;&nbsp; Theme based on
         <a href="http://www.voidynullness.net/page/voidy-bootstrap-pelican-theme/"
