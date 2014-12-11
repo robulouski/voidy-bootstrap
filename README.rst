@@ -17,14 +17,20 @@ While the theme provides lots of customisation options, care has been
 taken to make it usable right out of the box with minimal configuration and
 sensible defaults -- albeit with the ubiquitous Bootstrap look and feel.
 
-It's functional but deliberately minimal in terms of design.  It can be
-used as is, or as a "clean slate" for creating custom Bootstrap-based
-websites -- where all the usual scaffolding and fiddly bits are taken care
-of, and all that remains is to provide a custom design on top of the
-Bootstrap base it provides.
+VoidyBootstrap is functional but deliberately minimal in terms of design.
+It can be used as is, if your design need are modest and all you want is
+basic theme that "just works", with all the common features you'd expect
+from a blog theme.  But for those who do want to tinker and customise, it
+can be used as a "clean slate" for creating custom Bootstrap-based websites
+-- with many features designed to make it as easy as possible to create a
+custom design on top of the Bootstrap base it provides.  Either way, what
+you get is a sane set of website scaffolding, with a lot of the fiddly bits
+taken care of.
 
 The theme tries to accommodate common blogging needs and provide ways to
-easily accomplish common customisations.
+easily accomplish common customisations.  It strives to be as minimal,
+flexible and unopinionated as possible, while still being as useable and
+simple as possible.
 
 Customised CSS, JavaScript and other modifications can be easily
 incorporated using configuration settings, and content can be added to the
@@ -136,7 +142,7 @@ Similarly, a `Bootswatch <http://bootswatch.com/>`_ theme can be easily
 integrated.  Select a theme and download the files.  Place all the
 necessary CSS files in ``static/css``.  Set ``MAIN_LOCAL_STYLESHEET`` to
 the filename of the main Bootstrap CSS file, and specify any additional CSS
-files in the ``STYLESHEETS`` list.
+files in the ``STYLESHEET_FILES`` list.
 
 
 Further Customisation

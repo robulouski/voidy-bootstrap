@@ -8,7 +8,7 @@
 # convenient to have automated, your mileage may vary.  It doesn't do
 # anything earthshatteringly important.
 #
-BSVER=3.3.0
+BSVER=3.3.1
 FA_VER=4.2.0
 DEPENDDIR=depend
 
