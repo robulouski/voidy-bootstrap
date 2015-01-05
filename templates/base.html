@@ -28,8 +28,8 @@
     {% endblock %}
 
     {% if not SKIP_DEFAULT_CSS %}   
-      {% if MAIN_LOCAL_STYLESHEET %} 
-        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ MAIN_LOCAL_STYLESHEET }}" />
+      {% if BOOTSTRAP_STYLESHEET %} 
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ BOOTSTRAP_STYLESHEET }}" />
       {% else %}
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
       {% endif %}
@@ -65,7 +65,7 @@
 
   <body>
 {% if not SKIP_DEFAULT_NAVIGATION %}   
-    <div class="navbar navbar-default" role="navigation">
+    <nav class="navbar navbar-default" role="navigation">
       <div class="container">
 	   <div class="navbar-header">
 		<button type="button" class="navbar-toggle" 
@@ -81,7 +81,6 @@
 
       <div class="collapse navbar-collapse" id="main-navbar-collapse">
         <ul class="nav navbar-nav">
-          <!-- <li> <a href="{{ SITEURL }}/">Home</a> </li> -->
           {% for title, link in MENUITEMS %}
             <li><a href="{{ link }}">{{ title }}</a></li>
           {% endfor %}
@@ -109,7 +108,7 @@
         </ul> <!-- /nav -->
       </div> <!-- /navbar-collapse -->
 	  </div> <!-- /container -->
-    </div> <!-- /navbar -->
+    </nav> <!-- /navbar -->
 {% endif %}
 
     {% for file in CUSTOM_SITE_HEADERS %}
@@ -121,7 +120,9 @@
     {% block custom_header %}
 	{% endblock %}
 
-    <div class="container">
+    <div class="container" id="main-container">
+      {% block container_header %}
+	  {% endblock %}
 {% if SIDEBAR %}
         {% if SIDEBAR_SIZE is defined and SIDEBAR_SIZE < 12 %}
           {% set CONTENT_COLS = 12 - SIDEBAR_SIZE %}
@@ -145,7 +146,9 @@
         </div><!--/sidebar -->
       </div><!--/row-->
 {% endif %}
-    </div><!--/container-->
+      {% block container_footer %}
+	  {% endblock %}
+    </div><!--/.container /#main-container -->
 
     <footer id="site-footer">
       {% include 'includes/' + CUSTOM_FOOTER|default('footer.html') ignore missing %} 

@@ -124,23 +124,23 @@ Custom Bootstrap
 
 As an alternative, or in addition, it's possible to easily replace the
 standard Bootstrap file with a customised one.  The
-``MAIN_LOCAL_STYLESHEET`` setting is provided for this.  If this variable
+``BOOTSTRAP_STYLESHEET`` setting is provided for this.  If this variable
 is *not* set, a standard ``bootstrap.min.css`` will be used from a CDN.  
 
 To use a different (i.e. customised) Bootstrap stylesheet, set
-``MAIN_LOCAL_STYLESHEET`` to the filename of a stylesheet to use instead.
+``BOOTSTRAP_STYLESHEET`` to the filename of a stylesheet to use instead.
 
 This could be a customised Bootstrap stylesheet compiled manually from the
 Bootstrap Less files, or perhaps one obtained from an online source.
 
 For example, you could use the `Bootstrap customizer
 <http://getbootstrap.com/customize/>`_ to create your own customised CSS
-file.  Place that file in ``static/css`` and set ``MAIN_LOCAL_STYLESHEET``
+file.  Place that file in ``static/css`` and set ``BOOTSTRAP_STYLESHEET``
 to be the filename.  
 
 Similarly, a `Bootswatch <http://bootswatch.com/>`_ theme can be easily
 integrated.  Select a theme and download the files.  Place all the
-necessary CSS files in ``static/css``.  Set ``MAIN_LOCAL_STYLESHEET`` to
+necessary CSS files in ``static/css``.  Set ``BOOTSTRAP_STYLESHEET`` to
 the filename of the main Bootstrap CSS file, and specify any additional CSS
 files in the ``STYLESHEET_FILES`` list.
 
@@ -216,8 +216,8 @@ optional.
   pages can specify their own meta description by using the theme's custom
   ``description`` metadata tag.
 
-``MAIN_LOCAL_STYLESHEET``
-  Local Bootstrap CSS file, as described above.
+``BOOTSTRAP_STYLESHEET``
+  Bootstrap CSS file to use instead of default, as described above.
 
 ``STYLESHEET_URLS``
   A list of URLS for additional stylesheets that should be pulled in by
@@ -354,7 +354,7 @@ directory.
   provided in ``includes/article_header.html`` on *article pages only*.
 
 ``CUSTOM_INDEX_ARTICLE_HEADERS``
-  List of templates that will replace the default article article
+  List of templates that will replace the default article
   header provided in ``includes/article_header.html`` on *index pages only*.
 
 ``CUSTOM_ARTICLE_PRECONTENT``
