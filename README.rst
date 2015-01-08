@@ -21,15 +21,15 @@ VoidyBootstrap is functional but deliberately minimal in terms of design.
 It can be used as is, if your design need are modest and all you want is
 basic theme that "just works", with all the common features you'd expect
 from a blog theme.  But for those who do want to tinker and customise, it
-can be used as a "clean slate" for creating custom Bootstrap-based websites
--- with many features designed to make it as easy as possible to create a
-custom design on top of the Bootstrap base it provides.  Either way, what
-you get is a sane set of website scaffolding, with a lot of the fiddly bits
-taken care of.
+can be used as a "clean slate" for creating custom Bootstrap-based
+websites.  This theme has many features designed to make it as easy as
+possible to create a custom design on top of the Bootstrap base it
+provides.  Either way, what you get is a sane set of website scaffolding,
+with a lot of the fiddly bits taken care of.
 
 The theme tries to accommodate common blogging needs and provide ways to
 easily accomplish common customisations.  It strives to be as minimal,
-flexible and unopinionated as possible, while still being as useable and
+flexible and unopinionated as possible, while still being as usable and
 simple as possible.
 
 Customised CSS, JavaScript and other modifications can be easily
@@ -68,6 +68,7 @@ The following should be set in ``pelicanconf.py``::
   CUSTOM_ARTICLE_FOOTERS = ("taglist.html", "sharing.html", )
   CUSTOM_SCRIPTS_ARTICLE = "sharing_scripts.html"
 
+  # Default sidebar template. Omit this line for single column mode without sidebar.
   SIDEBAR = "sidebar.html"
 
   SOCIAL = (('Google+', 'http://plus.google.com/userid',
@@ -344,10 +345,34 @@ the primary templates.  They will usually override existing sections of
 content.  All paths must be relative to the theme's ``templates/includes``
 directory.
 
+Note that in the following setting names, an "*" (asterisk) represents a
+page type, which are: INDEX, ARTICLE, PAGE, CATEGORY, TAG, AUTHOR, ARCHIVES.
+
 
 ``CUSTOM_SITE_HEADERS``
   List of templates that will replace the default site header area (i.e. the
   jumbotron area).
+
+``CUSTOM_HEADER_*``
+  Add custom content after the site headers, before the main container, and
+  outside any container dev (and therefore before any content columns).
+
+``CUSTOM_CONTAINER_TOP_*``
+  Similar to CUSTOM_HEADER_*, but inside the main container div.  Not
+  inside any row or column, so any content here will span across the top of
+  both columns (in 2 column mode).
+
+``CUSTOM_CONTENT_TOP_*``
+  Template fragment that will be inserted at the top of the content column, 
+  before anything else.
+
+``CUSTOM_CONTENT_BOTTOM_*``
+  These will be included right at the bottom of the content column.
+
+``CUSTOM_CONTAINER_BOTTOM_*``
+  These will be included at the bottom of the main container, after the
+  columns.  Content will end up inside a container but outside of columns,
+  spanning across the bottom, below both columns (in 2 column mode).
 
 ``CUSTOM_ARTICLE_HEADERS``
   List of templates that will replace the default article header
@@ -359,19 +384,12 @@ directory.
 
 ``CUSTOM_ARTICLE_PRECONTENT``
   Template fragment that will be inserted just before the start of the
-  article body text, after any headers, image and standfirst.
-
-``CUSTOM_ARTICLE_PREFIX``
-  Template fragment that will be inserted before the article headers .
+  article body text (after any headers, image and standfirst).
 
 ``CUSTOM_ARTICLE_FOOTERS`` and ``CUSTOM_PAGE_FOOTERS``
   List of templates that will included at the bottom of articles/pages,
   after the body text but before the comments.  Can be used to configure
   any appropriate content, like sharing buttons, taglist, etc.
-
-``CUSTOM_HEADER_*``
-  Add custom content after the site headers (before any content columns) based
-  on page type, which can be: INDEX, ARTICLE, PAGE, CATEGORY, TAG, ARCHIVES.
 
 ``CUSTOM_FOOTER``
   Footer template to be included by ``base.html``.  Anything here

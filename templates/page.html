@@ -19,11 +19,17 @@
 {% if CUSTOM_HEADER_PAGE %}
 {% include "includes/" + CUSTOM_HEADER_PAGE %}
 {% endif %}
-{% endblock %}
+{% endblock custom_header %}
+{% block container_header %}
+{% if CUSTOM_CONTAINER_TOP_PAGE %}
+{% include "includes/" + CUSTOM_CONTAINER_TOP_PAGE %}
+{% endif %}
+{% endblock container_header %}
 {% block content_header %}
-{% include "includes/" + CUSTOM_PAGE_PREFIX|default("page_top.html") ignore missing %}
-{% endblock %}
-{% block content_body %}
+{% include "includes/" + CUSTOM_CONTENT_TOP_PAGE|default("page_top.html") ignore missing %}
+{% endblock content_header %}
+
+{% block    content_body %}
 <article itemscope="itemscope" 
          itemtype="http://schema.org/{{page.schema_type|default('WebPage') }}">
   <header>
@@ -44,7 +50,20 @@
   {% endfor %}
 
 </article>
-{% endblock %}
+{% endblock content_body %}
+
+{% block    content_footer %}
+{% if CUSTOM_CONTENT_BOTTOM_PAGE %}
+{% include "includes/" + CUSTOM_CONTENT_BOTTOM_PAGE %}
+{% endif %}
+{% endblock content_footer %}
+
+{% block    container_footer %}
+{% if CUSTOM_CONTAINER_BOTTOM_PAGE %}
+{% include "includes/" + CUSTOM_CONTAINER_BOTTOM_PAGE %}
+{% endif %}
+{% endblock container_footer %}
+
 {% block scripts %}
   {% if CUSTOM_SCRIPTS_PAGE %}
   {% include "includes/" + CUSTOM_SCRIPTS_PAGE %}

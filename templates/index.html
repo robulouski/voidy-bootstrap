@@ -3,12 +3,25 @@
 {% block meta_other %}
 {% include "includes/" + CUSTOM_INDEX_META|default("index_meta.html") ignore missing %}
 {% endblock %}
+
 {% block custom_header %}
 {% if CUSTOM_HEADER_INDEX %}
 {% include "includes/" + CUSTOM_HEADER_INDEX %}
 {% endif %}
-{% endblock %}
-{% block content_header %}{% endblock %}
+{% endblock custom_header %}
+
+{% block container_header %}
+{% if CUSTOM_CONTAINER_TOP_INDEX %}
+{% include "includes/" + CUSTOM_CONTAINER_TOP_INDEX %}
+{% endif %}
+{% endblock container_header %}
+
+{% block    content_header %}
+{% if CUSTOM_CONTENT_TOP_INDEX %}
+{% include "includes/" + CUSTOM_CONTENT_TOP_INDEX %}
+{% endif %}
+{% endblock content_header %}
+
 {% block content_body %}
 {% block article %}
 {% if articles %}
@@ -79,14 +92,18 @@
 	</ul>
   {% endif %}
 
-	<div class="pull-right home-top">
-	  <a class="btn btn-sm btn-primary" href="{{ SITEURL }}/" title="Home" rel="home">
-		<i class="fa fa-home fa-fw fa-lg"></i> </a>
-	  &nbsp;
-	  <a class="btn btn-sm btn-primary" href="#" title="Top">
-		<i class="fa fa-angle-double-up fa-fw fa-lg"></i> </a> 
-	</div>
 </nav> <!-- /index-pager -->
 {% endblock pagination %}
-
 {% endblock content_body %}
+
+{% block    content_footer %}
+{% if CUSTOM_CONTENT_BOTTOM_INDEX %}
+{% include "includes/" + CUSTOM_CONTENT_BOTTOM_INDEX %}
+{% endif %}
+{% endblock content_footer %}
+
+{% block    container_footer %}
+{% if CUSTOM_CONTAINER_BOTTOM_INDEX %}
+{% include "includes/" + CUSTOM_CONTAINER_BOTTOM_INDEX %}
+{% endif %}
+{% endblock container_footer %}

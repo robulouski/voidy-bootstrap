@@ -2,12 +2,16 @@ ChangeLog - VoidyBootstrap
 ==========================
 
 
-1.1 (under development)
------------------------
+2.0 (January 2015)
+------------------
+
+* Changed so much stuff (and added/removed/renamed lots of settings,
+  breaking backward compatibility somewhat -- sorry!), that decided this
+  should constitute version 2.0.
 
 * Updated Dependencies: 
   - Pelican 3.5 (should work with 3.3 and 3.4, but untested)
-  - Bootstrap 3.3.0
+  - Bootstrap 3.3.1
   - Font Awesome 4.2.0
   - JQuery 1.11.1
 
@@ -19,6 +23,8 @@ ChangeLog - VoidyBootstrap
 * Footer taken out of main column container, so now spans entire width of page.
   - If you're using a custom footer template, you'll probably want to
     put any content inside a container div.
+
+* Renamed MAIN_LOCAL_STYLESHEET to BOOTSTRAP_STYLESHEET. 
 
 * More flexible CSS and script handling.
   - New settings: STYLESHEET_URLS, JAVASCRIPT_URLS, JAVASCRIPT_FILES.
@@ -40,10 +46,22 @@ ChangeLog - VoidyBootstrap
   - CUSTOM_PAGE_FOOTERS, CUSTOM_FOOTER, CUSTOM_SCRIPTS_ARTICLE,
     CUSTOM_SCRIPTS_PAGE, CUSTOM_SCRIPTS_BASE, CUSTOM_ARTICLE_PREFIX
 
-* New header area above the "content columns", customisable  via CUSTOM_HEADER_*
+* New header outside of the main container, customisable  via CUSTOM_HEADER_*
+
+* More comprehensive, fine grained ability to add content, using:
+  - CUSTOM_CONTAINER_TOP_*
+  - CUSTOM_CONTENT_TOP_*
+  - CUSTOM_CONTENT_BOTTOM_*
+  - CUSTOM_CONTAINER_BOTTOM_*
+  - Because of this, home-top button cluster moved to a separate template,
+    and is not included by default.  This way users of the template are 
+    free to use the above options to put it wherever they like.
 
 * Sidebar is now optional (and defaults to single column, which I'm not
   overly happy about, but it makes the implementation simpler/neater).
+
+* Fixes to accommodate Typogrify: titles and description fields are now
+  stripped of tags and escaped.
 
 
 1.0 Initial Release (February 2014)

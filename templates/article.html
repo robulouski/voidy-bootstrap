@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}{{ article.title }} - {{ SITENAME }}{% endblock %}
+{% block title %}{{ article.title|striptags|e }} - {{ SITENAME }}{% endblock %}
 {% block metadesc %}{{ article.description|e }}{% endblock %}
 {% block open_graph %}
 {% if OPEN_GRAPH %}
@@ -28,8 +28,8 @@
 {% endif %}
 {% if TWITTER_CARD and TWITTER_USERNAME %}
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="{{ article.title|striptags }}">
-    <meta name="twitter:description" content="{{ article.description|striptags }}">
+    <meta name="twitter:title" content="{{ article.title|striptags|e }}">
+    <meta name="twitter:description" content="{{ article.description|striptags|e }}">
     <meta name="twitter:site" content="@{{ TWITTER_USERNAME }}">
     <meta name="twitter:creator" content="@{{ TWITTER_USERNAME }}">
     <meta name="twitter:domain" content="{{ SITEURL }}">
@@ -44,10 +44,16 @@
 {% include "includes/" + CUSTOM_HEADER_ARTICLE %}
 {% endif %}
 {% endblock %}
+{% block container_header %}
+{% if CUSTOM_CONTAINER_TOP_ARTICLE %}
+{% include "includes/" + CUSTOM_CONTAINER_TOP_ARTICLE %}
+{% endif %}
+{% endblock container_header %}
 {% block content_header %}
-{% include "includes/" + CUSTOM_ARTICLE_PREFIX|default("article_top.html") ignore missing %}
-{% endblock %}
-{% block content_body %}
+{% include "includes/" + CUSTOM_CONTENT_TOP_ARTICLE|default("article_top.html") ignore missing %}
+{% endblock content_header%}
+
+{% block    content_body %}
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
   {% if CUSTOM_ARTICLE_HEADERS %}
@@ -90,7 +96,19 @@
   </div>
   {% endif %}
 </article>
-{% endblock %}
+{% endblock content_body %}
+
+{% block    content_footer %}
+{% if CUSTOM_CONTENT_BOTTOM_ARTICLE %}
+{% include "includes/" + CUSTOM_CONTENT_BOTTOM_ARTICLE %}
+{% endif %}
+{% endblock content_footer %}
+
+{% block    container_footer %}
+{% if CUSTOM_CONTAINER_BOTTOM_ARTICLE %}
+{% include "includes/" + CUSTOM_CONTAINER_BOTTOM_ARTICLE %}
+{% endif %}
+{% endblock container_footer %}
 
 {% block scripts %}
 {% if CUSTOM_SCRIPTS_ARTICLE %}

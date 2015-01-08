@@ -1,12 +1,23 @@
 {% extends "index.html" %}
 {% block title %}Category:{{ category }} - {{ SITENAME }}{% endblock %}
 {% block metadesc %}{{ SITETAGALT }}Posts in category {{ category }}{% endblock %}
-{% block custom_header %}
+
+{% block    custom_header %}
 {% if CUSTOM_HEADER_CATEGORY %}
 {% include "includes/" + CUSTOM_HEADER_CATEGORY %}
 {% endif %}
-{% endblock %}
-{% block content_header %}
+{% endblock custom_header%}
+
+{% block    container_header %}
+{% if CUSTOM_CONTAINER_TOP_CATEGORY %}
+{% include "includes/" + CUSTOM_CONTAINER_TOP_CATEGORY %}
+{% endif %}
+{% endblock container_header %}
+
+{% block    content_header %}
+{% if CUSTOM_CONTENT_TOP_CATEGORY %}
+{% include "includes/" + CUSTOM_CONTENT_TOP_CATEGORY %}
+{% endif %}
 <ol class="breadcrumb">
     <li><a href="{{ SITEURL }}/" title="Home" rel="home">
 		<i class="fa fa-home fa-fw fa-lg"></i> </a></li>
@@ -17,7 +28,20 @@
 {% endif %}
     <li class="active">{{ category }}</li>
 </ol>
-{% endblock %}
+{% endblock content_header %}
+
 {% block article %}
 {% include "includes/index_summaries.html" %}
 {% endblock article %}
+
+{% block    content_footer %}
+{% if CUSTOM_CONTENT_BOTTOM_CATEGORY %}
+{% include "includes/" + CUSTOM_CONTENT_BOTTOM_CATEGORY %}
+{% endif %}
+{% endblock content_footer %}
+
+{% block    container_footer %}
+{% if CUSTOM_CONTAINER_BOTTOM_CATEGORY %}
+{% include "includes/" + CUSTOM_CONTAINER_BOTTOM_CATEGORY %}
+{% endif %}
+{% endblock container_footer %}
