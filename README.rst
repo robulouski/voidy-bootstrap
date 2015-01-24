@@ -1,31 +1,34 @@
 VoidyBootstrap
 ==============
 
+*Version 2.0*
+
 A `Bootstrap 3 <http://getbootstrap.com>`_ blog theme for the
 `Pelican <http://getpelican.com>`_ static site generator.
 
-VoidyBootstrap is a theme that aims to be mobile friendly, responsive and
-easily customisable.  It can be used in single column mode, or 2 column
-mode if the sidebar is enabled.
-
-On larger screens, with the sidebar enabled, it provides a clean and
-responsive 2 column layout.  At the top there's a navbar containing page
-links, and jumbotron area.  The sidebar has category links and a tag-cloud.
-`Font Awesome 4 <http://fontawesome.io/>`_ is used for icons.
+VoidyBootstrap is a Pelican theme that aims to be mobile friendly,
+responsive, flexible and easily customisable.  It can be used in single
+column mode, or responsive 2 column mode with sidebar.
 
 While the theme provides lots of customisation options, care has been
 taken to make it usable right out of the box with minimal configuration and
 sensible defaults -- albeit with the ubiquitous Bootstrap look and feel.
 
+On larger screens, with the sidebar enabled, it provides a clean and
+responsive 2 column layout.  At the top there's a navbar containing page
+links, and jumbotron area.  The default sidebar has category links and a
+tag-cloud.  `Font Awesome 4 <http://fontawesome.io/>`_ is used for icons.
+
 VoidyBootstrap is functional but deliberately minimal in terms of design.
 It can be used as is, if your design need are modest and all you want is
 basic theme that "just works", with all the common features you'd expect
 from a blog theme.  But for those who do want to tinker and customise, it
-can be used as a "clean slate" for creating custom Bootstrap-based
-websites.  This theme has many features designed to make it as easy as
-possible to create a custom design on top of the Bootstrap base it
-provides.  Either way, what you get is a sane set of website scaffolding,
-with a lot of the fiddly bits taken care of.
+can be used as a starting point for creating custom Bootstrap-based
+websites.  This theme has many features designed to facilitate creating a
+custom design on top of the default Bootstrap base it provides.  Regardless
+of whether you use few or many of the customisation feature this theme
+provides, what you get is a carefully crafted Pelican theme which has a lot
+of the fiddly bits taken care of.
 
 The theme tries to accommodate common blogging needs and provide ways to
 easily accomplish common customisations.  It strives to be as minimal,
@@ -34,8 +37,8 @@ simple as possible.
 
 Customised CSS, JavaScript and other modifications can be easily
 incorporated using configuration settings, and content can be added to the
-base layout by strategically adding template fragments (as opposed to
-modifying existing templates).
+base layout (without modifying existing templates) by strategically adding
+template fragments.
 
 
 Installation
@@ -53,8 +56,8 @@ feel.  To customise things see below.
 Example Settings
 ----------------
 
-All of these are optional, but here is a basic example of common variables
-that you might want to configure
+All of these are optional, but here is a basic example of common settings
+you might want to configure.
 
 The following should be set in ``pelicanconf.py``::
 
@@ -135,9 +138,9 @@ This could be a customised Bootstrap stylesheet compiled manually from the
 Bootstrap Less files, or perhaps one obtained from an online source.
 
 For example, you could use the `Bootstrap customizer
-<http://getbootstrap.com/customize/>`_ to create your own customised CSS
-file.  Place that file in ``static/css`` and set ``BOOTSTRAP_STYLESHEET``
-to be the filename.  
+<http://getbootstrap.com/customize/>`_ to create your own customised
+Bootstrap CSS file.  Place that file in ``static/css`` and set
+``BOOTSTRAP_STYLESHEET`` to its filename.
 
 Similarly, a `Bootswatch <http://bootswatch.com/>`_ theme can be easily
 integrated.  Select a theme and download the files.  Place all the
@@ -285,18 +288,18 @@ optional.
 Sidebar Settings
 ----------------
 
-As of version 1.1 of VoidyBootstrap, the sidebar is optional.  To enable
+As of version 2.0 of VoidyBootstrap, the sidebar is optional.  To enable
 the default sidebar, add the following line to your ``pelicanconf.py``::
 
   SIDEBAR = "sidebar.html"
 
-The "sidebar" area is probably something where everyone will want something
-different, so it isn't possible to create an implementation that will
-satisfy everyone all the time.  However, there are things that commonly
-appear in sidebars (e.g author bio, categories, tag cloud, etc).  So
-VoidyBootstrap includes a default sidebar template that provides a fairly
-typical sidebar implementation, with a few customisation
-settings so that common things can be added and configured via settings in
+The "sidebar" area is one of those things where everyone will want something
+different, so therefore it isn't possible to create an implementation that
+will satisfy everyone all the time.  However, there are things that
+commonly appear in sidebars (e.g author bio, categories, tag cloud, etc).
+So VoidyBootstrap includes a default sidebar template that provides a
+fairly typical sidebar implementation, with a few customisation settings so
+that common things can be added and configured via settings in
 ``pelicanconf.py`` (see below).
 
 However, for those who might want something completely different in a
@@ -323,7 +326,7 @@ settings are available to customise it:
 
 ``SIDEBAR_HIDE_CATEGORIES`` 
   A list of categories is displayed in the sidebar by default.  Set this
-  option to True to not this category list.
+  option to True to disable this category list.
 
 ``SIDEBAR_HIDE_TAGS``
   A tag cloud is displayed in the sidebar by default.  Set this option to
@@ -340,13 +343,17 @@ Custom Includes
 ---------------
 
 The following variables (all optional), if specified, should be set to
-paths for template fragments that will be included at strategic points from
-the primary templates.  They will usually override existing sections of
-content.  All paths must be relative to the theme's ``templates/includes``
-directory.
+filenames of appropriate template fragments that will be included at
+strategic points from the primary templates.  They will usually override
+existing sections of content.  All filename paths must be relative to the
+theme's ``templates/includes`` directory.
 
 Note that in the following setting names, an "*" (asterisk) represents a
-page type, which are: INDEX, ARTICLE, PAGE, CATEGORY, TAG, AUTHOR, ARCHIVES.
+page type, possible values of which are: INDEX, ARTICLE, PAGE, CATEGORY,
+TAG, AUTHOR, ARCHIVES.
+
+(Also note that in Version 2.0 of this theme, some "custom includes"
+settings were renamed, and many new ones added.  See CHANGES.rst.)
 
 
 ``CUSTOM_SITE_HEADERS``
@@ -422,7 +429,8 @@ page type, which are: INDEX, ARTICLE, PAGE, CATEGORY, TAG, AUTHOR, ARCHIVES.
 Custom Metadata Tags
 --------------------
 
-This theme supports the following (optional) custom metadata tags.
+This theme supports the following (optional) custom metadata tags for use
+in articles and pages.
 
 ``description``
   Can be used in pages and articles to provide a value for the HTML meta
@@ -470,4 +478,3 @@ License
 
 Licensed under the `MIT License <http://opensource.org/licenses/MIT>`_
 
-Feel free to use as-is or as a basis for your own custom theme.
