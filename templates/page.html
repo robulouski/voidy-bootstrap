@@ -12,6 +12,11 @@
     {% if page.social_image %}
       <meta property="og:image"
             content="{{ SITEURL }}/images/{{ page.social_image }}"/>
+    {% else %}
+      {% if DEFAULT_SOCIAL_IMAGE %}
+        <meta property="og:image"
+              content="{{ SITEURL }}/images/{{ DEFAULT_SOCIAL_IMAGE }}"/>
+      {% endif %}
     {% endif %}
 {% endif %}
 {% endblock %}

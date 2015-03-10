@@ -280,9 +280,16 @@ optional.
   article pages.
 
 ``OPEN_GRAPH_IMAGE``
-  Default value for Open Graph ``og:image`` property.
-  Articles can use the custom ``social_image`` metadata tag to specify a
-  per-article page value.
+  Default value for Open Graph ``og:image`` property on index pages.
+
+``DEFAULT_SOCIAL_IMAGE``
+  Default value for Open Graph ``og:image`` property (and Twitter card
+  image, if enabled) on articles and pages.  The custom ``social_image``
+  metadata tag can be used to specify a per-article (or per-page) value,
+  which will always take precedence
+
+``FAVICON``
+  Allows an alternative favicon filename to be specified.
 
 
 Sidebar Settings
@@ -413,10 +420,6 @@ settings were renamed, and many new ones added.  See CHANGES.rst.)
 ``CUSTOM_SCRIPTS_BASE``
   As above, but will be included on every page.
 
-``CUSTOM_INDEX_META``
-  Included by ``index.html`` between the head tags.  Can be used 
-  to add extra HTML meta tags to index pages, for example.
-
 ``CUSTOM_SIDEBAR_TOP``
   Included by ``sidebar.html`` at the top of the sidebar.  Provides a
   convenient place for an "about" blurb, for example.
@@ -424,6 +427,12 @@ settings were renamed, and many new ones added.  See CHANGES.rst.)
 ``CUSTOM_SIDEBAR_BOTTOM``
   Included by ``sidebar.html`` at the bottom of the sidebar.
 
+``CUSTOM_INDEX_META``
+  Included by ``index.html`` in the ``head`` section.  Can be used
+  to add extra HTML meta tags to index pages, for example.
+
+``CUSTOM_HTML_HEAD``
+  Included by ``base.html`` in the ``head`` section.
 
 
 Custom Metadata Tags

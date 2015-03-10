@@ -12,7 +12,6 @@
     <meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}"/>
     {% endif %}
 	{% block open_graph %}
-      <!-- Open Graph -->
       {% if OPEN_GRAPH %}
         <meta property="og:type" content="website"/>
         <meta property="og:title" content="{{ SITENAME|striptags|e }}"/>
@@ -54,7 +53,10 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <link rel="shortcut icon" href="{{ SITEURL }}/favicon.ico" />
+    <link rel="shortcut icon" href="{{ SITEURL }}/{{ FAVICON|default('favicon.ico') }}" />
+    {% if CUSTOM_HTML_HEAD %}
+    {% include "includes/" + CUSTOM_HTML_HEAD %}
+    {% endif %}
     {% if FEED_ALL_ATOM %}
         <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
     {% endif %}
@@ -153,6 +155,9 @@
 
     <footer id="site-footer">
       {% include 'includes/' + CUSTOM_FOOTER|default('footer.html') ignore missing %} 
+      {% if SKIP_COLOPHON %}
+      <!-- Site built using Pelican.  Theme based on VoidyBootstrap. -->
+      {% else %}
       <address id="site-colophon">
         <p class="text-center text-muted">
         Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
@@ -163,6 +168,7 @@
            target="_blank">RKI</a>  
         </p>
       </address><!-- /colophon  -->
+      {% endif %}
     </footer>
 
     {% include 'includes/piwik.html' %}

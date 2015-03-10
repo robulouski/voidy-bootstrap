@@ -24,6 +24,11 @@
     {% if article.social_image %}
       <meta property="og:image"
             content="{{ SITEURL }}/images/{{ article.social_image }}"/>
+    {% else %}
+      {% if DEFAULT_SOCIAL_IMAGE %}
+        <meta property="og:image"
+              content="{{ SITEURL }}/images/{{ DEFAULT_SOCIAL_IMAGE }}"/>
+      {% endif %}
     {% endif %}
 {% endif %}
 {% if TWITTER_CARD and TWITTER_USERNAME %}
@@ -34,8 +39,13 @@
     <meta name="twitter:creator" content="@{{ TWITTER_USERNAME }}">
     <meta name="twitter:domain" content="{{ SITEURL }}">
     {% if article.social_image %}
-    <meta property="twitter:image"
-          content="{{ SITEURL }}/images/{{ article.social_image }}"/>
+      <meta property="twitter:image"
+            content="{{ SITEURL }}/images/{{ article.social_image }}"/>
+    {% else %}
+      {% if DEFAULT_SOCIAL_IMAGE %}
+        <meta property="twitter:image"
+              content="{{ SITEURL }}/images/{{ DEFAULT_SOCIAL_IMAGE }}"/>
+      {% endif %}
     {% endif %}
 {% endif %}
 {% endblock %}

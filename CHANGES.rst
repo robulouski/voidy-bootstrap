@@ -1,6 +1,11 @@
 ChangeLog - VoidyBootstrap
 ==========================
 
+2.1 (under development)
+-----------------------
+
+* Added DEFAULT_SOCIAL_IMAGE, FAVICON and CUSTOM_HTML_HEAD settings.
+
 
 2.0 (January 2015)
 ------------------
