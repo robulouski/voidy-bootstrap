@@ -4,12 +4,11 @@
 # by Robert Iwancz
 # www.voidynullness.net
 #
-# This makefile merely automates some dev stuff that I have found
-# convenient to have automated, your mileage may vary.  It doesn't do
-# anything earthshatteringly important.
+# Nothing earthshatteringly interesting to see here...just automating some
+# dev stuff...
 #
-BSVER=3.3.1
-FA_VER=4.2.0
+BSVER=3.3.5
+FA_VER=4.4.0
 DEPENDDIR=depend
 
 

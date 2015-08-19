@@ -10,11 +10,13 @@ VoidyBootstrap is a Pelican theme that aims to be mobile friendly,
 responsive, flexible and easily customisable.  It can be used in single
 column mode, or responsive 2 column mode with sidebar.
 
-While the theme provides lots of customisation options, care has been
-taken to make it usable right out of the box with minimal configuration and
+While the theme provides lots of customisation options, care has been taken
+to make it usable right out of the box with minimal configuration and
 sensible defaults -- albeit with the ubiquitous Bootstrap look and feel.
+But that's kind of the idea with this theme -- start with bog standard
+Bootstrap, then customise as much or as little as you like.
 
-On larger screens, with the sidebar enabled, it provides a clean and
+On larger screens, with the sidebar enabled, you get a clean and
 responsive 2 column layout.  At the top there's a navbar containing page
 links, and jumbotron area.  The default sidebar has category links and a
 tag-cloud.  `Font Awesome 4 <http://fontawesome.io/>`_ is used for icons.
@@ -71,7 +73,7 @@ The following should be set in ``pelicanconf.py``::
   CUSTOM_ARTICLE_FOOTERS = ("taglist.html", "sharing.html", )
   CUSTOM_SCRIPTS_ARTICLE = "sharing_scripts.html"
 
-  # Default sidebar template. Omit this line for single column mode without sidebar.
+  # Default sidebar template. Omit this setting for single column mode without sidebar.
   SIDEBAR = "sidebar.html"
 
   SOCIAL = (('Google+', 'http://plus.google.com/userid',
@@ -126,10 +128,10 @@ then you would need something like this in your ``pelicanconf.py``::
 Custom Bootstrap
 ----------------
 
-As an alternative, or in addition, it's possible to easily replace the
-standard Bootstrap file with a customised one.  The
-``BOOTSTRAP_STYLESHEET`` setting is provided for this.  If this variable
-is *not* set, a standard ``bootstrap.min.css`` will be used from a CDN.  
+As an alternative, or in addition, you can easily replace the standard
+Bootstrap file with a customised one.  The ``BOOTSTRAP_STYLESHEET`` setting
+is provided for this.  The default behaviour -- if this variable is *not*
+set -- is that a standard ``bootstrap.min.css`` will be used from a CDN.
 
 To use a different (i.e. customised) Bootstrap stylesheet, set
 ``BOOTSTRAP_STYLESHEET`` to the filename of a stylesheet to use instead.
@@ -176,7 +178,7 @@ file located at::
 
 See the "Custom Includes" section below for details.
 
-Note that for these template fragments must be relative to the theme's
+Note that these template fragments must be relative to the theme's
 ``templates/includes/`` directory.
 
 
@@ -184,7 +186,7 @@ Standard Settings
 -----------------
 
 VoidyBootstrap honors the following `standard Pelican settings
-<http://docs.getpelican.com/en/3.5.0/settings.html>`_:
+<http://docs.getpelican.com/en/latest/settings.html>`_:
 
 * ``SITEURL``
 * ``SITENAME``
@@ -301,7 +303,7 @@ the default sidebar, add the following line to your ``pelicanconf.py``::
   SIDEBAR = "sidebar.html"
 
 The "sidebar" area is one of those things where everyone will want something
-different, so therefore it isn't possible to create an implementation that
+different, so therefore it's unlikely any particular implementation
 will satisfy everyone all the time.  However, there are things that
 commonly appear in sidebars (e.g author bio, categories, tag cloud, etc).
 So VoidyBootstrap includes a default sidebar template that provides a
@@ -349,9 +351,9 @@ See also ``CUSTOM_SIDEBAR_TOP`` and ``CUSTOM_SIDEBAR_BOTTOM`` below.
 Custom Includes
 ---------------
 
-The following variables (all optional), if specified, should be set to
+The following settings (all optional), if specified, should be set to
 filenames of appropriate template fragments that will be included at
-strategic points from the primary templates.  They will usually override
+strategic points from the primary templates.  They will override or add to
 existing sections of content.  All filename paths must be relative to the
 theme's ``templates/includes`` directory.
 
