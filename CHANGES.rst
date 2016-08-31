@@ -8,9 +8,9 @@ ChangeLog - VoidyBootstrap
 
 * Updated Dependencies: 
 
-  * Bootstrap 3.3.5
-  * Font Awesome 4.4.0
-  * JQuery 1.11.3
+  * Bootstrap 3.3.7
+  * Font Awesome 4.6.3
+  * jQuery 1.12.4
 
 
 2.0 (January 2015)
