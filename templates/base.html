@@ -26,7 +26,7 @@
       {% endif %}
     {% endblock %}
 
-    <title>{% block title %}{{ SITENAME }} - {{ SITETAG|escape }}{% endblock %}</title>
+    <title>{% block title %}{{ SITENAME }}{% if SITETAG %} - {{ SITETAG|escape }}{% endif %}{% endblock %}</title>
 
     {% if not SKIP_DEFAULT_CSS %}   
       {% if BOOTSTRAP_STYLESHEET %} 
