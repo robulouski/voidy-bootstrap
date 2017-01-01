@@ -58,12 +58,12 @@
 	{% if articles_page.has_previous() %}
 		<li class="prev">
 		  <a href="{{ SITEURL }}/{{ articles_previous_page.url }}">
-			<i class="fa fa-chevron-circle-left fa-fw fa-lg"></i> Previous
+			<i class="fas fa-chevron-circle-left fa-fw fa-lg"></i> Previous
 		  </a>
 		</li>
 	{% else %}
         <li class="prev disabled"><span>
-            <i class="fa fa-chevron-circle-left fa-fw fa-lg"></i> 
+            <i class="fas fa-chevron-circle-left fa-fw fa-lg"></i> 
             Previous</span>
         </li>
 	{% endif %}
@@ -81,12 +81,12 @@
 	{% if articles_page.has_next() %}
 		<li class="next">
 		  <a href="{{ SITEURL }}/{{ articles_next_page.url }}">
-			Next <i class="fa fa-chevron-circle-right fa-fw fa-lg"></i>
+			Next <i class="fas fa-chevron-circle-right fa-fw fa-lg"></i>
 		  </a>
 		</li>
 	{% else %}
         <li class="next disabled">
-          <span><i class="fa fa-chevron-circle-right fa-fw fa-lg"></i> Next</span>
+          <span><i class="fas fa-chevron-circle-right fa-fw fa-lg"></i> Next</span>
         </li>
 	{% endif %}
 	</ul>
