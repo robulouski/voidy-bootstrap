@@ -6,6 +6,12 @@ ChangeLog - VoidyBootstrap
 
 * Added DEFAULT_SOCIAL_IMAGE, FAVICON and CUSTOM_HTML_HEAD settings.
 
+* Sidebar changes:
+
+  * Tag cloud not present by default (for Pelican 3.6 compatability).
+  * Removed SIDEBAR_HIDE_TAGS and added CUSTOM_SIDEBAR_MIDDLES.
+  * To use LINKS, now need to add "sb_links.html to CUSTOM_SIDEBAR_MIDDLES.
+
 * Updated Dependencies: 
 
   * Bootstrap 3.3.7

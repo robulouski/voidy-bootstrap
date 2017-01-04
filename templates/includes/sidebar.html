@@ -34,28 +34,9 @@
 
 </div> <!-- /row -->
 
-{% if LINKS %}
-<h4><i class="fa fa-link fa-fw fa-lg"></i> Links</h4>
-<ul class="list-unstyled category-links">
-{% for title, url in LINKS %}
-  <li><a href="{{ url  }}" >
-    <i class="fa fa-fw fa-external-link-square fa-lg"></i> {{ title }}</a></li>
+{% for mid in CUSTOM_SIDEBAR_MIDDLES %}
+{% include "includes/" + mid %}
 {% endfor %}
-</ul>
-{% endif %}
-
-{% if not SIDEBAR_HIDE_TAGS %}
-<h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
-<p class="tag-cloud">
-{% for tag in tag_cloud %}
-<span class="tag-{{ tag.1 }}">
-    <a href="{{ SITEURL }}/{{ tag.0.url }}">
-        <i class="fa fa-tag fa-fw fa-lg"></i>{{ tag.0 }}
-    </a>
-</span>
-{% endfor %}
-</p>
-{% endif %}
 
 {% if FEED_ALL_ATOM or FEED_ALL_RSS %}
 <h4><i class="fa fa-rss fa-fw fa-lg"></i> Feeds</h4>

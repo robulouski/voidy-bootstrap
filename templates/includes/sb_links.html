@@ -1,0 +1,9 @@
+{% if LINKS %}
+  <h4><i class="fa fa-link fa-fw fa-lg"></i> Links</h4>
+  <ul class="list-unstyled category-links">
+  {% for title, url in LINKS %}
+    <li><a href="{{ url  }}" >
+      <i class="fa fa-fw fa-external-link-square fa-lg"></i> {{ title }}</a></li>
+  {% endfor %}
+  </ul>
+{% endif %}

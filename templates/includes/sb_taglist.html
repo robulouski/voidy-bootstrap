@@ -1,0 +1,8 @@
+<h4><i class="fa fa-tags fa-fw fa-lg"></i> Tags</h4>
+<p class="tag-cloud">
+  {% for tag in tags %}
+      <a href="{{ SITEURL }}/{{ tag.0.url }}">
+        <i class="fa fa-tag fa-fw fa-lg"></i>{{ tag.0 }}
+      </a>
+  {% endfor %}
+</p>
