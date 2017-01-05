@@ -91,7 +91,7 @@
             <li><a href="{{ link }}">{{ title }}</a></li>
           {% endfor %}
           {% if DISPLAY_PAGES_ON_MENU %}
-            {% for item in PAGES %}
+            {% for item in pages %}
               {% if page is defined and page.url == item.url %}
               <li class="active">
               {% else %}
