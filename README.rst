@@ -1,7 +1,7 @@
 VoidyBootstrap
 ==============
 
-*Version 2.0*
+*Version 2.1*
 
 A `Bootstrap 3 <http://getbootstrap.com>`_ blog theme for the
 `Pelican <http://getpelican.com>`_ static site generator.
@@ -309,21 +309,32 @@ in the default sidebar, add the following to ``pelicanconf.py`` after
 
   CUSTOM_SIDEBAR_MIDDLES = ("sb_links.html", "sb_taglist.html", )
 
-The "sidebar" area is one of those things where everyone will want something
-different, so therefore it's unlikely any particular implementation
-will satisfy everyone all the time.  However, there are things that
-commonly appear in sidebars (e.g author bio, categories, tag cloud, etc).
-So VoidyBootstrap includes a default sidebar template that provides a
-fairly typical sidebar implementation, with a few customisation settings so
-that common things can be added and configured via settings in
-``pelicanconf.py`` (see below).
+As of Pelican 3.6 `tag cloud support has been removed from Pelican 
+<https://github.com/getpelican/pelican/commit/9dd4080fe6162849aec0946cc8406b04da764157>`_, 
+so if you'd like a proper tag cloud in the sidebar you'll need to configure
+the `tag_cloud plugin
+<https://github.com/getpelican/pelican-plugins/tree/master/tag_cloud>`_
+and add the following to ``pelicanconf.py``::
 
-However, for those who might want something completely different in a
-sidebar, there is the ability to completely replace the default sidebar
-template with a custom implementation.  Just create your own sidebar
-template (possibly using ``includes/sidebar.html`` as a starting point),
-and then set ``SIDEBAR`` to point to it. This will completely replaces the
-theme's default sidebar with whatever is in your custom sidebar template.
+  CUSTOM_SIDEBAR_MIDDLES = ("sb_tagcloud.html", )
+
+The "sidebar" area is one where many sites will require something specific
+to that site and it's unlikely any particular implementation will satisfy
+everyone all the time.  However, there are things that commonly appear in
+sidebars (e.g. author bio, categories, tag cloud, etc), so the theme
+includes a default sidebar template that provides a fairly typical sidebar
+implementation.  The default sidebar has a few customisation settings so
+that common things can be added and configured via settings in
+``pelicanconf.py`` (as described in this section), but it's intended more
+as a starting point for custom implementations rather than an attempt to
+satisfy all possible use cases.
+
+For those who might want something completely different in a sidebar, there
+is the ability to completely replace the default sidebar template with a
+custom implementation.  Just create your own sidebar template (possibly
+using ``includes/sidebar.html`` as a starting point), and then set
+``SIDEBAR`` to point to it. This will completely replaces the theme's
+default sidebar with whatever is in your custom sidebar template.
 
 But for those happy enough to stick with the default sidebar, the following
 settings are available to customise it:
@@ -339,8 +350,8 @@ settings are available to customise it:
 ``LINKS``
   Optional list of arbitrary links to display in the sidebar.  Each element
   must be a tuple with 2 elements: (link title, URL).  For this option to
-  work, "sb_links.html" (or something similar) must be added to 
-  ``CUSTOM_SIDEBAR_MIDDLES``.
+  work with the default sidebar, "sb_links.html" needs to be added to 
+  ``CUSTOM_SIDEBAR_MIDDLES`` (as shown above).
 
 ``SIDEBAR_HIDE_CATEGORIES`` 
   A list of categories is displayed in the sidebar by default.  Set this
@@ -352,7 +363,6 @@ settings are available to customise it:
 
 See also ``CUSTOM_SIDEBAR_TOP``, ``CUSTOM_SIDEBAR_BOTTOM`` and
 ``CUSTOM_SIDEBAR_MIDDLES`` below.
-
 
 
 Custom Includes
@@ -490,7 +500,7 @@ Security Considerations
 By default, this theme obtains various dependency files (styles, scripts,
 etc) from CDNs.  In an attempt to follow current security best practices,
 files linked from CDNs are retrieved via HTTPS, and use
-`integrity attributes. <https://en.wikipedia.org/wiki/Subresource_Integrity>`_.
+`integrity attributes. <https://en.wikipedia.org/wiki/Subresource_Integrity>`_
 
 In addition, if your server has a `Content-Security-Policy (CSP)
 <https://en.wikipedia.org/wiki/Content_Security_Policy>`_ header

@@ -10,6 +10,7 @@ ChangeLog - VoidyBootstrap
 
   * Tag cloud not present by default (for Pelican 3.6 compatability).
   * Removed SIDEBAR_HIDE_TAGS and added CUSTOM_SIDEBAR_MIDDLES.
+  * Added new (optional) tag cloud implementation based on the tag_cloud plugin (sb_tagcloud.html).
   * To use LINKS, now need to add "sb_links.html to CUSTOM_SIDEBAR_MIDDLES.
 
 * Updated Dependencies: 
