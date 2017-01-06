@@ -18,7 +18,7 @@ Bootstrap, then customise as much or as little as you like.
 
 On larger screens, with the sidebar enabled, you get a clean and
 responsive 2 column layout.  At the top there's a navbar containing page
-links, and jumbotron area.  The default sidebar has category links and a
+links, and jumbotron area.  The default sidebar has category links and optional
 tag-cloud.  `Font Awesome 4 <http://fontawesome.io/>`_ is used for icons.
 
 VoidyBootstrap is functional but deliberately minimal in terms of design.
@@ -318,23 +318,22 @@ and add the following to ``pelicanconf.py``::
 
   CUSTOM_SIDEBAR_MIDDLES = ("sb_tagcloud.html", )
 
-The "sidebar" area is one where many sites will require something specific
-to that site and it's unlikely any particular implementation will satisfy
-everyone all the time.  However, there are things that commonly appear in
-sidebars (e.g. author bio, categories, tag cloud, etc), so the theme
-includes a default sidebar template that provides a fairly typical sidebar
+The "sidebar" is an area where many sites will require something specific
+and it's unlikely any particular implementation will satisfy everyone all
+the time.  However, there are things that commonly appear in sidebars
+(e.g. author bio, categories, tag cloud, etc), so the theme includes a
+default sidebar template that provides a fairly typical sidebar
 implementation.  The default sidebar has a few customisation settings so
 that common things can be added and configured via settings in
 ``pelicanconf.py`` (as described in this section), but it's intended more
 as a starting point for custom implementations rather than an attempt to
 satisfy all possible use cases.
 
-For those who might want something completely different in a sidebar, there
-is the ability to completely replace the default sidebar template with a
-custom implementation.  Just create your own sidebar template (possibly
-using ``includes/sidebar.html`` as a starting point), and then set
-``SIDEBAR`` to point to it. This will completely replaces the theme's
-default sidebar with whatever is in your custom sidebar template.
+For those who might want something completely different in a sidebar, just
+create your own sidebar template (possibly using ``includes/sidebar.html``
+as a starting point), and then set ``SIDEBAR`` to point to it. This will
+completely replace the theme's default sidebar with whatever is in your
+custom sidebar template.
 
 But for those happy enough to stick with the default sidebar, the following
 settings are available to customise it:
@@ -378,8 +377,8 @@ Note that in the following setting names, an "*" (asterisk) represents a
 page type, possible values of which are: INDEX, ARTICLE, PAGE, CATEGORY,
 TAG, AUTHOR, ARCHIVES.
 
-(Also note that in Version 2.0 of this theme, many 
-settings were renamed, and many new ones added.  See CHANGES.rst.)
+(Also note that in Version 2.0 of this theme, many settings were renamed,
+and many new ones added.  See CHANGES.rst.)
 
 
 ``CUSTOM_SITE_HEADERS``

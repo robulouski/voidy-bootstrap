@@ -1,14 +1,14 @@
 ChangeLog - VoidyBootstrap
 ==========================
 
-2.1 (under development)
+2.1 (January 2017)
 -----------------------
 
 * Added DEFAULT_SOCIAL_IMAGE, FAVICON and CUSTOM_HTML_HEAD settings.
 
 * Sidebar changes:
 
-  * Tag cloud not present by default (for Pelican 3.6 compatability).
+  * Tag cloud not present by default (for Pelican 3.6+ compatibility).
   * Removed SIDEBAR_HIDE_TAGS and added CUSTOM_SIDEBAR_MIDDLES.
   * Added new (optional) tag cloud implementation based on the tag_cloud plugin (sb_tagcloud.html).
   * To use LINKS, now need to add "sb_links.html to CUSTOM_SIDEBAR_MIDDLES.
@@ -16,7 +16,7 @@ ChangeLog - VoidyBootstrap
 * Updated Dependencies: 
 
   * Bootstrap 3.3.7
-  * Font Awesome 4.6.3
+  * Font Awesome 4.7.0
   * jQuery 1.12.4
 
 
@@ -83,7 +83,7 @@ ChangeLog - VoidyBootstrap
   * Because of this, the "home-top" button cluster moved to a separate
     template, and is not used by default.  End users of the theme now have
     the flexibility using the various new CUSTOM_* options to (optionally)
-    add the default home-top buttoms (or custom implementation) where they
+    add the default home-top buttons (or custom implementation) where they
     see fit.
 
 * Fixes for unexpected Typogrify side-effects, and possible problems 
