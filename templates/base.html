@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+  {% if not CDN_DICT %}
+    {% set CDN_DICT = {
+       'bootstrap': 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap',
+       'jquery'   : 'https://cdnjs.cloudflare.com/ajax/libs/jquery',
+       'awesome'  : 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome',
+       } %}
+  {% endif %}
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,12 +40,12 @@
         <link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ BOOTSTRAP_STYLESHEET }}" />
       {% else %}
         <link rel="stylesheet"
-              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              href="{{CDN_DICT['bootstrap']}}/3.3.7/css/bootstrap.min.css"
               integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
               crossorigin="anonymous" />
       {% endif %}
       <link rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+            href="{{CDN_DICT['awesome']}}/4.7.0/css/font-awesome.min.css"
             integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
             crossorigin="anonymous">
     {% endif %}
@@ -177,8 +184,8 @@
 
     <!-- javascript -->
     {% if not SKIP_DEFAULT_JS %}   
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    <script src="{{CDN_DICT['jquery']}}/1.12.4/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script src="{{CDN_DICT['bootstrap']}}/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
     {% endif %}

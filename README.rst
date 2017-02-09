@@ -256,6 +256,12 @@ optional.
   files to be loaded.  They will be referenced at the bottom of
   ``base.html``, after any default script files.
 
+``CDN_DICT``
+  Allows to override the CDNs for the used JS libraries. The dictionary
+  must include the keys bootstrap, jquery and awesome. It defaults to
+  the cdnjs.com public CDN because that CDN provides all the libraries,
+  is popular and supports IPv6.
+
 ``ARCHIVES_URL``
   URL of archives page.  Default is ``archives.html``.  If you're modifying
   ``ARCHIVES_SAVE_AS`` in your pelicanconf.py then you'll probably need to
