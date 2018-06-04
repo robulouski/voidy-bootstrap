@@ -38,9 +38,9 @@
               crossorigin="anonymous" />
       {% endif %}
       <link rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-            integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-            crossorigin="anonymous">
+      href="https://use.fontawesome.com/releases/v5.0.12/css/all.css"
+      integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
+      crossorigin="anonymous">
     {% endif %}
 
     {% for url in STYLESHEET_URLS %}
@@ -85,7 +85,7 @@
 		  <span class="icon-bar"></span>
 		</button>
 		<a class="navbar-brand" href="{{ SITEURL }}/" rel="home">
-          <i class="fa fa-home fa-fw fa-lg"> </i> {{ HOME_LABEL|default('') }}</a>
+          <i class="fas fa-home fa-fw fa-lg"> </i> {{ HOME_LABEL|default('') }}</a>
        </div>
 
       <div class="collapse navbar-collapse" id="main-navbar-collapse">
@@ -106,13 +106,13 @@
             <li class="divider"></li>
           {% endif %}
             <li class="{% block archive_active %}{% endblock %}">
-              <a href="{{ SITEURL }}/{{ ARCHIVES_URL|default('archives.html') }}">Archives</a>
+              <a href="{{ SITEURL }}/{{ ARCHIVES_SAVE_AS|default('archives.html') }}">Archives</a>
             </li>
           <li class="divider"></li>
           {% if FEED_ALL_ATOM %}
             <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" 
                    type="application/atom+xml" rel="alternate">
-                <i class="fa fa-rss fa-fw fa-lg"></i> </a></li>
+                <i class="fas fa-rss fa-fw fa-lg"></i> </a></li>
           {% endif %}
         </ul> <!-- /nav -->
       </div> <!-- /navbar-collapse -->

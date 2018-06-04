@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Categories - {{ SITENAME }}{% endblock %}
 {% block content_body %}
-<h1 class="direct-heading"><i class="fa fa-folder fa-fw fa-lg"></i> Categories</h1>
+<h1 class="direct-heading"><i class="fas fa-folder fa-fw fa-lg"></i> Categories</h1>
 <ul class="direct-list">
 {% for category, articles in categories %}
 	<li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></li>
