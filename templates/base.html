@@ -38,9 +38,9 @@
               crossorigin="anonymous" />
       {% endif %}
       <link rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.0.12/css/all.css"
-      integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
-      crossorigin="anonymous">
+            href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+            integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+            crossorigin="anonymous">
     {% endif %}
 
     {% for url in STYLESHEET_URLS %}
@@ -106,7 +106,7 @@
             <li class="divider"></li>
           {% endif %}
             <li class="{% block archive_active %}{% endblock %}">
-              <a href="{{ SITEURL }}/{{ ARCHIVES_SAVE_AS|default('archives.html') }}">Archives</a>
+              <a href="{{ SITEURL }}/{{ ARCHIVES_URL|default('archives.html') }}">Archives</a>
             </li>
           <li class="divider"></li>
           {% if FEED_ALL_ATOM %}
@@ -170,7 +170,7 @@
         &nbsp;&bull;&nbsp; Theme based on
         <a href="http://www.voidynullness.net/page/voidy-bootstrap-pelican-theme/"
            target="_blank">VoidyBootstrap</a> by 
-        <a href="http://www.robertiwancz.com/"
+        <a href="http://voidynullness.net"
            target="_blank">RKI</a>  
         </p>
       </address><!-- /colophon  -->

@@ -1,7 +1,7 @@
 VoidyBootstrap
 ==============
 
-*Version 2.1*
+*Version 2.2*
 
 A `Bootstrap 3 <http://getbootstrap.com>`_ blog theme for the
 `Pelican <http://getpelican.com>`_ static site generator.
@@ -19,7 +19,7 @@ Bootstrap, then customise as much or as little as you like.
 On larger screens, with the sidebar enabled, you get a clean and
 responsive 2 column layout.  At the top there's a navbar containing page
 links, and jumbotron area.  The default sidebar has category links and optional
-tag-cloud.  `Font Awesome 4 <http://fontawesome.io/>`_ is used for icons.
+tag-cloud.  `Font Awesome 5 <https://fontawesome.com/>`_ is used for icons.
 
 VoidyBootstrap is functional but deliberately minimal in terms of design.
 It can be used as is, if your design need are modest and all you want is
@@ -74,15 +74,15 @@ The following should be set in ``pelicanconf.py``::
   SIDEBAR = "sidebar.html"
 
   SOCIAL = (('Google+', 'http://plus.google.com/userid',
-           'fa fa-google-plus-square fa-fw fa-lg'),
+           'fab fa-google-plus-square fa-fw fa-lg'),
           ('Twitter', 'https://twitter.com/username', 
-           'fa fa-twitter-square fa-fw fa-lg'),
+           'fab fa-twitter-square fa-fw fa-lg'),
           ('LinkedIn', 'http://linkedin-url', 
-           'fa fa-linkedin-square fa-fw fa-lg'),
+           'fab fa-linkedin fa-fw fa-lg'),
           ('BitBucket', 'http://bitbucket.org/username', 
            'fa fa-bitbucket-square fa-fw fa-lg'),
           ('GitHub', 'http://github.com/username',
-           'fa fa-github-square fa-fw fa-lg'),
+           'fab fa-github-square fa-fw fa-lg'),
           )
 
 
@@ -151,16 +151,15 @@ files in the ``STYLESHEET_FILES`` list.
 Further Customisation
 ---------------------
 
-Like any other Pelican theme, you can just take the templates provided
-and modify them to your liking.  However, if you're happy with the overall
+Like any other Pelican theme, you can just take the templates provided and
+modify them to your liking.  However, if you're happy with the overall
 layout and just want to add/subtract things here are there, this theme
-provides "hooks" to do just that by setting specific
-variables in your ``pelicanconf.py`` and/or providing your own template
-fragments.  For simple customisations, this can make is relatively
-straightforward to isolate modifications and easily keep up to date with
-any upstream changes.
+provides options for incorporating your own partial templates into the base
+layout (with basic defaults provided in ``templates/includes``).  For
+simple customisations, this provides a relatively straightforward way to
+isolate modifications and keep up to date with upstream changes.
 
-These customisation "hooks" are settings that can be configured in
+Template partials are settings that can be configured in
 ``pelicanconf.py`` to point to filenames of custom template fragments.
 These template fragments will either add or replace content in the default
 layout provided by the theme.  For example, if ``pelicanconf.py`` contains
@@ -175,7 +174,7 @@ file located at::
 
 See the "Custom Includes" section below for further details.
 
-Note that these template fragments must be relative to the theme's
+Note that these partial templates must be relative to the theme's
 ``templates/includes/`` directory.
 
 
@@ -257,9 +256,9 @@ optional.
   ``base.html``, after any default script files.
 
 ``ARCHIVES_URL``
-  URL of archives page.  Default is ``archives.html``.  If you're modifying
-  ``ARCHIVES_SAVE_AS`` in your pelicanconf.py then you'll probably need to
-  change this setting as well.
+  URL of `archives page. <https://github.com/getpelican/pelican/issues/1111>`_
+  Default is ``archives.html``.  Can be used in conjuction with
+  ``ARCHIVES_SAVE_AS`` for a "clean" URL.
 
 ``TWITTER_USERNAME``
   Set to a valid Twitter username to enable the twitter sharing button.
@@ -366,6 +365,9 @@ See also ``CUSTOM_SIDEBAR_TOP``, ``CUSTOM_SIDEBAR_BOTTOM`` and
 
 Custom Includes
 ---------------
+
+VoidyBootstrap allows for custom content and markup to be added through
+the use of partial templates.
 
 The following settings (all optional), if specified, should be set to
 filenames of appropriate template fragments that will be included at

@@ -1,8 +1,15 @@
 ChangeLog - VoidyBootstrap
 ==========================
 
-2.1 (January 2017)
+
+2.2 (under development)
 -----------------------
+
+* Updated for Font Awesome 5.
+
+
+2.1 (January 2017)
+------------------
 
 * Added DEFAULT_SOCIAL_IMAGE, FAVICON and CUSTOM_HTML_HEAD settings.
 
