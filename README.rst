@@ -1,7 +1,7 @@
 VoidyBootstrap
 ==============
 
-*Version 2.2*
+*Version 2.3*
 
 A `Bootstrap 3 <http://getbootstrap.com>`_ blog theme for the
 `Pelican <http://getpelican.com>`_ static site generator.
@@ -73,15 +73,14 @@ The following should be set in ``pelicanconf.py``::
   # Default sidebar template. Omit this setting for single column mode without sidebar.
   SIDEBAR = "sidebar.html"
 
-  SOCIAL = (('Google+', 'http://plus.google.com/userid',
-           'fab fa-google-plus-square fa-fw fa-lg'),
-          ('Twitter', 'https://twitter.com/username', 
+  SOCIAL = (
+          ('Twitter', 'https://twitter.com/username',
            'fab fa-twitter-square fa-fw fa-lg'),
-          ('LinkedIn', 'http://linkedin-url', 
+          ('LinkedIn', 'https://linkedin-url',
            'fab fa-linkedin fa-fw fa-lg'),
-          ('BitBucket', 'http://bitbucket.org/username', 
-           'fa fa-bitbucket-square fa-fw fa-lg'),
-          ('GitHub', 'http://github.com/username',
+          ('BitBucket', 'https://bitbucket.org/username',
+           'fab fa-bitbucket fa-fw fa-lg'),
+          ('GitHub', 'https://github.com/username',
            'fab fa-github-square fa-fw fa-lg'),
           )
 

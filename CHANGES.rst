@@ -2,8 +2,12 @@ ChangeLog - VoidyBootstrap
 ==========================
 
 
-2.2 (under development)
+2.3 (under development)
 -----------------------
+
+
+2.2 (June 2018)
+---------------
 
 * Updated for Font Awesome 5.
 
