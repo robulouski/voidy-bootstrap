@@ -5,6 +5,8 @@ ChangeLog - VoidyBootstrap
 2.3 (under development)
 -----------------------
 
+* Added ``FONT_AWESOME_CDN_LINK``, ``STYLESHEET_URL_LINKS``, ``HEAD_URL_LINKS``
+
 
 2.2 (June 2018)
 ---------------
